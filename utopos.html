@@ -1,0 +1,1383 @@
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>U:TOPOS - Dёni Mustafa</title><meta name="description" content="U:TOPOS is a field of my artistic practice connected with the search for my own place and with the attempt to consciously situate myself within a space where I found myself by chance. Utopos emerges from the difference between an accidental geographical place and a&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://denimustafa.com/utopos.html"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="U:TOPOS"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="U:TOPOS is a field of my artistic practice connected with the search for my own place and with the attempt to consciously situate myself within a space where I found myself by chance. Utopos emerges from the difference between an accidental geographical place and a&hellip;"><meta property="og:url" content="https://denimustafa.com/utopos.html"><meta property="og:type" content="article"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=875bae743f1369b27b0bd6eff03ead7a"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://denimustafa.com/utopos.html"},"headline":"U:TOPOS","datePublished":"2026-10-13T17:26+02:00","dateModified":"2026-10-26T21:22+01:00","description":"U:TOPOS is a field of my artistic practice connected with the search for my own place and with the attempt to consciously situate myself within a space where I found myself by chance. Utopos emerges from the difference between an accidental geographical place and a&hellip;","author":{"@type":"Person","name":"Dёni Mustafa","url":"https://denimustafa.com/authors/dyoni-mustafa/"},"publisher":{"@type":"Organization","name":"Dёni Mustafa"}}</script><noscript><style>img[loading] {
+                    opacity: 1;
+                }</style></noscript></head><body class="page-template"><script>/* Animated entry */
+    function initMobileEntry() {
+  const entryLinks = [
+    { label: "22", href: "22.html" },
+    { label: "U:TOPOS", href: "utopos.html" },
+    { label: "ʒиN", href: "zin.html" },
+    { label: "Archive", href: "archive.html" },
+    { label: "Index / Info", href: "index-info.html" }
+  ];
+
+  const entry = document.createElement("div");
+  entry.id = "mobile-entry";
+
+  entry.innerHTML = `
+    <button id="mobile-entry-origin" aria-label="Enter site"></button>
+    <div id="mobile-entry-second"></div>
+    <nav id="mobile-entry-menu" aria-label="Main navigation"></nav>
+  `;
+
+  document.body.prepend(entry);
+
+  const origin = entry.querySelector("#mobile-entry-origin");
+  const second = entry.querySelector("#mobile-entry-second");
+  const menu = entry.querySelector("#mobile-entry-menu");
+
+  entryLinks.forEach(function (link, index) {
+    const a = document.createElement("a");
+    a.textContent = link.label;
+    a.href = link.href;
+
+    if (index === 3) a.classList.add("entry-gap");
+
+    menu.appendChild(a);
+  });
+
+  function completeEntry() {
+    entry.classList.add("is-complete");
+
+    menu.querySelectorAll("a").forEach(function (item) {
+      item.classList.add("is-visible");
+    });
+
+    sessionStorage.setItem("animatedEntryPlayedInThisTab", "1");
+  }
+
+  if (sessionStorage.getItem("animatedEntryPlayedInThisTab") === "1") {
+    completeEntry();
+    return;
+  }
+
+  origin.addEventListener("click", function () {
+    if (entry.classList.contains("is-started")) return;
+
+    entry.classList.add("is-started");
+
+    setTimeout(function () {
+      completeEntry();
+    }, 1000);
+  });
+}
+    
+function initAnimatedEntry() {
+  const SHOW_ONLY_ONCE = false;
+
+  const entryPlayedInThisTab =
+    sessionStorage.getItem("animatedEntryPlayedInThisTab") === "1";
+
+  const entrySeenPermanently =
+    SHOW_ONLY_ONCE && localStorage.getItem("animatedEntrySeen") === "1";
+
+  const entrySeen =
+    entryPlayedInThisTab || entrySeenPermanently;
+
+  const isDesktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  const isHome =
+    window.location.pathname === "/" ||
+    window.location.pathname.endsWith("/index.html") ||
+    window.location.pathname.endsWith("index.html");
+
+  if (!isHome) return;
+
+if (!isDesktop) {
+  initMobileEntry();
+  return;
+}
+
+  const entryLinks = [
+    { label: "22", href: "22.html" },
+    { label: "U:TOPOS", href: "utopos.html" },
+    { label: "ʒиN", href: "zin.html" },
+    { label: "Archive", href: "archive.html" },
+    { label: "Index / Info", href: "index-info.html" }
+  ];
+
+  const entry = document.createElement("div");
+  entry.id = "animated-entry";
+  entry.setAttribute("aria-label", "Site entry");
+
+  entry.innerHTML = `
+    <div id="entry-origin" class="entry-dot"></div>
+    <div id="entry-cursor" class="entry-dot"></div>
+    <nav id="entry-menu" aria-label="Main navigation"></nav>
+  `;
+
+  document.body.prepend(entry);
+
+  document.documentElement.classList.add("entry-active");
+  document.body.classList.add("entry-active");
+
+  const originDot = document.getElementById("entry-origin");
+  const cursorDot = document.getElementById("entry-cursor");
+  const menu = document.getElementById("entry-menu");
+
+  entryLinks.forEach(function (link, index) {
+    const a = document.createElement("a");
+    a.textContent = link.label;
+    a.href = link.href;
+
+    if (index === 3) {
+      a.classList.add("entry-gap");
+    }
+
+    menu.appendChild(a);
+  });
+
+  let centerX = window.innerWidth / 2;
+  let centerY = window.innerHeight * 0.41;
+  let state = "waiting";
+
+  function setDotPosition(dot, x, y) {
+    dot.style.left = x + "px";
+    dot.style.top = y + "px";
+  }
+
+  function resetCenter() {
+    centerX = window.innerWidth / 2;
+    centerY = window.innerHeight * 0.41;
+
+    entry.style.setProperty("--entry-x", centerX + "px");
+
+    if (state === "waiting") {
+      setDotPosition(originDot, centerX, centerY);
+    }
+  }
+
+  resetCenter();
+
+  if (entrySeen) {
+    state = "complete";
+
+    originDot.style.animation = "none";
+
+    setDotPosition(originDot, centerX, centerY - 15);
+    setDotPosition(cursorDot, centerX, centerY + 15);
+
+    originDot.style.opacity = "1";
+    cursorDot.style.opacity = "1";
+
+    entry.classList.add("is-complete");
+
+    menu.querySelectorAll("a").forEach(function (item) {
+      item.classList.add("is-visible");
+    });
+
+    return;
+  }
+
+  function startCapture() {
+    if (state !== "waiting") return;
+
+    state = "captured";
+
+    window.removeEventListener("mousemove", handleMouseMove);
+
+    originDot.style.animation = "none";
+
+    originDot.style.transition =
+      "left 320ms cubic-bezier(.2,.8,.2,1), top 320ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease";
+
+    cursorDot.style.transition =
+      "left 320ms cubic-bezier(.2,.8,.2,1), top 320ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease";
+
+    setDotPosition(originDot, centerX - 18, centerY);
+    setDotPosition(cursorDot, centerX + 18, centerY);
+
+    setTimeout(function () {
+      originDot.style.transition =
+        "left 390ms cubic-bezier(.2,.8,.2,1), top 390ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease";
+
+      cursorDot.style.transition =
+        "left 390ms cubic-bezier(.2,.8,.2,1), top 390ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease";
+
+      setDotPosition(originDot, centerX, centerY - 15);
+      setDotPosition(cursorDot, centerX, centerY + 15);
+    }, 430);
+
+    setTimeout(function () {
+      originDot.style.opacity = "1";
+      cursorDot.style.opacity = "1";
+      entry.classList.add("is-complete");
+
+      sessionStorage.setItem("animatedEntryPlayedInThisTab", "1");
+
+      if (SHOW_ONLY_ONCE) {
+        localStorage.setItem("animatedEntrySeen", "1");
+      }
+    }, 930);
+
+    setTimeout(function () {
+      const items = menu.querySelectorAll("a");
+
+      items.forEach(function (item, index) {
+        setTimeout(function () {
+          item.classList.add("is-visible");
+        }, index * 230);
+      });
+    }, 1080);
+  }
+
+  function handleMouseMove(event) {
+    if (state !== "waiting") return;
+
+    const x = event.clientX;
+    const y = event.clientY;
+
+    cursorDot.style.opacity = "1";
+    setDotPosition(cursorDot, x, y);
+
+    const distance = Math.hypot(x - centerX, y - centerY);
+
+    if (distance < 58) {
+      startCapture();
+    }
+  }
+
+  window.addEventListener("mousemove", handleMouseMove, { passive: true });
+
+    window.addEventListener("resize", function () {
+    resetCenter();
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initAnimatedEntry);
+} else {
+  initAnimatedEntry();
+}</script><script>/* Entre 22 — Forest gallery */
+
+(function () {
+  function initForest() {
+
+    const section = document.querySelector(
+      ".entre22-page .entre22-forest"
+    );
+
+    if (!section || section.dataset.galleryReady === "1") return;
+    section.dataset.galleryReady = "1";
+
+    const count = 42;
+    const initiallyVisible = 12;
+
+    function filename(n) {
+      return "media/files/Forest-" +
+        String(n).padStart(2, "0") + ".jpg";
+    }
+
+    /* STYLES */
+
+    const css = document.createElement("style");
+
+    css.textContent = `
+      .entre22-page .entre22-forest-grid {
+        display: grid !important;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 10px;
+        width: 100%;
+        justify-items: stretch;
+        align-items: stretch;
+      }
+
+      .entre22-page .entre22-forest-photo {
+        box-sizing: border-box !important;
+        display: block !important;
+        position: relative;
+        width: 100% !important;
+        min-width: 0 !important;
+        height: auto !important;
+        aspect-ratio: 1;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        float: none !important;
+        transform: none !important;
+
+        background-color: #f4f4f4 !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
+
+        cursor: pointer;
+        line-height: 0 !important;
+      }
+
+      .entre22-page .entre22-forest-photo[hidden] {
+        display: none !important;
+      }
+
+      .entre22-page .entre22-forest-photo:hover {
+        opacity: .8;
+      }
+
+      .entre22-page .entre22-forest-expand {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 36px !important;
+        height: 36px !important;
+        margin: 14px 0 0 !important;
+        padding: 0 !important;
+
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+
+        color: #b24a4a !important;
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 1;
+
+        cursor: pointer;
+      }
+
+      .entre22-page .entre22-forest-expand:hover {
+        color: #8f3434 !important;
+      }
+
+      .entre22-page .entre22-forest-photo:focus-visible,
+      .entre22-page .entre22-forest-expand:focus-visible {
+        outline: 2px solid #b24a4a !important;
+        outline-offset: 3px;
+      }
+
+      /* LIGHTBOX */
+
+      .entre22-forest-lightbox[hidden] {
+        display: none !important;
+      }
+
+      .entre22-forest-lightbox {
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 2147483000 !important;
+
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 54px 62px 56px;
+
+        background: rgba(0, 0, 0, .94) !important;
+        color: #fff !important;
+      }
+
+      .entre22-forest-lightbox figure {
+        margin: 0;
+        max-width: 100%;
+        max-height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .entre22-forest-lightbox figure img {
+        display: block;
+        max-width: 100%;
+        max-height: calc(100vh - 125px);
+        max-height: calc(100dvh - 125px);
+
+        width: auto;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .entre22-forest-lightbox figcaption {
+        color: #ddd;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .entre22-forest-lightbox button {
+        position: absolute;
+        display: grid;
+        place-items: center;
+
+        padding: 0 !important;
+        margin: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+
+        color: #fff !important;
+        cursor: pointer;
+      }
+
+      .entre22-forest-lightbox button:focus-visible {
+        outline: 2px solid #fff !important;
+      }
+
+      .entre22-forest-close {
+        top: 10px;
+        right: 18px;
+        width: 42px;
+        height: 42px;
+        font-size: 34px;
+      }
+
+      .entre22-forest-prev,
+      .entre22-forest-next {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 46px;
+        height: 64px;
+        font-size: 40px;
+      }
+
+      .entre22-forest-prev {
+        left: 9px;
+      }
+
+      .entre22-forest-next {
+        right: 9px;
+      }
+
+      /* MOBILE */
+
+      @media (max-width: 640px) {
+        .entre22-page .entre22-forest-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 7px;
+        }
+
+        .entre22-forest-lightbox {
+          padding: 50px 42px 54px;
+        }
+
+        .entre22-forest-prev {
+          left: 0;
+        }
+
+        .entre22-forest-next {
+          right: 0;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .entre22-page .entre22-forest-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+    `;
+
+    document.head.appendChild(css);
+
+    /* GRID */
+
+    const grid = document.createElement("div");
+    grid.className = "entre22-forest-grid";
+    grid.id = "entre22-forest-grid";
+
+    const photos = [];
+
+    function setThumbnail(button, n) {
+      button.style.setProperty(
+        "background-image",
+        'url("' + filename(n) + '")',
+        "important"
+      );
+    }
+
+    for (let n = 1; n <= count; n++) {
+
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "entre22-forest-photo";
+
+      button.setAttribute(
+        "aria-label",
+        "Open Forest photograph " + n + " of " + count
+      );
+
+      button.hidden = n > initiallyVisible;
+
+      if (n <= initiallyVisible) {
+        setThumbnail(button, n);
+      }
+
+      button.addEventListener("click", function () {
+        openPhoto(n);
+      });
+
+      grid.appendChild(button);
+      photos.push({ button, n });
+    }
+
+    section.appendChild(grid);
+
+    /* EXPAND / COLLAPSE */
+
+    const expand = document.createElement("button");
+    expand.type = "button";
+    expand.className = "entre22-forest-expand";
+
+    expand.setAttribute(
+      "aria-controls",
+      "entre22-forest-grid"
+    );
+
+    expand.setAttribute("aria-expanded", "false");
+    expand.setAttribute("aria-label", "Show all 42 photographs");
+
+    expand.textContent = "+";
+
+    section.appendChild(expand);
+
+    let expanded = false;
+
+    expand.addEventListener("click", function () {
+
+      expanded = !expanded;
+
+      photos.forEach(function (photo) {
+
+        if (photo.n > initiallyVisible) {
+
+          photo.button.hidden = !expanded;
+
+          if (expanded &&
+              !photo.button.style.getPropertyValue("background-image")) {
+            setThumbnail(photo.button, photo.n);
+          }
+        }
+
+      });
+
+      expand.setAttribute(
+        "aria-expanded",
+        String(expanded)
+      );
+
+      expand.setAttribute(
+        "aria-label",
+        expanded
+          ? "Collapse to first 12 photographs"
+          : "Show all 42 photographs"
+      );
+
+      expand.textContent = expanded ? "−" : "+";
+    });
+
+    /* FULL-SIZE VIEWER */
+
+    const lightbox = document.createElement("div");
+
+    lightbox.className = "entre22-forest-lightbox";
+    lightbox.hidden = true;
+
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-modal", "true");
+    lightbox.setAttribute("aria-label", "Forest photographs");
+
+    lightbox.innerHTML = `
+      <button type="button"
+              class="entre22-forest-close"
+              aria-label="Close">×</button>
+
+      <button type="button"
+              class="entre22-forest-prev"
+              aria-label="Previous photograph">‹</button>
+
+      <figure>
+        <img alt="">
+        <figcaption></figcaption>
+      </figure>
+
+      <button type="button"
+              class="entre22-forest-next"
+              aria-label="Next photograph">›</button>
+    `;
+
+    document.body.appendChild(lightbox);
+
+    const bigImage = lightbox.querySelector("figure img");
+    const counter = lightbox.querySelector("figcaption");
+
+    const closeButton = lightbox.querySelector(
+      ".entre22-forest-close"
+    );
+
+    const prevButton = lightbox.querySelector(
+      ".entre22-forest-prev"
+    );
+
+    const nextButton = lightbox.querySelector(
+      ".entre22-forest-next"
+    );
+
+    let current = 1;
+    let restoreFocus = null;
+    let previousOverflow = "";
+
+    function displayPhoto(n) {
+
+      current = ((n - 1 + count) % count) + 1;
+
+      bigImage.src = filename(current);
+      bigImage.alt = "Forest — photograph " + current;
+
+      counter.textContent = current + " / " + count;
+    }
+
+    function openPhoto(n) {
+
+      restoreFocus = document.activeElement;
+      previousOverflow = document.body.style.overflow;
+
+      displayPhoto(n);
+
+      lightbox.hidden = false;
+      document.body.style.overflow = "hidden";
+
+      closeButton.focus();
+    }
+
+    function closePhoto() {
+
+      if (lightbox.hidden) return;
+
+      lightbox.hidden = true;
+
+      document.body.style.overflow = previousOverflow;
+      bigImage.removeAttribute("src");
+
+      if (restoreFocus && restoreFocus.isConnected) {
+        restoreFocus.focus();
+      }
+    }
+
+    closeButton.addEventListener("click", closePhoto);
+
+    prevButton.addEventListener("click", function () {
+      displayPhoto(current - 1);
+    });
+
+    nextButton.addEventListener("click", function () {
+      displayPhoto(current + 1);
+    });
+
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) {
+        closePhoto();
+      }
+    });
+
+    /* KEYBOARD */
+
+    document.addEventListener("keydown", function (event) {
+
+      if (lightbox.hidden) return;
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closePhoto();
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        displayPhoto(current - 1);
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        displayPhoto(current + 1);
+      }
+
+      if (event.key === "Tab") {
+
+        const buttons = [
+          closeButton,
+          prevButton,
+          nextButton
+        ];
+
+        const index = buttons.indexOf(document.activeElement);
+
+        const nextIndex = index === -1
+          ? (event.shiftKey ? 2 : 0)
+          : (index + (event.shiftKey ? 2 : 1)) % 3;
+
+        event.preventDefault();
+        buttons[nextIndex].focus();
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initForest);
+  } else {
+    initForest();
+  }
+
+})();</script><script>/* Shared horizontal gallery: mouse drag + live progress. Handles multiple galleries. */
+(function () {
+  function initHorizontalGalleries() {
+    document.querySelectorAll('.site-horizontal-gallery, [data-horizontal-gallery]').forEach(function (gallery) {
+      if (gallery.dataset.horizontalGalleryReady === '1') return;
+
+      const strip = gallery.querySelector('.site-horizontal-gallery__strip, [data-horizontal-gallery-strip]');
+      const track = gallery.querySelector('.site-horizontal-gallery__progress');
+      if (!strip || !track) return;
+
+      // Always construct the marker; the Publii editor need not preserve it.
+      let thumb = track.querySelector('.site-horizontal-gallery__thumb');
+      if (!thumb) {
+        thumb = document.createElement('span');
+        thumb.className = 'site-horizontal-gallery__thumb';
+        track.textContent = '';
+        track.appendChild(thumb);
+      }
+      gallery.dataset.horizontalGalleryReady = '1';
+
+      let pending = false;
+      function updateProgress() {
+        pending = false;
+        const visible = strip.clientWidth;
+        const total = strip.scrollWidth;
+        const line = track.clientWidth;
+        if (!visible || !total || !line) return;
+
+        const maxScroll = Math.max(0, total - visible);
+        const markerWidth = maxScroll
+          ? Math.min(line, Math.max(20, line * visible / total))
+          : line;
+        const progress = maxScroll
+          ? Math.max(0, Math.min(1, strip.scrollLeft / maxScroll))
+          : 0;
+        thumb.style.width = markerWidth + 'px';
+        thumb.style.transform = 'translateX(' + ((line - markerWidth) * progress) + 'px)';
+      }
+      function requestProgress() {
+        if (pending) return;
+        pending = true;
+        requestAnimationFrame(updateProgress);
+      }
+
+      strip.addEventListener('scroll', requestProgress, { passive: true });
+      window.addEventListener('resize', requestProgress);
+      window.addEventListener('pageshow', requestProgress);
+      if ('ResizeObserver' in window) {
+        const observer = new ResizeObserver(requestProgress);
+        observer.observe(strip);
+        observer.observe(track);
+      }
+      strip.querySelectorAll('img').forEach(function (img) {
+        if (!img.complete) img.addEventListener('load', requestProgress, { once: true });
+      });
+
+      // Mouse drag only. Touch swipe and vertical touch scrolling stay native.
+      let pointerId = null;
+      let startX = 0;
+      let startLeft = 0;
+      function endDrag(event) {
+        if (pointerId === null || (event && event.pointerId !== pointerId)) return;
+        const endedId = pointerId;
+        pointerId = null;
+        strip.classList.remove('is-dragging');
+        if (strip.hasPointerCapture(endedId)) strip.releasePointerCapture(endedId);
+      }
+      strip.addEventListener('pointerdown', function (event) {
+        if (event.pointerType !== 'mouse' || event.button !== 0) return;
+        // Mobile-only strips use native touch swipe; never capture mouse clicks on images.
+        if (gallery.getAttribute('data-horizontal-gallery') === 'mobile') return;
+        pointerId = event.pointerId;
+        startX = event.clientX;
+        startLeft = strip.scrollLeft;
+        strip.classList.add('is-dragging');
+        strip.setPointerCapture(pointerId);
+        event.preventDefault();
+      });
+      strip.addEventListener('pointermove', function (event) {
+        if (pointerId !== event.pointerId) return;
+        strip.scrollLeft = startLeft - (event.clientX - startX);
+        requestProgress();
+      });
+      strip.addEventListener('pointerup', endDrag);
+      strip.addEventListener('pointercancel', endDrag);
+      strip.addEventListener('lostpointercapture', function () {
+        pointerId = null;
+        strip.classList.remove('is-dragging');
+      });
+      strip.addEventListener('dragstart', function (event) { event.preventDefault(); });
+
+      requestProgress();
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHorizontalGalleries);
+  } else {
+    initHorizontalGalleries();
+  }
+})();
+
+    
+    
+ /* Shared page-image viewer. Insert once into Custom HTML > Body, INSIDE an existing <script> block. */
+(function () {
+  function initSiteImageViewer() {
+    // Full-bleed galleries sit in a separate grid row from the text and menu.
+    // The row height is determined by whichever of the two is taller.
+    document.querySelectorAll('.site-horizontal-gallery').forEach(function (gallery) {
+      const shell = gallery.closest('.site-section-nav-shell');
+      const page = shell && shell.querySelector(':scope > .site-text-page');
+      if (shell && page && page.contains(gallery)) page.after(gallery);
+    });
+
+    // Keep horizontal-strip galleries and the separate Forest viewer independent.
+    const images = Array.from(document.querySelectorAll('.site-text-page img')).filter(function (img) {
+      return !img.closest('.site-horizontal-gallery, .abstract-structures-strip, .entre22-forest, .entre22-forest-lightbox, [data-site-viewer-exclude]') &&
+        !img.hasAttribute('data-site-viewer-exclude');
+    });
+    // A solitary illustration should not turn into a one-image gallery.
+    if (!images.length || (images.length === 1 && !images[0].hasAttribute('data-site-viewer-single'))) return;
+
+    const dialog = document.createElement('div');
+    dialog.className = 'site-image-viewer';
+    if (images.length === 1) dialog.classList.add('site-image-viewer--single');
+    dialog.hidden = true;
+    dialog.setAttribute('role', 'dialog');
+    dialog.setAttribute('aria-modal', 'true');
+    dialog.setAttribute('aria-label', 'Page photographs');
+    dialog.innerHTML = `
+      <button class="site-image-viewer__close" type="button" aria-label="Close image viewer">×</button>
+      <div class="site-image-viewer__stage">
+        <img class="site-image-viewer__photo" alt="" draggable="false">
+      </div>
+      <div class="site-image-viewer__footer">
+        <div class="site-image-viewer__caption"></div>
+        <div class="site-image-viewer__controls">
+          <span class="site-image-viewer__count" aria-live="polite"></span>
+          <button class="site-image-viewer__previous" type="button" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m7-7-7 7 7 7"/></svg></button>
+          <button class="site-image-viewer__next" type="button" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></button>
+        </div>
+      </div>`;
+    document.body.appendChild(dialog);
+
+    const photo = dialog.querySelector('.site-image-viewer__photo');
+    const caption = dialog.querySelector('.site-image-viewer__caption');
+    const count = dialog.querySelector('.site-image-viewer__count');
+    const close = dialog.querySelector('.site-image-viewer__close');
+    const previous = dialog.querySelector('.site-image-viewer__previous');
+    const next = dialog.querySelector('.site-image-viewer__next');
+    const stage = dialog.querySelector('.site-image-viewer__stage');
+    const footer = dialog.querySelector('.site-image-viewer__footer');
+    const controls = [close, previous, next];
+    let current = 0;
+    let lastFocus = null;
+    let oldOverflow = '';
+
+
+    // One centered footer width for the whole gallery, based on its widest
+    // image at the maximum available viewer size. Never follow the current photo.
+    let imageDimensions = null;
+    let dimensionRequest = null;
+    let footerFrame = 0;
+
+    function readDimensions(source) {
+      const width = source.naturalWidth || Number(source.getAttribute('width'));
+      const height = source.naturalHeight || Number(source.getAttribute('height'));
+      if (width > 0 && height > 0) {
+        return Promise.resolve({ width, height });
+      }
+      // Needed only for lazy-loaded photos without width/height attributes.
+      return new Promise(function (resolve) {
+        const image = new Image();
+        image.onload = function () {
+          resolve({ width: image.naturalWidth, height: image.naturalHeight });
+        };
+        image.onerror = function () { resolve(null); };
+        image.src = source.getAttribute('data-viewer-src') || source.src;
+      });
+    }
+
+    function ensureDimensions() {
+      if (!dimensionRequest) {
+        dimensionRequest = Promise.all(images.map(readDimensions)).then(function (all) {
+          imageDimensions = all.filter(function (size) {
+            return size && size.width > 0 && size.height > 0;
+          });
+          requestFooterAlignment();
+        });
+      }
+    }
+          
+    function alignFooter() {
+  footerFrame = 0;
+  if (dialog.hidden) return;
+
+  // Single image: align the caption to the actual image width.
+  if (dialog.classList.contains('site-image-viewer--single')) {
+    if (window.matchMedia('(max-width: 640px)').matches) {
+      dialog.style.removeProperty('--site-viewer-frame');
+    } else {
+      stage.style.alignItems = 'flex-end';
+      stage.style.paddingBottom = '0';
+      footer.style.paddingTop = '16px';
+
+      const imageWidth = photo.getBoundingClientRect().width;
+      if (imageWidth > 0) {
+        dialog.style.setProperty('--site-viewer-frame', imageWidth + 'px');
+      }
+    }
+    return;
+  }
+
+  if (!imageDimensions || !imageDimensions.length) return;
+
+  if (window.matchMedia('(max-width: 640px)').matches) {
+    dialog.style.removeProperty('--site-viewer-frame');
+    return;
+  }
+
+  const availableWidth = Math.max(1, stage.clientWidth);
+  const availableHeight = Math.max(1, stage.clientHeight);
+
+  const widest = Math.max.apply(null, imageDimensions.map(function (size) {
+    return Math.min(
+      size.width,
+      availableWidth,
+      availableHeight * size.width / size.height
+    );
+  }));
+
+  dialog.style.setProperty(
+    '--site-viewer-frame',
+    Math.min(availableWidth, widest) + 'px'
+  );
+}  
+    
+    function requestFooterAlignment() {
+      if (footerFrame) return;
+      footerFrame = requestAnimationFrame(alignFooter);
+    }
+    window.addEventListener('resize', requestFooterAlignment);
+    photo.addEventListener('load', requestFooterAlignment);
+
+    function display(index) {
+      current = (index + images.length) % images.length;
+      const source = images[current];
+      // Use the original src rather than an automatically downscaled srcset rendition.
+      photo.src = source.getAttribute('data-viewer-src') || source.src;
+      photo.alt = source.getAttribute('alt') || '';
+      const figure = source.closest('figure');
+      const label = figure && figure.querySelector('figcaption');
+      // Use only existing author-provided captions; do not generate new descriptions.
+      caption.innerHTML = label ? label.innerHTML.trim() : '';
+      count.textContent = (current + 1) + ' of ' + images.length;
+      requestFooterAlignment();
+    }
+
+    function open(index, opener) {
+      lastFocus = opener;
+      oldOverflow = document.body.style.overflow;
+      display(index);
+      dialog.hidden = false;
+      ensureDimensions();
+      requestFooterAlignment();
+      document.body.style.overflow = 'hidden';
+      close.focus();
+    }
+    function dismiss() {
+      if (dialog.hidden) return;
+      dialog.hidden = true;
+      document.body.style.overflow = oldOverflow;
+      photo.removeAttribute('src');
+      if (lastFocus && lastFocus.isConnected) lastFocus.focus();
+    }
+    images.forEach(function (img, i) {
+      img.dataset.siteViewer = 'enabled';
+      img.tabIndex = 0;
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-haspopup', 'dialog');
+      img.setAttribute('aria-label', 'Open image ' + (i + 1) + ' of ' + images.length);
+      img.addEventListener('click', function () { open(i, img); });
+      img.addEventListener('keydown', function (event) {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        open(i, img);
+      });
+    });
+
+    close.addEventListener('click', dismiss);
+    previous.addEventListener('click', function () { display(current - 1); });
+    next.addEventListener('click', function () { display(current + 1); });
+    dialog.addEventListener('click', function (event) {
+      if (event.target === dialog || event.target === stage) dismiss();
+    });
+    document.addEventListener('keydown', function (event) {
+      if (dialog.hidden) return;
+      if (event.key === 'Escape') { event.preventDefault(); dismiss(); }
+      else if (event.key === 'ArrowLeft') { event.preventDefault(); display(current - 1); }
+      else if (event.key === 'ArrowRight') { event.preventDefault(); display(current + 1); }
+      else if (event.key === 'Tab') {
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault(); last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault(); first.focus();
+        }
+      }
+    });
+
+    let touchX = null;
+    let touchY = null;
+    stage.addEventListener('touchstart', function (event) {
+      if (event.touches.length !== 1) return;
+      touchX = event.touches[0].clientX;
+      touchY = event.touches[0].clientY;
+    }, { passive: true });
+    stage.addEventListener('touchend', function (event) {
+      if (touchX === null || !event.changedTouches.length) return;
+      const dx = event.changedTouches[0].clientX - touchX;
+      const dy = event.changedTouches[0].clientY - touchY;
+      touchX = touchY = null;
+      if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+        display(current + (dx < 0 ? 1 : -1));
+      }
+    }, { passive: true });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSiteImageViewer);
+  } else {
+    initSiteImageViewer();
+  }
+})();</script><header class="top js-header"><a class="logo" href="https://denimustafa.com/">Dёni Mustafa</a></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper"><h1>U:TOPOS</h1></div></header></div><div class="entry-wrapper content__entry"><div class="site-section-nav-shell site-section-layout"><div class="site-text-page site-text-page-utopos"><p>U:TOPOS is a field of my artistic practice connected with the search for my own place and with the attempt to consciously situate myself within a space where I found myself by chance.<br><br>Utopos emerges from the difference between an accidental geographical place and a place into which a person situates themselves through their own thought and action. This place does not exist in advance. It appears through the process of conscious presence, through attempts to locate oneself within the surrounding environment and to establish one’s own relations with it.<br><br>The first such accidental place in my immigration was Avallon. Gradually, I began to work with it as material: through spatial interventions, exhibitions, routes, observations, encounters, and collective actions. These works do not so much depict or describe the place as become ways of my presence within it.<br><br>U:TOPOS exists in several connected forms. Utopos 22 is a model of an exhibition space, first realized through the transformation of a studio into a place of exhibition. U:TOPOS biennale is a long-term artistic project unfolding in Avallon and involving other artists and residents of the town. One of its main principles is the translation of artistic intentions into instructions and the subsequent execution of these instructions in the urban environment.<br><br>The U:TOPOS biennale (Avallon, 2027) brings together research into the urban environment, work with routes, maps, conversations, and documentation, as well as artistic interventions in public space.<br><br>U:TOPOS does not designate a fixed territory or a completed project. It is an ongoing process in which an accidental place gradually becomes a place of conscious presence and action.</p></div></div></div></article></main><style>/* TEST ONLY: new native menu, old embedded menu hidden on this template only. */
+.site-section-nav-shell {position:relative;max-width:720px;margin:0 auto;}
+.site-section-nav-shell > .site-section-native-menu {top:8vh;right:calc(100% + 96px);width:220px;font-size:16px;line-height:1.55;}
+/* Keep old HTML as reversible fallback; hide it only after the assigned menu exists. */
+.site-section-nav-shell:has(> .site-section-native-menu) .site-text-page .section-project-list,
+.site-section-nav-shell:has(> .site-section-native-menu) .site-text-page .section-project-toggle {display:none!important;}
+.site-section-nav-shell .site-section-native-menu .active > a {color:#050505!important;transform:translateX(12px);}
+.site-section-nav-shell .site-section-native-menu .active > a::before {content:"";position:absolute;left:-12px;top:.25em;bottom:.25em;width:1px;background:var(--site-accent,#b24a4a);}
+.site-section-nav-shell .site-section-native-menu .active > a:hover {color:#050505!important;}
+/* Expand only nested lists; the root menu keeps its existing width and position. */
+.site-section-nav-shell .site-section-native-menu .section-project-sublist {
+  width: 260px;
+}
+/* Equal 10px indentation for links and Text separator items. */
+.site-section-nav-shell .site-section-native-menu .section-project-sublist > div > a {
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+.site-section-native-menu .section-project-sublist > div > span.section-project-node {
+  box-sizing: border-box;
+  padding-left: 10px;
+  white-space: normal;
+  cursor: default;
+}
+.site-section-native-menu .section-project-sublist > div > span.section-project-node:hover {
+  color: #777 !important;
+}
+/* Our buttons are governed by the existing .section-project-node styles. */
+.site-section-native-menu > .site-section-mobile-back { display: none; }
+
+@media (max-width: 980px) {
+  /* Keep the section header visible during scrolling. */
+  body:has(.site-section-nav-shell) .top {
+    position: sticky;
+    top: 0;
+    z-index: 10001;
+    background: #fff;
+    animation: none;
+  }
+
+  /* One original Publii menu, presented as a mobile overlay. */
+  .site-section-nav-shell > .section-project-toggle {
+    position: fixed;
+    top: 14px;
+    right: 18px;
+    z-index: 10002;
+    display: inline-block;
+    margin: 0;
+    padding: 8px 10px;
+    border: 0;
+    border-radius: 0;
+    background: #fff !important;
+    color: #050505 !important;
+    box-shadow: none !important;
+    font: inherit;
+    line-height: 1.2;
+    cursor: pointer;
+  }
+  body.is-mobile-section-menu-open .top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10001;
+    background: #fff;
+  }
+  .site-section-nav-shell > .site-section-native-menu {
+    box-sizing: border-box;
+    position: fixed;
+    inset: var(--navbar-height, 64px) 0 0;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 24px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 300ms ease-in-out, visibility 0s linear 300ms;
+  }
+  .site-section-nav-shell.is-mobile-menu-open > .site-section-native-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 300ms ease-in-out, visibility 0s;
+  }
+  .site-section-nav-shell .site-section-native-menu > .section-project-branch {
+    position: static;
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+  }
+  .site-section-nav-shell .site-section-native-menu .section-project-sublist,
+  .site-section-nav-shell .site-section-native-menu .section-project-branch.is-open .section-project-sublist {
+    box-sizing: border-box;
+    display: flex;
+    position: absolute;
+    inset: 0 0 auto;
+    width: 100%;
+    min-height: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 72px 24px 36px;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 300ms ease-in-out, visibility 0s linear 300ms;
+  }
+  .site-section-nav-shell .site-section-native-menu.is-mobile-drilled > .section-project-branch.is-mobile-current > .section-project-sublist {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 300ms ease-in-out, visibility 0s;
+  }
+  .site-section-nav-shell .site-section-native-menu.is-mobile-drilled > .section-project-branch > :not(.section-project-sublist) {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 300ms ease-in-out, visibility 0s linear 300ms;
+  }
+  .site-section-nav-shell .site-section-native-menu > .section-project-branch > :not(.section-project-sublist) {
+    transition: opacity 300ms ease-in-out, visibility 0s;
+  }
+  .site-section-nav-shell .site-section-native-menu .site-section-mobile-back {
+    display: block;
+    position: sticky;
+    top: -24px;
+    z-index: 2;
+    box-sizing: border-box;
+    height: 48px;
+    margin-bottom: -48px;
+    padding: 8px 0 0;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 300ms ease-in-out, visibility 0s linear 300ms;
+  }
+  .site-section-nav-shell .site-section-native-menu.is-mobile-drilled .site-section-mobile-back {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 300ms ease-in-out, visibility 0s;
+  }
+  .site-section-nav-shell .site-section-native-menu .site-section-mobile-back button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    border: 0;
+    background: transparent !important;
+    color: #050505 !important;
+    box-shadow: none !important;
+    font: inherit;
+    cursor: pointer;
+  }
+}</style><script>(function () {
+  function init() {
+    const shell = document.querySelector('.site-section-nav-shell');
+    if (!shell) return;
+    const nav = shell.querySelector(':scope > .site-section-native-menu');
+    const toggle = shell.querySelector(':scope > .section-project-toggle');
+    if (!nav || !toggle) return;
+    const back = nav.querySelector('.site-section-mobile-back');
+    const backTitle = back && back.querySelector('.site-section-mobile-back-label');
+    const media = window.matchMedia('(max-width: 980px)');
+    if (media.matches) nav.setAttribute('aria-hidden', 'true');
+    let currentBranch = null;
+    let savedScrollY = 0;
+    let savedBodyStyles = null;
+
+    // Keep the existing desktop active branch behavior.
+    nav.querySelectorAll(':scope > .section-project-branch').forEach(function (branch) {
+      if (!branch.querySelector('.active, .active-parent')) return;
+      const button = branch.querySelector(':scope > .section-project-node[aria-controls]');
+      if (button) {
+        branch.classList.add('is-open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+    nav.querySelectorAll('.active > a').forEach(function (link) {
+      link.setAttribute('aria-current', 'page');
+    });
+
+    function mobileIsOpen() {
+      return shell.classList.contains('is-mobile-menu-open');
+    }
+    function unlockPage() {
+      if (!savedBodyStyles) return;
+      ['position', 'top', 'left', 'right', 'width', 'overflow'].forEach(function (property) {
+        document.body.style[property] = savedBodyStyles[property];
+      });
+      savedBodyStyles = null;
+      window.scrollTo({ top: savedScrollY, behavior: 'instant' });
+    }
+    function goBack(restoreFocus) {
+      if (!currentBranch) return;
+      const button = currentBranch.querySelector(':scope > .section-project-node[aria-controls]');
+      currentBranch.classList.remove('is-mobile-current');
+      nav.classList.remove('is-mobile-drilled');
+      if (button) button.setAttribute('aria-expanded', 'false');
+      currentBranch = null;
+      nav.scrollTop = 0;
+      if (restoreFocus && button) button.focus();
+    }
+    function closeMenu() {
+      if (!mobileIsOpen()) return;
+      goBack(false);
+      nav.classList.remove('is-open');
+      shell.classList.remove('is-mobile-menu-open');
+      document.body.classList.remove('is-mobile-section-menu-open');
+      toggle.querySelector('svg').style.display = 'block';
+      toggle.querySelector('.site-section-mobile-close-label').style.display = 'none';
+      toggle.setAttribute('aria-label', 'Open menu');
+      toggle.setAttribute('aria-expanded', 'false');
+      nav.setAttribute('aria-hidden', 'true');
+      nav.querySelectorAll(':scope > .section-project-branch > button[aria-expanded]').forEach(function (button) {
+        button.setAttribute('aria-expanded', String(button.parentElement.classList.contains('is-open')));
+      });
+      unlockPage();
+      toggle.focus();
+    }
+    function openMenu() {
+      if (mobileIsOpen()) return;
+      savedScrollY = window.scrollY;
+      savedBodyStyles = {};
+      ['position', 'top', 'left', 'right', 'width', 'overflow'].forEach(function (property) {
+        savedBodyStyles[property] = document.body.style[property];
+      });
+      document.body.style.position = 'fixed';
+      document.body.style.top = (-savedScrollY) + 'px';
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      document.body.classList.add('is-mobile-section-menu-open');
+      shell.classList.add('is-mobile-menu-open');
+      nav.classList.add('is-open');
+      nav.classList.remove('is-mobile-drilled');
+      nav.querySelectorAll(':scope > .section-project-branch > button[aria-expanded]').forEach(function (button) {
+        button.setAttribute('aria-expanded', 'false');
+      });
+      nav.setAttribute('aria-hidden', 'false');
+      nav.scrollTop = 0;
+      toggle.querySelector('svg').style.display = 'none';
+      toggle.querySelector('.site-section-mobile-close-label').style.display = 'block';
+      toggle.setAttribute('aria-label', 'Close menu');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+    toggle.addEventListener('click', function (event) {
+      if (!media.matches) return;
+      event.stopPropagation();
+      mobileIsOpen() ? closeMenu() : openMenu();
+    });
+    if (back) back.addEventListener('click', function (event) {
+      if (!media.matches) return;
+      event.stopPropagation();
+      goBack(true);
+    });
+    nav.addEventListener('click', function (event) {
+      const button = event.target.closest('.section-project-node[aria-controls]');
+      if (!button || !nav.contains(button)) return;
+      const branch = button.closest('.section-project-branch');
+      if (!branch) return;
+      if (media.matches) {
+        event.stopPropagation();
+        if (!mobileIsOpen()) return;
+        if (currentBranch) return;
+        currentBranch = branch;
+        if (backTitle) backTitle.textContent = button.textContent.trim();
+        branch.classList.add('is-mobile-current');
+        nav.classList.add('is-mobile-drilled');
+        button.setAttribute('aria-expanded', 'true');
+        nav.scrollTop = 0;
+        if (back) back.focus();
+      } else {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!expanded));
+        branch.classList.toggle('is-open', !expanded);
+      }
+    });
+    document.addEventListener('keydown', function (event) {
+      if (!media.matches || !mobileIsOpen()) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        currentBranch ? goBack(true) : closeMenu();
+      }
+      if (event.key !== 'Tab') return;
+      const candidates = [toggle].concat(Array.from(nav.querySelectorAll('button, a[href]')));
+      const visible = candidates.filter(function (element) {
+        return getComputedStyle(element).visibility !== 'hidden' &&
+          getComputedStyle(element).display !== 'none' &&
+          !!element.getClientRects().length;
+      });
+      if (!visible.length) return;
+      const first = visible[0], last = visible[visible.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (!media.matches && mobileIsOpen()) closeMenu();
+      if (!media.matches) nav.removeAttribute('aria-hidden');
+      else if (!mobileIsOpen()) nav.setAttribute('aria-hidden', 'true');
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();</script><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Powered by Publii</p></div></div></footer><script defer="defer" src="https://denimustafa.com/assets/js/scripts.min.js?v=dafec4f87fead6718cb125f0b0fc8441"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script></body></html>

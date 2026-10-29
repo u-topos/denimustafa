@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://denimustafa.com/sitemap.xml
