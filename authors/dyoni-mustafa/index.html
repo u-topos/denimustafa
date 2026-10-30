@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Author: Dёni Mustafa - Dёni Mustafa</title><meta name="robots" content="noindex, follow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Dёni Mustafa"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content=""><meta property="og:url" content="https://denimustafa.com/authors/dyoni-mustafa/"><meta property="og:type" content="website"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=26c299b056235ffcebc62d93dfa51ab7"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Dёni Mustafa","url":"https://denimustafa.com/"}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Author: Dёni Mustafa - Dёni Mustafa</title><meta name="robots" content="noindex, follow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Dёni Mustafa"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content=""><meta property="og:url" content="https://denimustafa.com/authors/dyoni-mustafa/"><meta property="og:type" content="website"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=26c299b056235ffcebc62d93dfa51ab7"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Dёni Mustafa","url":"https://denimustafa.com/"}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript></head><body class="author-template"><script>/* Animated entry */
     function initMobileEntry() {
@@ -887,7 +887,14 @@ lightbox.addEventListener("touchcancel", function () {
     });
 
     // Keep horizontal-strip galleries and the separate Forest viewer independent.
-    const images = Array.from(document.querySelectorAll('.site-text-page img')).filter(function (img) {
+    const geometricPage = document.querySelector('.site-geometric-figures-page');
+
+const images = geometricPage
+  ? [
+      ...geometricPage.querySelectorAll('.site-words-gallery--five img'),
+      ...geometricPage.querySelectorAll('.site-horizontal-gallery__strip img')
+    ]
+  : Array.from(document.querySelectorAll('.site-text-page img')).filter(function (img) {
       return !img.closest('.site-horizontal-gallery, .abstract-structures-strip, .entre22-forest, .entre22-forest-lightbox, [data-site-viewer-exclude]') &&
         !img.hasAttribute('data-site-viewer-exclude');
     });
@@ -1048,7 +1055,9 @@ lightbox.addEventListener("touchcancel", function () {
       if (lastFocus && lastFocus.isConnected) lastFocus.focus();
     }
     images.forEach(function (img, i) {
-      img.dataset.siteViewer = 'enabled';
+  if (geometricPage && img.closest('.site-horizontal-gallery__strip')) return;
+
+  img.dataset.siteViewer = 'enabled';
       img.tabIndex = 0;
       img.setAttribute('role', 'button');
       img.setAttribute('aria-haspopup', 'dialog');
