@@ -259,13 +259,22 @@ if (document.readyState === "loading") {
     if (!section || section.dataset.galleryReady === "1") return;
     section.dataset.galleryReady = "1";
 
-    const count = 42;
-    const initiallyVisible = 12;
+    const count = 41;
+const initiallyVisible = 12;
 
-    function filename(n) {
-      return "media/files/Forest-" +
-        String(n).padStart(2, "0") + ".jpg";
-    }
+    function photoNumber(n) {
+  return n >= 5 ? n + 1 : n;
+}
+
+function filename(n) {
+  return "media/files/Forest-" +
+    String(photoNumber(n)).padStart(2, "0") + ".jpg";
+}
+
+function thumbnailFilename(n) {
+  return "media/files/Forest-" +
+    String(photoNumber(n)).padStart(2, "0") + "-thumb.jpg";
+}
 
     /* STYLES */
 
@@ -494,7 +503,7 @@ if (document.readyState === "loading") {
     function setThumbnail(button, n) {
       button.style.setProperty(
         "background-image",
-        'url("' + filename(n) + '")',
+        'url("' + thumbnailFilename(n) + '")',
         "important"
       );
     }
@@ -538,7 +547,7 @@ if (document.readyState === "loading") {
     );
 
     expand.setAttribute("aria-expanded", "false");
-    expand.setAttribute("aria-label", "Show all 42 photographs");
+    expand.setAttribute("aria-label", "Show all 41 photographs");
 
     expand.textContent = "+";
 
