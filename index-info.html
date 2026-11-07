@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Index / Info - Dёni Mustafa</title><meta name="description" content="Biography, selected chronology, contacts. Dёni Mustafa (also known as Denis Mustafin) is an artist based in Avallon, France. His practice includes spatial projects, video, performance, scores, zines, text, and self-organized formats. In recent years his work has developed around a limited set of recurring elements:&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://denimustafa.com/index-info.html"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Index / Info"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="Biography, selected chronology, contacts. Dёni Mustafa (also known as Denis Mustafin) is an artist based in Avallon, France. His practice includes spatial projects, video, performance, scores, zines, text, and self-organized formats. In recent years his work has developed around a limited set of recurring elements:&hellip;"><meta property="og:url" content="https://denimustafa.com/index-info.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=65da27cfe7b588abb49fc661001cad59"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://denimustafa.com/index-info.html"},"headline":"Index / Info","datePublished":"2026-10-11T21:29+02:00","dateModified":"2026-10-30T14:49+01:00","description":"Biography, selected chronology, contacts. Dёni Mustafa (also known as Denis Mustafin) is an artist based in Avallon, France. His practice includes spatial projects, video, performance, scores, zines, text, and self-organized formats. In recent years his work has developed around a limited set of recurring elements:&hellip;","author":{"@type":"Person","name":"Dёni Mustafa","url":"https://denimustafa.com/authors/dyoni-mustafa/"},"publisher":{"@type":"Organization","name":"Dёni Mustafa"}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Index / Info - Dёni Mustafa</title><meta name="description" content="Biography, selected chronology, contacts. Dёni Mustafa (also known as Denis Mustafin) is an artist based in Avallon, France. His practice includes spatial projects, video, performance, scores, zines, text, and self-organized formats. In recent years his work has developed around a limited set of recurring elements:&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://denimustafa.com/index-info.html"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Index / Info"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="Biography, selected chronology, contacts. Dёni Mustafa (also known as Denis Mustafin) is an artist based in Avallon, France. His practice includes spatial projects, video, performance, scores, zines, text, and self-organized formats. In recent years his work has developed around a limited set of recurring elements:&hellip;"><meta property="og:url" content="https://denimustafa.com/index-info.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=95a3a5df1859593843f49185e240757f"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://denimustafa.com/index-info.html"},"headline":"Index / Info","datePublished":"2026-10-11T21:29+02:00","dateModified":"2026-10-30T14:49+01:00","description":"Biography, selected chronology, contacts. Dёni Mustafa (also known as Denis Mustafin) is an artist based in Avallon, France. His practice includes spatial projects, video, performance, scores, zines, text, and self-organized formats. In recent years his work has developed around a limited set of recurring elements:&hellip;","author":{"@type":"Person","name":"Dёni Mustafa","url":"https://denimustafa.com/authors/dyoni-mustafa/"},"publisher":{"@type":"Organization","name":"Dёni Mustafa"}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript></head><body class="page-template"><script>/* Animated entry */
     function initMobileEntry() {
@@ -884,7 +884,7 @@ lightbox.addEventListener("touchcancel", function () {
 
     
     
- /* Shared page-image viewer. Insert once into Custom HTML > Body, INSIDE an existing <script> block. */
+   /* Shared page-image viewer. Insert once into Custom HTML > Body, INSIDE an existing <script> block. */
 (function () {
   function initSiteImageViewer() {
     // Full-bleed galleries sit in a separate grid row from the text and menu.
@@ -898,7 +898,7 @@ lightbox.addEventListener("touchcancel", function () {
     // Keep horizontal-strip galleries and the separate Forest viewer independent.
     const geometricPage = document.querySelector('.site-geometric-figures-page');
 
-const images = geometricPage
+let images = geometricPage
   ? [
       ...geometricPage.querySelectorAll('.site-words-gallery--five img'),
       ...geometricPage.querySelectorAll('.site-horizontal-gallery__strip img')
@@ -907,8 +907,41 @@ const images = geometricPage
       return !img.closest('.site-horizontal-gallery, .abstract-structures-strip, .entre22-forest, .entre22-forest-lightbox, [data-site-viewer-exclude]') &&
         !img.hasAttribute('data-site-viewer-exclude');
     });
-    // A solitary illustration should not turn into a one-image gallery.
-    if (!images.length || (images.length === 1 && !images[0].hasAttribute('data-site-viewer-single'))) return;
+    // Biennale: documents are opened only through marginal-note controls.
+    // They do not appear as thumbnails in the page itself.
+    const biennale = document.querySelector('.site-biennale-page');
+    const biennaleSets = biennale ? {
+      questionnaires: [
+        ['Biennale-2-1-refugee.jpg', 'Questionnaire for refugees. 22 responses collected.'],
+        ['Biennale-2-locals.jpg', 'Micro-survey for local residents of Avallon. 51 responses collected.']
+      ],
+      map: [
+        ['Biennale-1-map-AV.jpg', "Alternative map of Avallon. Three layers: the artist's personal topography, responses from refugees (Réfugiés), and responses from local residents (Locaux)."]
+      ],
+      postcard: [
+        ['Biennale-3-postcard.jpg', 'Je ferai une Biennale dans cette ville. A tourist postcard of Avallon sent by the artist to himself, bearing the first public record of the future U:TOPOS Biennale.']
+      ],
+      prebiennale: [
+        ['Biennale-4-1_edited.jpg', 'Pré-Biennale, Avallon, June 2026. A two-week presentation of the current state of U:TOPOS in an inhabited 13 m² room.'],
+        ['Biennale-4-2_edited.jpg', 'Pré-Biennale, Avallon, June 2026. A two-week presentation of the current state of U:TOPOS in an inhabited 13 m² room.']
+      ],
+      blowup: Array.from({ length: 10 }, function (_, index) {
+        return [
+          'Biennale-5-blow-up-' + String(index).padStart(2, '0') + '.jpg',
+          'BLOW-UP, Avallon, October 2026. Public-space presentation of documentation from an ongoing photographic relay.'
+        ];
+      })
+    } : null;
+
+    const biennaleTriggers = biennale ? Array.from(
+      biennale.querySelectorAll('[data-biennale-gallery]')
+    ) : [];
+    const biennaleVideoTriggers = biennale ? Array.from(
+      biennale.querySelectorAll('[data-biennale-video]')
+    ) : [];
+    // A solitary ordinary illustration should not turn into a one-image gallery.
+    if (!biennaleTriggers.length && !biennaleVideoTriggers.length &&
+        (!images.length || (images.length === 1 && !images[0].hasAttribute('data-site-viewer-single')))) return;
 
     const dialog = document.createElement('div');
     dialog.className = 'site-image-viewer';
@@ -925,6 +958,8 @@ const images = geometricPage
       <div class="site-image-viewer__footer">
         <div class="site-image-viewer__caption"></div>
         <div class="site-image-viewer__controls">
+          <button class="site-image-viewer__zoom-out" type="button" aria-label="Zoom out">−</button>
+          <button class="site-image-viewer__zoom-in" type="button" aria-label="Zoom in">+</button>
           <span class="site-image-viewer__count" aria-live="polite"></span>
           <button class="site-image-viewer__previous" type="button" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m7-7-7 7 7 7"/></svg></button>
           <button class="site-image-viewer__next" type="button" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></button>
@@ -939,12 +974,109 @@ const images = geometricPage
     const previous = dialog.querySelector('.site-image-viewer__previous');
     const next = dialog.querySelector('.site-image-viewer__next');
     const stage = dialog.querySelector('.site-image-viewer__stage');
+    const zoomIn = dialog.querySelector('.site-image-viewer__zoom-in');
+    const zoomOut = dialog.querySelector('.site-image-viewer__zoom-out');
     const footer = dialog.querySelector('.site-image-viewer__footer');
     const controls = [close, previous, next];
     let current = 0;
     let lastFocus = null;
     let oldOverflow = '';
+    let videoFrame = null;
 
+
+    // Map-only pan and zoom. Other galleries keep their established behaviour.
+    let zoom = 1;
+    let panX = 0;
+    let panY = 0;
+    let activePointer = null;
+    let pointerOrigin = null;
+    let pinchDistance = null;
+    let pinchZoom = 1;
+
+    function isMap() {
+      return dialog.classList.contains('site-image-viewer--map');
+    }
+    function renderZoom() {
+      photo.style.transform = isMap()
+        ? 'translate(' + panX + 'px,' + panY + 'px) scale(' + zoom + ')'
+        : '';
+      photo.style.cursor = isMap() && zoom > 1 ? 'grab' : '';
+      zoomOut.disabled = zoom <= 1;
+      zoomIn.disabled = zoom >= 6;
+    }
+    function resetZoom() {
+      zoom = 1;
+      panX = panY = 0;
+      pinchDistance = null;
+      activePointer = null;
+      renderZoom();
+    }
+    function setZoom(newZoom) {
+      zoom = Math.max(1, Math.min(6, newZoom));
+      if (zoom === 1) panX = panY = 0;
+      renderZoom();
+    }
+    zoomIn.addEventListener('click', function () { if (isMap()) setZoom(zoom * 1.5); });
+    zoomOut.addEventListener('click', function () { if (isMap()) setZoom(zoom / 1.5); });
+    stage.addEventListener('wheel', function (event) {
+      if (!isMap() || dialog.hidden) return;
+      event.preventDefault();
+      setZoom(zoom * (event.deltaY < 0 ? 1.15 : 1 / 1.15));
+    }, { passive: false });
+    stage.addEventListener('dblclick', function (event) {
+      if (!isMap() || dialog.hidden) return;
+      event.preventDefault();
+      setZoom(zoom > 1 ? 1 : 2);
+    });
+    stage.addEventListener('pointerdown', function (event) {
+      if (!isMap() || zoom <= 1 || event.pointerType === 'touch') return;
+      activePointer = event.pointerId;
+      pointerOrigin = { x: event.clientX - panX, y: event.clientY - panY };
+      stage.setPointerCapture(event.pointerId);
+    });
+    stage.addEventListener('pointermove', function (event) {
+      if (!isMap() || event.pointerId !== activePointer || !pointerOrigin) return;
+      panX = event.clientX - pointerOrigin.x;
+      panY = event.clientY - pointerOrigin.y;
+      renderZoom();
+    });
+    function finishPan(event) {
+      if (activePointer !== event.pointerId) return;
+      activePointer = null;
+      pointerOrigin = null;
+    }
+    stage.addEventListener('pointerup', finishPan);
+    stage.addEventListener('pointercancel', finishPan);
+    stage.addEventListener('touchstart', function (event) {
+      if (!isMap() || dialog.hidden) return;
+      if (event.touches.length === 2) {
+        const a = event.touches[0], b = event.touches[1];
+        pinchDistance = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+        pinchZoom = zoom;
+        pointerOrigin = null;
+      } else if (event.touches.length === 1 && zoom > 1) {
+        const a = event.touches[0];
+        pointerOrigin = { x: a.clientX - panX, y: a.clientY - panY };
+      }
+    }, { passive: true });
+    stage.addEventListener('touchmove', function (event) {
+      if (!isMap() || dialog.hidden) return;
+      if (event.touches.length === 2 && pinchDistance) {
+        event.preventDefault();
+        const a = event.touches[0], b = event.touches[1];
+        const distance = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+        setZoom(pinchZoom * distance / pinchDistance);
+      } else if (event.touches.length === 1 && zoom > 1 && pointerOrigin) {
+        event.preventDefault();
+        panX = event.touches[0].clientX - pointerOrigin.x;
+        panY = event.touches[0].clientY - pointerOrigin.y;
+        renderZoom();
+      }
+    }, { passive: false });
+    stage.addEventListener('touchend', function () {
+      pinchDistance = null;
+      pointerOrigin = null;
+    }, { passive: true });
 
     // One centered footer width for the whole gallery, based on its widest
     // image at the maximum available viewer size. Never follow the current photo.
@@ -1040,13 +1172,31 @@ const images = geometricPage
       photo.alt = source.getAttribute('alt') || '';
       const figure = source.closest('figure');
       const label = figure && figure.querySelector('figcaption');
-      // Use only existing author-provided captions; do not generate new descriptions.
-      caption.innerHTML = label ? label.innerHTML.trim() : '';
+      // For biennale documents, captions are stored with their source filenames.
+      caption.textContent = source.dataset.biennaleCaption || '';
+      if (!source.dataset.biennaleCaption) caption.innerHTML = label ? label.innerHTML.trim() : '';
       count.textContent = (current + 1) + ' of ' + images.length;
+      resetZoom();
       requestFooterAlignment();
     }
 
-    function open(index, opener) {
+    function open(index, opener, groupName) {
+      dialog.classList.remove('site-image-viewer--video');
+      if (groupName && biennaleSets && biennaleSets[groupName]) {
+        images = biennaleSets[groupName].map(function (item) {
+          const itemImage = document.createElement('img');
+          itemImage.src = 'media/files/' + item[0];
+          itemImage.dataset.biennaleCaption = item[1];
+          return itemImage;
+        });
+        imageDimensions = null;
+        dimensionRequest = null;
+      }
+      const mapMode = groupName === 'map';
+      dialog.classList.toggle('site-image-viewer--single', images.length === 1);
+      dialog.classList.toggle('site-image-viewer--map', mapMode);
+      dialog.classList.toggle('site-image-viewer--postcard', groupName === 'postcard');
+      resetZoom();
       lastFocus = opener;
       oldOverflow = document.body.style.overflow;
       display(index);
@@ -1056,9 +1206,40 @@ const images = geometricPage
       document.body.style.overflow = 'hidden';
       close.focus();
     }
+    // Video is hosted inside the existing image-viewer dialog, not a second overlay.
+    function openVideo(videoId, opener) {
+      if (!/^[A-Za-z0-9_-]{11}$/.test(videoId)) return;
+      lastFocus = opener;
+      oldOverflow = document.body.style.overflow;
+      dialog.classList.remove('site-image-viewer--single', 'site-image-viewer--map', 'site-image-viewer--postcard');
+      dialog.classList.add('site-image-viewer--video');
+      dialog.style.removeProperty('--site-viewer-frame');
+      stage.style.removeProperty('align-items');
+      stage.style.removeProperty('padding-bottom');
+      footer.style.removeProperty('padding-top');
+      photo.style.display = 'none';
+      caption.textContent = '';
+      videoFrame = document.createElement('iframe');
+      videoFrame.className = 'site-image-viewer__video';
+      videoFrame.title = 'U:TOPOS mobile application — video demonstration';
+      videoFrame.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&playsinline=1';
+      videoFrame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      videoFrame.setAttribute('allowfullscreen', '');
+      stage.appendChild(videoFrame);
+      dialog.hidden = false;
+      document.body.style.overflow = 'hidden';
+      close.focus();
+    }
     function dismiss() {
       if (dialog.hidden) return;
       dialog.hidden = true;
+      if (videoFrame) {
+        videoFrame.removeAttribute('src');
+        videoFrame.remove();
+        videoFrame = null;
+      }
+      photo.style.removeProperty('display');
+      dialog.classList.remove('site-image-viewer--video');
       document.body.style.overflow = oldOverflow;
       photo.removeAttribute('src');
       if (lastFocus && lastFocus.isConnected) lastFocus.focus();
@@ -1079,15 +1260,31 @@ const images = geometricPage
       });
     });
 
+    biennaleTriggers.forEach(function (trigger) {
+      const group = trigger.getAttribute('data-biennale-gallery');
+      if (!biennaleSets || !Object.prototype.hasOwnProperty.call(biennaleSets, group)) return;
+      trigger.addEventListener('click', function (event) {
+        event.preventDefault();
+        open(0, trigger, group);
+      });
+    });
+
+    biennaleVideoTriggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        openVideo(trigger.getAttribute('data-biennale-video'), trigger);
+      });
+    });
+
     close.addEventListener('click', dismiss);
     previous.addEventListener('click', function () { display(current - 1); });
     next.addEventListener('click', function () { display(current + 1); });
     dialog.addEventListener('click', function (event) {
-      if (event.target === dialog || event.target === stage) dismiss();
+      if (event.target === dialog || (event.target === stage && !isMap())) dismiss();
     });
     document.addEventListener('keydown', function (event) {
       if (dialog.hidden) return;
       if (event.key === 'Escape') { event.preventDefault(); dismiss(); }
+      else if (dialog.classList.contains('site-image-viewer--video')) return;
       else if (event.key === 'ArrowLeft') { event.preventDefault(); display(current - 1); }
       else if (event.key === 'ArrowRight') { event.preventDefault(); display(current + 1); }
       else if (event.key === 'Tab') {
@@ -1110,6 +1307,7 @@ const images = geometricPage
     }, { passive: true });
     stage.addEventListener('touchend', function (event) {
       if (touchX === null || !event.changedTouches.length) return;
+      if (isMap() || dialog.classList.contains('site-image-viewer--video')) { touchX = touchY = null; return; }
       const dx = event.changedTouches[0].clientX - touchX;
       const dy = event.changedTouches[0].clientY - touchY;
       touchX = touchY = null;
