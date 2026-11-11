@@ -1,0 +1,1678 @@
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ma plus grande œuvre — et peut-être la plus idiote - Dёni Mustafa</title><meta name="description" content="Ma plus grande œuvre — et peut-être la plus idiote Utopos 22, La Tannerie, Avallon · 22 March – 19 April 2026 Before spring 2026, several exhibitions and artistic actions had already taken place at Utopos 22. However, the white cube I had created had&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://denimustafa.com/ma-plus-grande-oeuvre.html"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Ma plus grande œuvre — et peut-être la plus idiote"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="Ma plus grande œuvre — et peut-être la plus idiote Utopos 22, La Tannerie, Avallon · 22 March – 19 April 2026 Before spring 2026, several exhibitions and artistic actions had already taken place at Utopos 22. However, the white cube I had created had&hellip;"><meta property="og:url" content="https://denimustafa.com/ma-plus-grande-oeuvre.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=65838ec1486e8081b8c68d665923cb6b"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://denimustafa.com/ma-plus-grande-oeuvre.html"},"headline":"Ma plus grande œuvre — et peut-être la plus idiote","datePublished":"2026-11-11T19:14+01:00","dateModified":"2026-11-11T20:24+01:00","description":"Ma plus grande œuvre — et peut-être la plus idiote Utopos 22, La Tannerie, Avallon · 22 March – 19 April 2026 Before spring 2026, several exhibitions and artistic actions had already taken place at Utopos 22. However, the white cube I had created had&hellip;","author":{"@type":"Person","name":"Dёni Mustafa","url":"https://denimustafa.com/authors/dyoni-mustafa/"},"publisher":{"@type":"Organization","name":"Dёni Mustafa"}}</script><noscript><style>img[loading] {
+                    opacity: 1;
+                }</style></noscript></head><body class="page-template"><script>/* Animated entry */
+    function initMobileEntry() {
+  const entryLinks = [
+    { label: "22", href: "22.html" },
+    { label: "U:TOPOS", href: "utopos.html" },
+    { label: "ʒиN", href: "zin.html" },
+    { label: "Archive", href: "archive.html" },
+    { label: "Index / Info", href: "index-info.html" }
+  ];
+
+  const entry = document.createElement("div");
+  entry.id = "mobile-entry";
+
+  entry.innerHTML = `
+    <button id="mobile-entry-origin" aria-label="Enter site"></button>
+    <div id="mobile-entry-second"></div>
+    <nav id="mobile-entry-menu" aria-label="Main navigation"></nav>
+  `;
+
+  document.body.prepend(entry);
+
+  const origin = entry.querySelector("#mobile-entry-origin");
+  const second = entry.querySelector("#mobile-entry-second");
+  const menu = entry.querySelector("#mobile-entry-menu");
+
+  entryLinks.forEach(function (link, index) {
+    const a = document.createElement("a");
+    a.textContent = link.label;
+    a.href = link.href;
+
+    if (index === 3) a.classList.add("entry-gap");
+
+    menu.appendChild(a);
+  });
+
+  function completeEntry() {
+    entry.classList.add("is-complete");
+
+    menu.querySelectorAll("a").forEach(function (item) {
+      item.classList.add("is-visible");
+    });
+
+    sessionStorage.setItem("animatedEntryPlayedInThisTab", "1");
+  }
+
+  if (sessionStorage.getItem("animatedEntryPlayedInThisTab") === "1") {
+    completeEntry();
+    return;
+  }
+
+  origin.addEventListener("click", function () {
+    if (entry.classList.contains("is-started")) return;
+
+    entry.classList.add("is-started");
+
+    setTimeout(function () {
+      completeEntry();
+    }, 1000);
+  });
+}
+    
+function initAnimatedEntry() {
+  const SHOW_ONLY_ONCE = false;
+
+  const entryPlayedInThisTab =
+    sessionStorage.getItem("animatedEntryPlayedInThisTab") === "1";
+
+  const entrySeenPermanently =
+    SHOW_ONLY_ONCE && localStorage.getItem("animatedEntrySeen") === "1";
+
+  const entrySeen =
+    entryPlayedInThisTab || entrySeenPermanently;
+
+  const isDesktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  const isHome =
+    window.location.pathname === "/" ||
+    window.location.pathname.endsWith("/index.html") ||
+    window.location.pathname.endsWith("index.html");
+
+  if (!isHome) return;
+
+if (!isDesktop) {
+  initMobileEntry();
+  return;
+}
+
+  const entryLinks = [
+    { label: "22", href: "22.html" },
+    { label: "U:TOPOS", href: "utopos.html" },
+    { label: "ʒиN", href: "zin.html" },
+    { label: "Archive", href: "archive.html" },
+    { label: "Index / Info", href: "index-info.html" }
+  ];
+
+  const entry = document.createElement("div");
+  entry.id = "animated-entry";
+  entry.setAttribute("aria-label", "Site entry");
+
+  entry.innerHTML = `
+    <div id="entry-origin" class="entry-dot"></div>
+    <div id="entry-cursor" class="entry-dot"></div>
+    <nav id="entry-menu" aria-label="Main navigation"></nav>
+  `;
+
+  document.body.prepend(entry);
+
+  document.documentElement.classList.add("entry-active");
+  document.body.classList.add("entry-active");
+
+  const originDot = document.getElementById("entry-origin");
+  const cursorDot = document.getElementById("entry-cursor");
+  const menu = document.getElementById("entry-menu");
+
+  entryLinks.forEach(function (link, index) {
+    const a = document.createElement("a");
+    a.textContent = link.label;
+    a.href = link.href;
+
+    if (index === 3) {
+      a.classList.add("entry-gap");
+    }
+
+    menu.appendChild(a);
+  });
+
+  let centerX = window.innerWidth / 2;
+  let centerY = window.innerHeight * 0.41;
+  let state = "waiting";
+
+  function setDotPosition(dot, x, y) {
+    dot.style.left = x + "px";
+    dot.style.top = y + "px";
+  }
+
+  function resetCenter() {
+    centerX = window.innerWidth / 2;
+    centerY = window.innerHeight * 0.41;
+
+    entry.style.setProperty("--entry-x", centerX + "px");
+
+    if (state === "waiting") {
+      setDotPosition(originDot, centerX, centerY);
+    }
+  }
+
+  resetCenter();
+
+  if (entrySeen) {
+    state = "complete";
+
+    originDot.style.animation = "none";
+
+    setDotPosition(originDot, centerX, centerY - 15);
+    setDotPosition(cursorDot, centerX, centerY + 15);
+
+    originDot.style.opacity = "1";
+    cursorDot.style.opacity = "1";
+
+    entry.classList.add("is-complete");
+
+    menu.querySelectorAll("a").forEach(function (item) {
+      item.classList.add("is-visible");
+    });
+
+    return;
+  }
+
+  function startCapture() {
+    if (state !== "waiting") return;
+
+    state = "captured";
+
+    window.removeEventListener("mousemove", handleMouseMove);
+
+    originDot.style.animation = "none";
+
+    originDot.style.transition =
+      "left 320ms cubic-bezier(.2,.8,.2,1), top 320ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease";
+
+    cursorDot.style.transition =
+      "left 320ms cubic-bezier(.2,.8,.2,1), top 320ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease";
+
+    setDotPosition(originDot, centerX - 18, centerY);
+    setDotPosition(cursorDot, centerX + 18, centerY);
+
+    setTimeout(function () {
+      originDot.style.transition =
+        "left 390ms cubic-bezier(.2,.8,.2,1), top 390ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease";
+
+      cursorDot.style.transition =
+        "left 390ms cubic-bezier(.2,.8,.2,1), top 390ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease";
+
+      setDotPosition(originDot, centerX, centerY - 15);
+      setDotPosition(cursorDot, centerX, centerY + 15);
+    }, 430);
+
+    setTimeout(function () {
+      originDot.style.opacity = "1";
+      cursorDot.style.opacity = "1";
+      entry.classList.add("is-complete");
+
+      sessionStorage.setItem("animatedEntryPlayedInThisTab", "1");
+
+      if (SHOW_ONLY_ONCE) {
+        localStorage.setItem("animatedEntrySeen", "1");
+      }
+    }, 930);
+
+    setTimeout(function () {
+      const items = menu.querySelectorAll("a");
+
+      items.forEach(function (item, index) {
+        setTimeout(function () {
+          item.classList.add("is-visible");
+        }, index * 230);
+      });
+    }, 1080);
+  }
+
+  function handleMouseMove(event) {
+    if (state !== "waiting") return;
+
+    const x = event.clientX;
+    const y = event.clientY;
+
+    cursorDot.style.opacity = "1";
+    setDotPosition(cursorDot, x, y);
+
+    const distance = Math.hypot(x - centerX, y - centerY);
+
+    if (distance < 58) {
+      startCapture();
+    }
+  }
+
+  window.addEventListener("mousemove", handleMouseMove, { passive: true });
+
+    window.addEventListener("resize", function () {
+    resetCenter();
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initAnimatedEntry);
+} else {
+  initAnimatedEntry();
+}</script><script>/* Entre 22 — Forest gallery */
+
+(function () {
+  function initForest() {
+
+    const section = document.querySelector(
+      ".entre22-page .entre22-forest"
+    );
+
+    if (!section || section.dataset.galleryReady === "1") return;
+    section.dataset.galleryReady = "1";
+
+    const count = 41;
+const initiallyVisible = 12;
+
+    function photoNumber(n) {
+  return n >= 5 ? n + 1 : n;
+}
+
+function filename(n) {
+  return "media/files/Forest-" +
+    String(photoNumber(n)).padStart(2, "0") + ".jpg";
+}
+
+function thumbnailFilename(n) {
+  return "media/files/Forest-" +
+    String(photoNumber(n)).padStart(2, "0") + "-thumb.jpg";
+}
+
+    /* STYLES */
+
+    const css = document.createElement("style");
+
+    css.textContent = `
+      .entre22-page .entre22-forest-grid {
+        display: grid !important;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 10px;
+        width: 100%;
+        justify-items: stretch;
+        align-items: stretch;
+      }
+
+      .entre22-page .entre22-forest-photo {
+        box-sizing: border-box !important;
+        display: block !important;
+        position: relative;
+        width: 100% !important;
+        min-width: 0 !important;
+        height: auto !important;
+        aspect-ratio: 1;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        float: none !important;
+        transform: none !important;
+
+        background-color: #f4f4f4 !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
+
+        cursor: pointer;
+        line-height: 0 !important;
+      }
+
+      .entre22-page .entre22-forest-photo[hidden] {
+        display: none !important;
+      }
+
+      .entre22-page .entre22-forest-photo:hover {
+        opacity: .8;
+      }
+
+      .entre22-page .entre22-forest-expand {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 36px !important;
+        height: 36px !important;
+        margin: 14px 0 0 !important;
+        padding: 0 !important;
+
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+
+        color: #b24a4a !important;
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 1;
+
+        cursor: pointer;
+      }
+
+      .entre22-page .entre22-forest-expand:hover {
+        color: #8f3434 !important;
+      }
+
+      .entre22-page .entre22-forest-photo:focus-visible,
+      .entre22-page .entre22-forest-expand:focus-visible {
+        outline: 2px solid #b24a4a !important;
+        outline-offset: 3px;
+      }
+
+      /* LIGHTBOX */
+
+      .entre22-forest-lightbox[hidden] {
+        display: none !important;
+      }
+
+      .entre22-forest-lightbox {
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 2147483000 !important;
+
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 54px 62px 56px;
+
+        background: #191919 !important;
+        color: #fff !important;
+      }
+
+      .entre22-forest-lightbox figure {
+        margin: 0;
+        max-width: 100%;
+        max-height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .entre22-forest-lightbox figure img {
+        display: block;
+        max-width: 100%;
+        max-height: calc(100vh - 125px);
+        max-height: calc(100dvh - 125px);
+
+        width: auto;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .entre22-forest-lightbox figcaption {
+        color: #ddd;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .entre22-forest-lightbox button {
+        position: absolute;
+        display: grid;
+        place-items: center;
+
+        padding: 0 !important;
+        margin: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+
+        color: #fff !important;
+        cursor: pointer;
+      }
+
+      .entre22-forest-lightbox button:focus-visible {
+        outline: 2px solid #fff !important;
+      }
+
+      .entre22-forest-close {
+        top: 10px;
+        right: 18px;
+        width: 42px;
+        height: 42px;
+        font-size: 34px;
+      }
+
+      .entre22-forest-prev,
+      .entre22-forest-next {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 46px;
+        height: 64px;
+        font-size: 40px;
+      }
+
+      .entre22-forest-prev {
+        left: 9px;
+      }
+
+      .entre22-forest-next {
+        right: 9px;
+      }
+    .entre22-forest-prev svg,
+.entre22-forest-next svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+      /* MOBILE */
+
+      @media (max-width: 640px) {
+        .entre22-page .entre22-forest-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 7px;
+        }
+
+        .entre22-forest-lightbox {
+          padding: 50px 42px 54px;
+        }
+
+        .entre22-forest-prev {
+          left: 0;
+        }
+
+        .entre22-forest-next {
+          right: 0;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .entre22-page .entre22-forest-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+    `;
+
+    document.head.appendChild(css);
+
+    /* GRID */
+
+    const grid = document.createElement("div");
+    grid.className = "entre22-forest-grid";
+    grid.id = "entre22-forest-grid";
+
+    const photos = [];
+
+    function setThumbnail(button, n) {
+      button.style.setProperty(
+        "background-image",
+        'url("' + thumbnailFilename(n) + '")',
+        "important"
+      );
+    }
+
+    for (let n = 1; n <= count; n++) {
+
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "entre22-forest-photo";
+
+      button.setAttribute(
+        "aria-label",
+        "Open Forest photograph " + n + " of " + count
+      );
+
+      button.hidden = n > initiallyVisible;
+
+      if (n <= initiallyVisible) {
+        setThumbnail(button, n);
+      }
+
+      button.addEventListener("click", function () {
+        openPhoto(n);
+      });
+
+      grid.appendChild(button);
+      photos.push({ button, n });
+    }
+
+    section.appendChild(grid);
+
+    /* EXPAND / COLLAPSE */
+
+    const expand = document.createElement("button");
+    expand.type = "button";
+    expand.className = "entre22-forest-expand";
+
+    expand.setAttribute(
+      "aria-controls",
+      "entre22-forest-grid"
+    );
+
+    expand.setAttribute("aria-expanded", "false");
+    expand.setAttribute("aria-label", "Show all 41 photographs");
+
+    expand.textContent = "+";
+
+    section.appendChild(expand);
+
+    let expanded = false;
+
+    expand.addEventListener("click", function () {
+
+      expanded = !expanded;
+
+      photos.forEach(function (photo) {
+
+        if (photo.n > initiallyVisible) {
+
+          photo.button.hidden = !expanded;
+
+          if (expanded &&
+              !photo.button.style.getPropertyValue("background-image")) {
+            setThumbnail(photo.button, photo.n);
+          }
+        }
+
+      });
+
+      expand.setAttribute(
+        "aria-expanded",
+        String(expanded)
+      );
+
+      expand.setAttribute(
+        "aria-label",
+        expanded
+          ? "Collapse to first 12 photographs"
+          : "Show all 42 photographs"
+      );
+
+      expand.textContent = expanded ? "−" : "+";
+    });
+
+    /* FULL-SIZE VIEWER */
+
+    const lightbox = document.createElement("div");
+
+    lightbox.className = "entre22-forest-lightbox";
+    lightbox.hidden = true;
+
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-modal", "true");
+    lightbox.setAttribute("aria-label", "Forest photographs");
+
+    lightbox.innerHTML = `
+      <button type="button"
+              class="entre22-forest-close"
+              aria-label="Close">×</button>
+
+      <button type="button"
+        class="entre22-forest-prev"
+        aria-label="Previous photograph">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M19 12H5m7-7-7 7 7 7"/>
+  </svg>
+</button>
+
+      <figure>
+        <img alt="">
+        <figcaption></figcaption>
+      </figure>
+
+     <button type="button"
+        class="entre22-forest-next"
+        aria-label="Next photograph">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M5 12h14m-7-7 7 7-7 7"/>
+  </svg>
+</button>
+    `;
+
+    document.body.appendChild(lightbox);
+
+    const bigImage = lightbox.querySelector("figure img");
+    const counter = lightbox.querySelector("figcaption");
+
+    const closeButton = lightbox.querySelector(
+      ".entre22-forest-close"
+    );
+
+    const prevButton = lightbox.querySelector(
+      ".entre22-forest-prev"
+    );
+
+    const nextButton = lightbox.querySelector(
+      ".entre22-forest-next"
+    );
+
+    let current = 1;
+    let restoreFocus = null;
+    let previousOverflow = "";
+
+    function displayPhoto(n) {
+
+      current = ((n - 1 + count) % count) + 1;
+
+      bigImage.src = filename(current);
+      bigImage.alt = "Forest — photograph " + current;
+
+      counter.textContent = current + " / " + count;
+    }
+
+    function openPhoto(n) {
+
+      restoreFocus = document.activeElement;
+      previousOverflow = document.body.style.overflow;
+
+      displayPhoto(n);
+
+      lightbox.hidden = false;
+      document.body.style.overflow = "hidden";
+
+      closeButton.focus();
+    }
+
+    function closePhoto() {
+
+      if (lightbox.hidden) return;
+
+      lightbox.hidden = true;
+
+      document.body.style.overflow = previousOverflow;
+      bigImage.removeAttribute("src");
+
+      if (restoreFocus && restoreFocus.isConnected) {
+        restoreFocus.focus();
+      }
+    }
+
+    closeButton.addEventListener("click", closePhoto);
+
+    prevButton.addEventListener("click", function () {
+      displayPhoto(current - 1);
+    });
+
+    nextButton.addEventListener("click", function () {
+      displayPhoto(current + 1);
+    });
+          
+          let swipeStart = null;
+
+lightbox.addEventListener("touchstart", function (event) {
+  if (lightbox.hidden || event.touches.length !== 1) {
+    swipeStart = null;
+    return;
+  }
+
+  swipeStart = {
+    x: event.touches[0].clientX,
+    y: event.touches[0].clientY
+  };
+}, { passive: true });
+
+lightbox.addEventListener("touchend", function (event) {
+  if (!swipeStart || lightbox.hidden || event.changedTouches.length !== 1) {
+    swipeStart = null;
+    return;
+  }
+
+  const dx = event.changedTouches[0].clientX - swipeStart.x;
+  const dy = event.changedTouches[0].clientY - swipeStart.y;
+
+  swipeStart = null;
+
+  if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+    displayPhoto(current + (dx < 0 ? 1 : -1));
+  }
+}, { passive: true });
+
+lightbox.addEventListener("touchcancel", function () {
+  swipeStart = null;
+}, { passive: true });
+
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) {
+        closePhoto();
+      }
+    });
+
+    /* KEYBOARD */
+
+    document.addEventListener("keydown", function (event) {
+
+      if (lightbox.hidden) return;
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closePhoto();
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        displayPhoto(current - 1);
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        displayPhoto(current + 1);
+      }
+
+      if (event.key === "Tab") {
+
+        const buttons = [
+          closeButton,
+          prevButton,
+          nextButton
+        ];
+
+        const index = buttons.indexOf(document.activeElement);
+
+        const nextIndex = index === -1
+          ? (event.shiftKey ? 2 : 0)
+          : (index + (event.shiftKey ? 2 : 1)) % 3;
+
+        event.preventDefault();
+        buttons[nextIndex].focus();
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initForest);
+  } else {
+    initForest();
+  }
+
+})();</script><script>/* Shared horizontal gallery: mouse drag + live progress. Handles multiple galleries. */
+(function () {
+  function initHorizontalGalleries() {
+    document.querySelectorAll('.site-horizontal-gallery, [data-horizontal-gallery]').forEach(function (gallery) {
+      if (gallery.dataset.horizontalGalleryReady === '1') return;
+
+      const strip = gallery.querySelector('.site-horizontal-gallery__strip, [data-horizontal-gallery-strip]');
+      const track = gallery.querySelector('.site-horizontal-gallery__progress');
+      if (!strip || !track) return;
+
+      // Always construct the marker; the Publii editor need not preserve it.
+      let thumb = track.querySelector('.site-horizontal-gallery__thumb');
+      if (!thumb) {
+        thumb = document.createElement('span');
+        thumb.className = 'site-horizontal-gallery__thumb';
+        track.textContent = '';
+        track.appendChild(thumb);
+      }
+      gallery.dataset.horizontalGalleryReady = '1';
+
+      let pending = false;
+      function updateProgress() {
+        pending = false;
+        const visible = strip.clientWidth;
+        const total = strip.scrollWidth;
+        const line = track.clientWidth;
+        if (!visible || !total || !line) return;
+
+        const maxScroll = Math.max(0, total - visible);
+        const markerWidth = maxScroll
+          ? Math.min(line, Math.max(20, line * visible / total))
+          : line;
+        const progress = maxScroll
+          ? Math.max(0, Math.min(1, strip.scrollLeft / maxScroll))
+          : 0;
+        thumb.style.width = markerWidth + 'px';
+        thumb.style.transform = 'translateX(' + ((line - markerWidth) * progress) + 'px)';
+      }
+      function requestProgress() {
+        if (pending) return;
+        pending = true;
+        requestAnimationFrame(updateProgress);
+      }
+
+      strip.addEventListener('scroll', requestProgress, { passive: true });
+      window.addEventListener('resize', requestProgress);
+      window.addEventListener('pageshow', requestProgress);
+      if ('ResizeObserver' in window) {
+        const observer = new ResizeObserver(requestProgress);
+        observer.observe(strip);
+        observer.observe(track);
+      }
+      strip.querySelectorAll('img').forEach(function (img) {
+        if (!img.complete) img.addEventListener('load', requestProgress, { once: true });
+      });
+
+      // Mouse drag only. Touch swipe and vertical touch scrolling stay native.
+      let pointerId = null;
+      let startX = 0;
+      let startLeft = 0;
+      function endDrag(event) {
+        if (pointerId === null || (event && event.pointerId !== pointerId)) return;
+        const endedId = pointerId;
+        pointerId = null;
+        strip.classList.remove('is-dragging');
+        if (strip.hasPointerCapture(endedId)) strip.releasePointerCapture(endedId);
+      }
+      strip.addEventListener('pointerdown', function (event) {
+        if (event.pointerType !== 'mouse' || event.button !== 0) return;
+        // Mobile-only strips use native touch swipe; never capture mouse clicks on images.
+        if (gallery.getAttribute('data-horizontal-gallery') === 'mobile') return;
+        pointerId = event.pointerId;
+        startX = event.clientX;
+        startLeft = strip.scrollLeft;
+        strip.classList.add('is-dragging');
+        strip.setPointerCapture(pointerId);
+        event.preventDefault();
+      });
+      strip.addEventListener('pointermove', function (event) {
+        if (pointerId !== event.pointerId) return;
+        strip.scrollLeft = startLeft - (event.clientX - startX);
+        requestProgress();
+      });
+      strip.addEventListener('pointerup', endDrag);
+      strip.addEventListener('pointercancel', endDrag);
+      strip.addEventListener('lostpointercapture', function () {
+        pointerId = null;
+        strip.classList.remove('is-dragging');
+      });
+      strip.addEventListener('dragstart', function (event) { event.preventDefault(); });
+
+      requestProgress();
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHorizontalGalleries);
+  } else {
+    initHorizontalGalleries();
+  }
+})();
+
+    
+    
+    /* Shared page-image viewer. Insert once into Custom HTML > Body, INSIDE an existing <script> block. */
+(function () {
+  function initSiteImageViewer() {
+    // Full-bleed galleries sit in a separate grid row from the text and menu.
+    // The row height is determined by whichever of the two is taller.
+    document.querySelectorAll('.site-horizontal-gallery').forEach(function (gallery) {
+      const shell = gallery.closest('.site-section-nav-shell');
+      const page = shell && shell.querySelector(':scope > .site-text-page');
+      if (shell && page && page.contains(gallery)) page.after(gallery);
+    });
+
+    // Keep horizontal-strip galleries and the separate Forest viewer independent.
+    const geometricPage = document.querySelector('.site-geometric-figures-page');
+
+let images = geometricPage
+  ? [
+      ...geometricPage.querySelectorAll('.site-words-gallery--five img'),
+      ...geometricPage.querySelectorAll('.site-horizontal-gallery__strip img')
+    ]
+  : Array.from(document.querySelectorAll('.site-text-page img')).filter(function (img) {
+      return !img.closest('.site-horizontal-gallery, .abstract-structures-strip, .entre22-forest, .entre22-forest-lightbox, [data-site-viewer-exclude]') &&
+        !img.hasAttribute('data-site-viewer-exclude');
+    });
+    // Preserve the page's original images for independent viewer groups.
+    const pageImages = images.slice();
+    // Biennale: documents are opened only through marginal-note controls.
+    // They do not appear as thumbnails in the page itself.
+    const biennale = document.querySelector('.site-biennale-page');
+    const biennaleSets = biennale ? {
+      questionnaires: [
+        ['Biennale-2-1-refugee.jpg', 'Questionnaire for refugees. 22 responses collected.'],
+        ['Biennale-2-locals.jpg', 'Micro-survey for local residents of Avallon. 51 responses collected.']
+      ],
+      map: [
+        ['Biennale-1-map-AV.jpg', "Alternative map of Avallon. Three layers: the artist's personal topography, responses from refugees (Réfugiés), and responses from local residents (Locaux)."]
+      ],
+      postcard: [
+        ['Biennale-3-postcard.jpg', 'Je ferai une Biennale dans cette ville. A tourist postcard of Avallon sent by the artist to himself, bearing the first public record of the future U:TOPOS Biennale.']
+      ],
+      prebiennale: [
+        ['Biennale-4-1_edited.jpg', 'Pré-Biennale, Avallon, June 2026. A two-week presentation of the current state of U:TOPOS in an inhabited 13 m² room.'],
+        ['Biennale-4-2_edited.jpg', 'Pré-Biennale, Avallon, June 2026. A two-week presentation of the current state of U:TOPOS in an inhabited 13 m² room.']
+      ],
+      blowup: Array.from({ length: 10 }, function (_, index) {
+        return [
+          'Biennale-5-blow-up-' + String(index).padStart(2, '0') + '.jpg',
+          'BLOW-UP, Avallon, October 2026. Public-space presentation of documentation from an ongoing photographic relay.'
+        ];
+      })
+    } : null;
+
+    const biennaleTriggers = biennale ? Array.from(
+      biennale.querySelectorAll('[data-biennale-gallery]')
+    ) : [];
+    const biennaleVideoTriggers = biennale ? Array.from(
+      biennale.querySelectorAll('[data-biennale-video]')
+    ) : [];
+    // A solitary ordinary illustration should not turn into a one-image gallery.
+    if (!biennaleTriggers.length && !biennaleVideoTriggers.length &&
+        (!images.length || (images.length === 1 && !images[0].hasAttribute('data-site-viewer-single')))) return;
+
+    const dialog = document.createElement('div');
+    dialog.className = 'site-image-viewer';
+    if (images.length === 1) dialog.classList.add('site-image-viewer--single');
+    dialog.hidden = true;
+    dialog.setAttribute('role', 'dialog');
+    dialog.setAttribute('aria-modal', 'true');
+    dialog.setAttribute('aria-label', 'Page photographs');
+    dialog.innerHTML = `
+      <button class="site-image-viewer__close" type="button" aria-label="Close image viewer">×</button>
+      <div class="site-image-viewer__stage">
+        <img class="site-image-viewer__photo" alt="" draggable="false">
+      </div>
+      <div class="site-image-viewer__footer">
+        <div class="site-image-viewer__caption"></div>
+        <div class="site-image-viewer__controls">
+          <button class="site-image-viewer__zoom-out" type="button" aria-label="Zoom out">−</button>
+          <button class="site-image-viewer__zoom-in" type="button" aria-label="Zoom in">+</button>
+          <span class="site-image-viewer__count" aria-live="polite"></span>
+          <button class="site-image-viewer__previous" type="button" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m7-7-7 7 7 7"/></svg></button>
+          <button class="site-image-viewer__next" type="button" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></button>
+        </div>
+      </div>`;
+    document.body.appendChild(dialog);
+
+    const photo = dialog.querySelector('.site-image-viewer__photo');
+    const caption = dialog.querySelector('.site-image-viewer__caption');
+    const count = dialog.querySelector('.site-image-viewer__count');
+    const close = dialog.querySelector('.site-image-viewer__close');
+    const previous = dialog.querySelector('.site-image-viewer__previous');
+    const next = dialog.querySelector('.site-image-viewer__next');
+    const stage = dialog.querySelector('.site-image-viewer__stage');
+    const zoomIn = dialog.querySelector('.site-image-viewer__zoom-in');
+    const zoomOut = dialog.querySelector('.site-image-viewer__zoom-out');
+    const footer = dialog.querySelector('.site-image-viewer__footer');
+    const controls = [close, previous, next];
+    let current = 0;
+    let lastFocus = null;
+    let oldOverflow = '';
+    let videoFrame = null;
+
+
+    // Map-only pan and zoom. Other galleries keep their established behaviour.
+    let zoom = 1;
+    let panX = 0;
+    let panY = 0;
+    let activePointer = null;
+    let pointerOrigin = null;
+    let pinchDistance = null;
+    let pinchZoom = 1;
+
+    function isMap() {
+      return dialog.classList.contains('site-image-viewer--map');
+    }
+    function renderZoom() {
+      photo.style.transform = isMap()
+        ? 'translate(' + panX + 'px,' + panY + 'px) scale(' + zoom + ')'
+        : '';
+      photo.style.cursor = isMap() && zoom > 1 ? 'grab' : '';
+      zoomOut.disabled = zoom <= 1;
+      zoomIn.disabled = zoom >= 6;
+    }
+    function resetZoom() {
+      zoom = 1;
+      panX = panY = 0;
+      pinchDistance = null;
+      activePointer = null;
+      renderZoom();
+    }
+    function setZoom(newZoom) {
+      zoom = Math.max(1, Math.min(6, newZoom));
+      if (zoom === 1) panX = panY = 0;
+      renderZoom();
+    }
+    zoomIn.addEventListener('click', function () { if (isMap()) setZoom(zoom * 1.5); });
+    zoomOut.addEventListener('click', function () { if (isMap()) setZoom(zoom / 1.5); });
+    stage.addEventListener('wheel', function (event) {
+      if (!isMap() || dialog.hidden) return;
+      event.preventDefault();
+      setZoom(zoom * (event.deltaY < 0 ? 1.15 : 1 / 1.15));
+    }, { passive: false });
+    stage.addEventListener('dblclick', function (event) {
+      if (!isMap() || dialog.hidden) return;
+      event.preventDefault();
+      setZoom(zoom > 1 ? 1 : 2);
+    });
+    stage.addEventListener('pointerdown', function (event) {
+      if (!isMap() || zoom <= 1 || event.pointerType === 'touch') return;
+      activePointer = event.pointerId;
+      pointerOrigin = { x: event.clientX - panX, y: event.clientY - panY };
+      stage.setPointerCapture(event.pointerId);
+    });
+    stage.addEventListener('pointermove', function (event) {
+      if (!isMap() || event.pointerId !== activePointer || !pointerOrigin) return;
+      panX = event.clientX - pointerOrigin.x;
+      panY = event.clientY - pointerOrigin.y;
+      renderZoom();
+    });
+    function finishPan(event) {
+      if (activePointer !== event.pointerId) return;
+      activePointer = null;
+      pointerOrigin = null;
+    }
+    stage.addEventListener('pointerup', finishPan);
+    stage.addEventListener('pointercancel', finishPan);
+    stage.addEventListener('touchstart', function (event) {
+      if (!isMap() || dialog.hidden) return;
+      if (event.touches.length === 2) {
+        const a = event.touches[0], b = event.touches[1];
+        pinchDistance = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+        pinchZoom = zoom;
+        pointerOrigin = null;
+      } else if (event.touches.length === 1 && zoom > 1) {
+        const a = event.touches[0];
+        pointerOrigin = { x: a.clientX - panX, y: a.clientY - panY };
+      }
+    }, { passive: true });
+    stage.addEventListener('touchmove', function (event) {
+      if (!isMap() || dialog.hidden) return;
+      if (event.touches.length === 2 && pinchDistance) {
+        event.preventDefault();
+        const a = event.touches[0], b = event.touches[1];
+        const distance = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+        setZoom(pinchZoom * distance / pinchDistance);
+      } else if (event.touches.length === 1 && zoom > 1 && pointerOrigin) {
+        event.preventDefault();
+        panX = event.touches[0].clientX - pointerOrigin.x;
+        panY = event.touches[0].clientY - pointerOrigin.y;
+        renderZoom();
+      }
+    }, { passive: false });
+    stage.addEventListener('touchend', function () {
+      pinchDistance = null;
+      pointerOrigin = null;
+    }, { passive: true });
+
+    // One centered footer width for the whole gallery, based on its widest
+    // image at the maximum available viewer size. Never follow the current photo.
+    let imageDimensions = null;
+    let dimensionRequest = null;
+    let footerFrame = 0;
+
+    function readDimensions(source) {
+      const width = source.naturalWidth || Number(source.getAttribute('width'));
+      const height = source.naturalHeight || Number(source.getAttribute('height'));
+      if (width > 0 && height > 0) {
+        return Promise.resolve({ width, height });
+      }
+      // Needed only for lazy-loaded photos without width/height attributes.
+      return new Promise(function (resolve) {
+        const image = new Image();
+        image.onload = function () {
+          resolve({ width: image.naturalWidth, height: image.naturalHeight });
+        };
+        image.onerror = function () { resolve(null); };
+        image.src = source.getAttribute('data-viewer-src') || source.src;
+      });
+    }
+
+    function ensureDimensions() {
+      if (!dimensionRequest) {
+        dimensionRequest = Promise.all(images.map(readDimensions)).then(function (all) {
+          imageDimensions = all.filter(function (size) {
+            return size && size.width > 0 && size.height > 0;
+          });
+          requestFooterAlignment();
+        });
+      }
+    }
+          
+    function alignFooter() {
+  footerFrame = 0;
+  if (dialog.hidden) return;
+
+  // Single image: align the caption to the actual image width.
+  if (dialog.classList.contains('site-image-viewer--single')) {
+    if (window.matchMedia('(max-width: 640px)').matches) {
+      dialog.style.removeProperty('--site-viewer-frame');
+    } else {
+      stage.style.alignItems = 'flex-end';
+      stage.style.paddingBottom = '0';
+      footer.style.paddingTop = '16px';
+
+      const imageWidth = photo.getBoundingClientRect().width;
+      if (imageWidth > 0) {
+        dialog.style.setProperty('--site-viewer-frame', imageWidth + 'px');
+      }
+    }
+    return;
+  }
+
+  if (!imageDimensions || !imageDimensions.length) return;
+
+  if (window.matchMedia('(max-width: 640px)').matches) {
+    dialog.style.removeProperty('--site-viewer-frame');
+    return;
+  }
+
+  const availableWidth = Math.max(1, stage.clientWidth);
+  const availableHeight = Math.max(1, stage.clientHeight);
+
+  const widest = Math.max.apply(null, imageDimensions.map(function (size) {
+    return Math.min(
+      size.width,
+      availableWidth,
+      availableHeight * size.width / size.height
+    );
+  }));
+
+  dialog.style.setProperty(
+    '--site-viewer-frame',
+    Math.min(availableWidth, widest) + 'px'
+  );
+}  
+    
+    function requestFooterAlignment() {
+      if (footerFrame) return;
+      footerFrame = requestAnimationFrame(alignFooter);
+    }
+    window.addEventListener('resize', requestFooterAlignment);
+    photo.addEventListener('load', requestFooterAlignment);
+
+    function display(index) {
+      current = (index + images.length) % images.length;
+      const source = images[current];
+      // Use the original src rather than an automatically downscaled srcset rendition.
+      photo.src = source.getAttribute('data-viewer-src') || source.src;
+      photo.alt = source.getAttribute('alt') || '';
+      const figure = source.closest('figure');
+      const label = figure && figure.querySelector('figcaption');
+      // For biennale documents, captions are stored with their source filenames.
+      caption.textContent = source.dataset.biennaleCaption || '';
+      if (!source.dataset.biennaleCaption) caption.innerHTML = label ? label.innerHTML.trim() : '';
+      count.textContent = (current + 1) + ' of ' + images.length;
+      resetZoom();
+      requestFooterAlignment();
+    }
+
+    function open(index, opener, groupName) {
+      dialog.classList.remove('site-image-viewer--video');
+      if (groupName && biennaleSets && biennaleSets[groupName]) {
+        images = biennaleSets[groupName].map(function (item) {
+          const itemImage = document.createElement('img');
+          itemImage.src = 'media/files/' + item[0];
+          itemImage.dataset.biennaleCaption = item[1];
+          return itemImage;
+        });
+        imageDimensions = null;
+        dimensionRequest = null;
+      }
+      else if (!groupName && opener && opener.hasAttribute('data-site-viewer-group')) {
+        const pageGroup = opener.getAttribute('data-site-viewer-group');
+        images = pageImages.filter(function (img) {
+          return img.getAttribute('data-site-viewer-group') === pageGroup;
+        });
+        index = images.indexOf(opener);
+        imageDimensions = null;
+        dimensionRequest = null;
+      }
+      const mapMode = groupName === 'map' ||
+        !!(opener && opener.hasAttribute('data-site-viewer-zoom'));
+      dialog.classList.toggle('site-image-viewer--single', images.length === 1);
+      dialog.classList.toggle('site-image-viewer--map', mapMode);
+      dialog.classList.toggle('site-image-viewer--postcard', groupName === 'postcard');
+      resetZoom();
+      lastFocus = opener;
+      oldOverflow = document.body.style.overflow;
+      display(index);
+      dialog.hidden = false;
+      ensureDimensions();
+      requestFooterAlignment();
+      document.body.style.overflow = 'hidden';
+      close.focus();
+    }
+    // Video is hosted inside the existing image-viewer dialog, not a second overlay.
+    function openVideo(videoId, opener) {
+      if (!/^[A-Za-z0-9_-]{11}$/.test(videoId)) return;
+      lastFocus = opener;
+      oldOverflow = document.body.style.overflow;
+      dialog.classList.remove('site-image-viewer--single', 'site-image-viewer--map', 'site-image-viewer--postcard');
+      dialog.classList.add('site-image-viewer--video');
+      dialog.style.removeProperty('--site-viewer-frame');
+      stage.style.removeProperty('align-items');
+      stage.style.removeProperty('padding-bottom');
+      footer.style.removeProperty('padding-top');
+      photo.style.display = 'none';
+      caption.textContent = '';
+      videoFrame = document.createElement('iframe');
+      videoFrame.className = 'site-image-viewer__video';
+      videoFrame.title = 'U:TOPOS mobile application — video demonstration';
+      videoFrame.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&playsinline=1';
+      videoFrame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      videoFrame.setAttribute('allowfullscreen', '');
+      stage.appendChild(videoFrame);
+      dialog.hidden = false;
+      document.body.style.overflow = 'hidden';
+      close.focus();
+    }
+    function dismiss() {
+      if (dialog.hidden) return;
+      dialog.hidden = true;
+      if (videoFrame) {
+        videoFrame.removeAttribute('src');
+        videoFrame.remove();
+        videoFrame = null;
+      }
+      photo.style.removeProperty('display');
+      dialog.classList.remove('site-image-viewer--video');
+      document.body.style.overflow = oldOverflow;
+      photo.removeAttribute('src');
+      if (lastFocus && lastFocus.isConnected) lastFocus.focus();
+    }
+    images.forEach(function (img, i) {
+  if (geometricPage && img.closest('.site-horizontal-gallery__strip')) return;
+
+  img.dataset.siteViewer = 'enabled';
+      img.tabIndex = 0;
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-haspopup', 'dialog');
+      img.setAttribute('aria-label', 'Open image ' + (i + 1) + ' of ' + images.length);
+      img.addEventListener('click', function () { open(i, img); });
+      img.addEventListener('keydown', function (event) {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        open(i, img);
+      });
+    });
+
+    biennaleTriggers.forEach(function (trigger) {
+      const group = trigger.getAttribute('data-biennale-gallery');
+      if (!biennaleSets || !Object.prototype.hasOwnProperty.call(biennaleSets, group)) return;
+      trigger.addEventListener('click', function (event) {
+        event.preventDefault();
+        open(0, trigger, group);
+      });
+    });
+
+    biennaleVideoTriggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        openVideo(trigger.getAttribute('data-biennale-video'), trigger);
+      });
+    });
+
+    close.addEventListener('click', dismiss);
+    previous.addEventListener('click', function () { display(current - 1); });
+    next.addEventListener('click', function () { display(current + 1); });
+    dialog.addEventListener('click', function (event) {
+      if (event.target === dialog || (event.target === stage && !isMap())) dismiss();
+    });
+    document.addEventListener('keydown', function (event) {
+      if (dialog.hidden) return;
+      if (event.key === 'Escape') { event.preventDefault(); dismiss(); }
+      else if (dialog.classList.contains('site-image-viewer--video')) return;
+      else if (event.key === 'ArrowLeft') { event.preventDefault(); display(current - 1); }
+      else if (event.key === 'ArrowRight') { event.preventDefault(); display(current + 1); }
+      else if (event.key === 'Tab') {
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault(); last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault(); first.focus();
+        }
+      }
+    });
+
+    let touchX = null;
+    let touchY = null;
+    stage.addEventListener('touchstart', function (event) {
+      if (event.touches.length !== 1) return;
+      touchX = event.touches[0].clientX;
+      touchY = event.touches[0].clientY;
+    }, { passive: true });
+    stage.addEventListener('touchend', function (event) {
+      if (touchX === null || !event.changedTouches.length) return;
+      if (isMap() || dialog.classList.contains('site-image-viewer--video')) { touchX = touchY = null; return; }
+      const dx = event.changedTouches[0].clientX - touchX;
+      const dy = event.changedTouches[0].clientY - touchY;
+      touchX = touchY = null;
+      if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+        display(current + (dx < 0 ? 1 : -1));
+      }
+    }, { passive: true });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSiteImageViewer);
+  } else {
+    initSiteImageViewer();
+  }
+})();</script><script>/* Utopos 22 — alternate entry from U:TOPOS */
+
+(function () {
+  const isUtopos22 = window.location.pathname.endsWith(
+    '/utopos-22-concept.html'
+  );
+
+  const fromUtopos = new URLSearchParams(
+    window.location.search
+  ).get('from') === 'utopos';
+
+  if (isUtopos22 && fromUtopos) {
+    document.documentElement.classList.add('utopos-entry-mode');
+  }
+})();</script><header class="top js-header"><a class="logo" href="https://denimustafa.com/">Dёni Mustafa</a></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper"><h1>Ma plus grande œuvre — et peut-être la plus idiote</h1></div></header></div><div class="entry-wrapper content__entry"><div class="site-section-nav-shell site-section-layout"><button class="section-project-toggle" type="button" aria-expanded="false" aria-controls="site-section-menu" aria-label="Open menu"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 68.6 42.5" aria-hidden="true" focusable="false" style="display:block; transform:translateY(5px); opacity:0.7"><path d="M2.1,11.4c-2.8-2.8-2.7-6.6,0-9.4c2.7-2.7,6.5-2.6,9.3,0.1c2.6,2.6,2.8,6.4-0.1,9.3C8.6,14.1,4.7,14,2.1,11.4z"/><path d="M29.7,40.5c-2.8-2.8-2.7-6.6,0-9.4c2.7-2.7,6.5-2.6,9.3,0.1c2.6,2.6,2.8,6.4-0.1,9.3C36.2,43.3,32.3,43.1,29.7,40.5z"/><path d="M11.4,40.4c-2.8,2.8-6.6,2.7-9.4,0c-2.7-2.7-2.6-6.5,0.1-9.3c2.6-2.6,6.4-2.8,9.3,0.1C14.1,33.9,14,37.8,11.4,40.4z"/><path d="M39,11.3c-2.8,2.8-6.6,2.7-9.4,0C26.9,8.6,27,4.9,29.7,2c2.6-2.6,6.4-2.8,9.3,0.1C41.7,4.8,41.6,8.7,39,11.3z"/><path d="M57.3,40.5c-2.8-2.8-2.7-6.6,0-9.4c2.7-2.7,6.5-2.6,9.3,0.1c2.6,2.6,2.8,6.4-0.1,9.3C63.8,43.3,59.9,43.1,57.3,40.5z"/><path d="M66.6,11.3c-2.8,2.8-6.6,2.7-9.4,0c-2.7-2.7-2.6-6.5,0.1-9.3c2.6-2.6,6.4-2.8,9.3,0.1C69.4,4.8,69.2,8.7,66.6,11.3z"/></svg> <span class="site-section-mobile-close-label" style="display:none; width:28px; height:28px; position:relative;"><svg xmlns="http://www.w3.org/2000/svg" width="18.5" height="21.3" viewBox="0 0 45.3 52.2" fill="#000" aria-hidden="true" focusable="false" style="display:block; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) translateY(5px); opacity:0.7;"><path d="M8.1,26.2c0-3.9,2.8-6.6,6.6-6.6c3.9,0,6.4,2.7,6.5,6.6c0,3.7-2.5,6.5-6.6,6.5C10.7,32.7,8.1,29.8,8.1,26.2z"/><path d="M38.7,13.2c-3.9,0-6.6-2.8-6.6-6.6c0-3.9,2.7-6.4,6.6-6.5c3.7,0,6.5,2.5,6.5,6.6C45.3,10.5,42.4,13.2,38.7,13.2z"/><path d="M32.1,45.7c0-3.9,2.8-6.6,6.6-6.6c3.9,0,6.4,2.7,6.5,6.6c0,3.7-2.5,6.5-6.6,6.5C34.8,52.2,32.1,49.4,32.1,45.7z"/><path d="M6.6,52.2c-3.9,0-6.6-2.8-6.6-6.6c0-3.9,2.7-6.4,6.6-6.5c3.7,0,6.5,2.5,6.5,6.6C13.2,49.6,10.3,52.2,6.6,52.2z"/><path d="M37.2,26.1c0,3.9-2.8,6.6-6.6,6.6c-3.9,0-6.4-2.7-6.5-6.6c0-3.7,2.5-6.5,6.6-6.5C34.5,19.5,37.2,22.4,37.2,26.1z"/><path d="M13.2,6.5c0,3.9-2.8,6.6-6.6,6.6c-3.9,0-6.4-2.7-6.5-6.6C0,2.8,2.5,0,6.6,0C10.5,0,13.2,2.8,13.2,6.5z"/></svg></span></button><nav id="site-section-menu" class="section-project-list site-section-native-menu" aria-label="Works"><div class="site-section-mobile-back"><button type="button" aria-label="Back to menu">← <span class="site-section-mobile-back-label"></span></button></div><div class="section-project-branch"><div><a href="https://denimustafa.com/observer-points-model.html" target="_self">Observer Points Model</a></div></div><div class="section-project-branch"><button type="button" class="section-project-node" aria-expanded="false" aria-controls="site-sublist-1">Stretch Art</button><div id="site-sublist-1" class="section-project-sublist"><div><a href="https://denimustafa.com/stretch-art-method.html" target="_self">Method</a></div><div><a href="https://denimustafa.com/stretch-art-abstract-structures.html" target="_self">Abstract Structures</a></div><div><a href="https://denimustafa.com/stretch-art-words.html" target="_self">Words</a></div><div><a href="https://denimustafa.com/stretch-art-geometric-figures.html" target="_self">Geometric Figures</a></div><div><a href="https://denimustafa.com/stretch-art-deconstruction-of-the-method.html" target="_self">Deconstruction of the Method</a></div></div></div><div class="section-project-branch"><button type="button" class="section-project-node" aria-expanded="false" aria-controls="site-sublist-2">Utopos 22</button><div id="site-sublist-2" class="section-project-sublist"><div><a href="https://denimustafa.com/utopos-22-concept.html" target="_self">Concept</a></div><div><a href="https://denimustafa.com/entre-22.html" target="_self">Entre 22</a></div><div class="active"><a href="https://denimustafa.com/ma-plus-grande-oeuvre.html" target="_self">Ma plus grande œuvre — et peut‑être la plus idiote</a></div></div></div></nav><div class="site-text-page site-section-layout site-idiote-page"><header class="site-project-header"><h1>Ma plus grande œuvre — et peut-être la plus idiote</h1><p>Utopos 22, La Tannerie, Avallon · 22 March – 19 April 2026</p></header><p>Before spring 2026, several exhibitions and artistic actions had already taken place at Utopos 22. However, the white cube I had created had never been filled in the way I wanted. Before my planned departure from the studio, I decided to organize a large group exhibition, filling the space with artworks and, at the opening, with people. This coincided with my long-standing intention to organize an exhibition of local artists, as I had very few connections with the local artistic community. I looked for participants among artists who permanently live or work in the Yonne department (89).</p><div class="site-gallery site-gallery--2 site-gallery--wide site-idiote-poster-plan" aria-label="Exhibition poster and initial layout plan"><figure><img src="media/files/grand-idiot-poster.jpg" alt="Exhibition poster" loading="lazy" data-site-viewer-group="idiote-poster" data-is-external-image="true"></figure><figure class="post__image"><img src="media/files/plan-Utopos-22.jpg" alt="Initial exhibition layout plan" loading="lazy" data-site-viewer-group="idiote-plan" data-site-viewer-zoom="true" data-is-external-image="true"><figcaption>Exhibition layout plan, Utopos 22, 2026.</figcaption></figure></div><p>The number 22 had appeared long before this exhibition. In the <a href="observer-points-model.html">Observer Points Model</a>, it was adopted as an axiom defining a finite set of points without limiting the possibilities of observation. In the exhibition, this limit took another form: 22 artists, each represented by a single work. The title did not imply a common theme or any literal correspondence to the scale or significance of the works. The artists were invited to present a work they themselves considered the most essential to them, outside the criteria of success, result, and development.</p><div class="site-gallery site-gallery--3 site-idiote-photo-grid" aria-label="Nine photographs of the exhibition"><figure><img src="media/files/grand-idiot1.JPG" alt="Exhibition photograph 1" loading="lazy" data-site-viewer-group="idiote-gallery" data-is-external-image="true"></figure><figure><img src="media/files/grand-idiot2.JPG" alt="Exhibition photograph 2" loading="lazy" data-site-viewer-group="idiote-gallery" data-is-external-image="true"></figure><figure><img src="media/files/grand-idiot3.JPG" alt="Exhibition photograph 3" loading="lazy" data-site-viewer-group="idiote-gallery" data-is-external-image="true"></figure><figure><img src="media/files/grand-idiot4.JPG" alt="Exhibition photograph 4" loading="lazy" data-site-viewer-group="idiote-gallery" data-is-external-image="true"></figure><figure><img src="media/files/grand-idiot5.JPG" alt="Exhibition photograph 5" loading="lazy" data-site-viewer-group="idiote-gallery" data-is-external-image="true"></figure><figure><img src="media/files/grand-idiot6.jpg" alt="Exhibition photograph 6" loading="lazy" data-site-viewer-group="idiote-gallery" data-is-external-image="true"></figure><figure><img src="media/files/grand-idiot7.JPG" alt="Exhibition photograph 7" loading="lazy" data-site-viewer-group="idiote-gallery" data-is-external-image="true"></figure><figure><img src="media/files/grand-idiot8.JPG" alt="Exhibition photograph 8" loading="lazy" data-site-viewer-group="idiote-gallery" data-is-external-image="true"></figure><figure><img src="media/files/grand-idiot9.JPG" alt="Exhibition photograph 9" loading="lazy" data-site-viewer-group="idiote-gallery" data-is-external-image="true"></figure></div><section class="site-idiote-explanation" aria-label="Exhibition text"><div class="site-two-column-columns"><section class="site-two-column-column" lang="en"><h2>English</h2><p>The exhibition exists in this space as an ensemble of works, without any predetermined address or promise of experience, and it is precisely in this mode that the logic of “success / failure” does not apply to it, either as a whole or at the level of individual works.</p><p>The word “idiote” is used here neither as an evaluation nor as an ironic gesture, but as the designation of a refusal to participate in the collective economy of meaning, within which values, successes, and failures are usually distributed.</p><p>Following the same logic, each participant is present through a single work, while documentation is included only insofar as it does not unfold into a narrative, a series, or a substitute for the work itself. Such a configuration unfolds neither as a beginning nor as a preparation and calls for no continuation, remaining closed upon its own presence.</p><p>In this context, the present text offers the viewer no role, route, or mode of reading, and does not presuppose the existence of a correct understanding of what is taking place.</p></section><section class="site-two-column-column" lang="fr"><h2>Français</h2><p>L’exposition existe dans cet espace comme un ensemble d’œuvres, sans adresse préalable ni promesse d’expérience, et c’est précisément dans ce régime que la logique du « réussi / raté » ne lui est pas applicable, ni dans son ensemble ni à l’échelle des œuvres prises individuellement.</p><p>Le mot « idiote » n’est pas employé ici comme une évaluation ni comme un geste ironique, mais comme la désignation d’un refus de participer à l’économie collective du sens, au sein de laquelle se distribuent habituellement les valeurs, les réussites et les échecs.</p><p>Dans cette même logique, chaque participant·e est présent·e par une seule œuvre, la documentation n’étant présente que dans la mesure où elle ne se déploie pas en récit, en série ou en substitution de l’œuvre elle-même. Une telle configuration ne se déploie ni comme un commencement ni comme une préparation et n’appelle pas de prolongement, restant refermée sur sa propre présence.</p><p>Dans ce contexte, le présent texte ne propose pas au spectateur de rôle, de parcours ou de mode de lecture, et ne présuppose pas l’existence d’une compréhension correcte de ce qui a lieu.</p></section></div></section><figure class="site-figure site-idiote-opening"><img src="media/files/idiot-vern.JPG" alt="Exhibition opening" loading="lazy" data-site-viewer-group="idiote-opening" data-is-external-image="true"><figcaption>Exhibition opening, Utopos 22, Avallon, 22 March 2026.</figcaption></figure><figure class="site-figure site-idiote-video" aria-label="Video tour"><div class="post__iframe"><iframe src="https://www.youtube-nocookie.com/embed/_7-ELKwKaMI?start=0&amp;autoplay=0&amp;rel=0" title="Video tour of the exhibition" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen"></iframe></div><figcaption>Video tour of the exhibition</figcaption></figure></div></div></div></article></main><style>/* TEST ONLY: new native menu, old embedded menu hidden on this template only. */
+.site-section-nav-shell {position:relative;max-width:720px;margin:0 auto;}
+.site-section-nav-shell > .site-section-native-menu {top:8vh;right:calc(100% + 96px);width:220px;font-size:16px;line-height:1.55;}
+/* Keep old HTML as reversible fallback; hide it only after the assigned menu exists. */
+.site-section-nav-shell:has(> .site-section-native-menu) .site-text-page .section-project-list,
+.site-section-nav-shell:has(> .site-section-native-menu) .site-text-page .section-project-toggle {display:none!important;}
+.site-section-nav-shell .site-section-native-menu .active > a {color:#050505!important;transform:translateX(12px);}
+.site-section-nav-shell .site-section-native-menu .active > a::before {content:"";position:absolute;left:-12px;top:.25em;bottom:.25em;width:1px;background:var(--site-accent,#b24a4a);}
+.site-section-nav-shell .site-section-native-menu .active > a:hover {color:#050505!important;}
+/* Expand only nested lists; the root menu keeps its existing width and position. */
+.site-section-nav-shell .site-section-native-menu .section-project-sublist {
+  width: 260px;
+}
+/* Equal 10px indentation for links and Text separator items. */
+.site-section-nav-shell .site-section-native-menu .section-project-sublist > div > a {
+  box-sizing: border-box;
+  padding-left: 10px;
+}
+.site-section-native-menu .section-project-sublist > div > span.section-project-node {
+  box-sizing: border-box;
+  padding-left: 10px;
+  white-space: normal;
+  cursor: default;
+}
+.site-section-native-menu .section-project-sublist > div > span.section-project-node:hover {
+  color: #777 !important;
+}
+/* Our buttons are governed by the existing .section-project-node styles. */
+.site-section-native-menu > .site-section-mobile-back { display: none; }
+
+@media (max-width: 980px) {
+  /* Keep the section header visible during scrolling. */
+  body:has(.site-section-nav-shell) .top {
+    position: sticky;
+    top: 0;
+    z-index: 10001;
+    background: #fff;
+    animation: none;
+  }
+
+  /* One original Publii menu, presented as a mobile overlay. */
+  .site-section-nav-shell > .section-project-toggle {
+    position: fixed;
+    top: 14px;
+    right: 18px;
+    z-index: 10002;
+    display: inline-block;
+    margin: 0;
+    padding: 8px 10px;
+    border: 0;
+    border-radius: 0;
+    background: #fff !important;
+    color: #050505 !important;
+    box-shadow: none !important;
+    font: inherit;
+    line-height: 1.2;
+    cursor: pointer;
+  }
+  body.is-mobile-section-menu-open .top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10001;
+    background: #fff;
+  }
+  .site-section-nav-shell > .site-section-native-menu {
+    box-sizing: border-box;
+    position: fixed;
+    inset: var(--navbar-height, 64px) 0 0;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 24px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 300ms ease-in-out, visibility 0s linear 300ms;
+  }
+  .site-section-nav-shell.is-mobile-menu-open > .site-section-native-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 300ms ease-in-out, visibility 0s;
+  }
+  .site-section-nav-shell .site-section-native-menu > .section-project-branch {
+    position: static;
+    opacity: 1;
+    transition: opacity 300ms ease-in-out;
+  }
+  .site-section-nav-shell .site-section-native-menu .section-project-sublist,
+  .site-section-nav-shell .site-section-native-menu .section-project-branch.is-open .section-project-sublist {
+    box-sizing: border-box;
+    display: flex;
+    position: absolute;
+    inset: 0 0 auto;
+    width: 100%;
+    min-height: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 72px 24px 36px;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 300ms ease-in-out, visibility 0s linear 300ms;
+  }
+  .site-section-nav-shell .site-section-native-menu.is-mobile-drilled > .section-project-branch.is-mobile-current > .section-project-sublist {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 300ms ease-in-out, visibility 0s;
+  }
+  .site-section-nav-shell .site-section-native-menu.is-mobile-drilled > .section-project-branch > :not(.section-project-sublist) {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 300ms ease-in-out, visibility 0s linear 300ms;
+  }
+  .site-section-nav-shell .site-section-native-menu > .section-project-branch > :not(.section-project-sublist) {
+    transition: opacity 300ms ease-in-out, visibility 0s;
+  }
+  .site-section-nav-shell .site-section-native-menu .site-section-mobile-back {
+    display: block;
+    position: sticky;
+    top: -24px;
+    z-index: 2;
+    box-sizing: border-box;
+    height: 48px;
+    margin-bottom: -48px;
+    padding: 8px 0 0;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 300ms ease-in-out, visibility 0s linear 300ms;
+  }
+  .site-section-nav-shell .site-section-native-menu.is-mobile-drilled .site-section-mobile-back {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 300ms ease-in-out, visibility 0s;
+  }
+  .site-section-nav-shell .site-section-native-menu .site-section-mobile-back button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    border: 0;
+    background: transparent !important;
+    color: #050505 !important;
+    box-shadow: none !important;
+    font: inherit;
+    cursor: pointer;
+  }
+}</style><script>(function () {
+  function init() {
+    const shell = document.querySelector('.site-section-nav-shell');
+    if (!shell) return;
+    const nav = shell.querySelector(':scope > .site-section-native-menu');
+    const toggle = shell.querySelector(':scope > .section-project-toggle');
+    if (!nav || !toggle) return;
+    const back = nav.querySelector('.site-section-mobile-back');
+    const backTitle = back && back.querySelector('.site-section-mobile-back-label');
+    const media = window.matchMedia('(max-width: 980px)');
+    if (media.matches) nav.setAttribute('aria-hidden', 'true');
+    let currentBranch = null;
+    let savedScrollY = 0;
+    let savedBodyStyles = null;
+
+    // Keep the existing desktop active branch behavior.
+    nav.querySelectorAll(':scope > .section-project-branch').forEach(function (branch) {
+      if (!branch.querySelector('.active, .active-parent')) return;
+      const button = branch.querySelector(':scope > .section-project-node[aria-controls]');
+      if (button) {
+        branch.classList.add('is-open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+    nav.querySelectorAll('.active > a').forEach(function (link) {
+      link.setAttribute('aria-current', 'page');
+    });
+
+    function mobileIsOpen() {
+      return shell.classList.contains('is-mobile-menu-open');
+    }
+    function unlockPage() {
+      if (!savedBodyStyles) return;
+      ['position', 'top', 'left', 'right', 'width', 'overflow'].forEach(function (property) {
+        document.body.style[property] = savedBodyStyles[property];
+      });
+      savedBodyStyles = null;
+      window.scrollTo({ top: savedScrollY, behavior: 'instant' });
+    }
+    function goBack(restoreFocus) {
+      if (!currentBranch) return;
+      const button = currentBranch.querySelector(':scope > .section-project-node[aria-controls]');
+      currentBranch.classList.remove('is-mobile-current');
+      nav.classList.remove('is-mobile-drilled');
+      if (button) button.setAttribute('aria-expanded', 'false');
+      currentBranch = null;
+      nav.scrollTop = 0;
+      if (restoreFocus && button) button.focus();
+    }
+    function closeMenu() {
+      if (!mobileIsOpen()) return;
+      goBack(false);
+      nav.classList.remove('is-open');
+      shell.classList.remove('is-mobile-menu-open');
+      document.body.classList.remove('is-mobile-section-menu-open');
+      toggle.querySelector('svg').style.display = 'block';
+      toggle.querySelector('.site-section-mobile-close-label').style.display = 'none';
+      toggle.setAttribute('aria-label', 'Open menu');
+      toggle.setAttribute('aria-expanded', 'false');
+      nav.setAttribute('aria-hidden', 'true');
+      nav.querySelectorAll(':scope > .section-project-branch > button[aria-expanded]').forEach(function (button) {
+        button.setAttribute('aria-expanded', String(button.parentElement.classList.contains('is-open')));
+      });
+      unlockPage();
+      toggle.focus();
+    }
+    function openMenu() {
+      if (mobileIsOpen()) return;
+      savedScrollY = window.scrollY;
+      savedBodyStyles = {};
+      ['position', 'top', 'left', 'right', 'width', 'overflow'].forEach(function (property) {
+        savedBodyStyles[property] = document.body.style[property];
+      });
+      document.body.style.position = 'fixed';
+      document.body.style.top = (-savedScrollY) + 'px';
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      document.body.classList.add('is-mobile-section-menu-open');
+      shell.classList.add('is-mobile-menu-open');
+      nav.classList.add('is-open');
+      nav.classList.remove('is-mobile-drilled');
+      nav.querySelectorAll(':scope > .section-project-branch > button[aria-expanded]').forEach(function (button) {
+        button.setAttribute('aria-expanded', 'false');
+      });
+      nav.setAttribute('aria-hidden', 'false');
+      nav.scrollTop = 0;
+      toggle.querySelector('svg').style.display = 'none';
+      toggle.querySelector('.site-section-mobile-close-label').style.display = 'block';
+      toggle.setAttribute('aria-label', 'Close menu');
+      toggle.setAttribute('aria-expanded', 'true');
+    }
+    toggle.addEventListener('click', function (event) {
+      if (!media.matches) return;
+      event.stopPropagation();
+      mobileIsOpen() ? closeMenu() : openMenu();
+    });
+    if (back) back.addEventListener('click', function (event) {
+      if (!media.matches) return;
+      event.stopPropagation();
+      goBack(true);
+    });
+    nav.addEventListener('click', function (event) {
+      const button = event.target.closest('.section-project-node[aria-controls]');
+      if (!button || !nav.contains(button)) return;
+      const branch = button.closest('.section-project-branch');
+      if (!branch) return;
+      if (media.matches) {
+        event.stopPropagation();
+        if (!mobileIsOpen()) return;
+        if (currentBranch) return;
+        currentBranch = branch;
+        if (backTitle) backTitle.textContent = button.textContent.trim();
+        branch.classList.add('is-mobile-current');
+        nav.classList.add('is-mobile-drilled');
+        button.setAttribute('aria-expanded', 'true');
+        nav.scrollTop = 0;
+        if (back) back.focus();
+      } else {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!expanded));
+        branch.classList.toggle('is-open', !expanded);
+      }
+    });
+    document.addEventListener('keydown', function (event) {
+      if (!media.matches || !mobileIsOpen()) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        currentBranch ? goBack(true) : closeMenu();
+      }
+      if (event.key !== 'Tab') return;
+      const candidates = [toggle].concat(Array.from(nav.querySelectorAll('button, a[href]')));
+      const visible = candidates.filter(function (element) {
+        return getComputedStyle(element).visibility !== 'hidden' &&
+          getComputedStyle(element).display !== 'none' &&
+          !!element.getClientRects().length;
+      });
+      if (!visible.length) return;
+      const first = visible[0], last = visible[visible.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+    window.addEventListener('resize', function () {
+      if (!media.matches && mobileIsOpen()) closeMenu();
+      if (!media.matches) nav.removeAttribute('aria-hidden');
+      else if (!mobileIsOpen()) nav.setAttribute('aria-hidden', 'true');
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();</script><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Powered by Publii</p></div></div></footer><script defer="defer" src="https://denimustafa.com/assets/js/scripts.min.js?v=dafec4f87fead6718cb125f0b0fc8441"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script></body></html>
