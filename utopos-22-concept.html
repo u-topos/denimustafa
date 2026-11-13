@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Utopos 22 — Concept - Dёni Mustafa</title><meta name="description" content="Utopos 22 2024–2026 · La Tannerie, Rhizome · Avallon, France Utopos 22 emerged from the convergence of two lines of my artistic practice. The first is Utopos, the idea of a non-existent place in which a person consciously situates themselves through thought. The second is&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://denimustafa.com/utopos-22-concept.html"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Utopos 22 — Concept"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="Utopos 22 2024–2026 · La Tannerie, Rhizome · Avallon, France Utopos 22 emerged from the convergence of two lines of my artistic practice. The first is Utopos, the idea of a non-existent place in which a person consciously situates themselves through thought. The second is&hellip;"><meta property="og:url" content="https://denimustafa.com/utopos-22-concept.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=65838ec1486e8081b8c68d665923cb6b"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://denimustafa.com/utopos-22-concept.html"},"headline":"Utopos 22 — Concept","datePublished":"2026-10-19T19:32+02:00","dateModified":"2026-10-21T14:58+02:00","description":"Utopos 22 2024–2026 · La Tannerie, Rhizome · Avallon, France Utopos 22 emerged from the convergence of two lines of my artistic practice. The first is Utopos, the idea of a non-existent place in which a person consciously situates themselves through thought. The second is&hellip;","author":{"@type":"Person","name":"Dёni Mustafa","url":"https://denimustafa.com/authors/dyoni-mustafa/"},"publisher":{"@type":"Organization","name":"Dёni Mustafa"}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Utopos 22 — Concept - Dёni Mustafa</title><meta name="description" content="Utopos 22 2024–2026 · La Tannerie, Rhizome · Avallon, France Utopos 22 emerged from the convergence of two lines of my artistic practice. The first is Utopos, the idea of a non-existent place in which a person consciously situates themselves through thought. The second is&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://denimustafa.com/utopos-22-concept.html"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Utopos 22 — Concept"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="Utopos 22 2024–2026 · La Tannerie, Rhizome · Avallon, France Utopos 22 emerged from the convergence of two lines of my artistic practice. The first is Utopos, the idea of a non-existent place in which a person consciously situates themselves through thought. The second is&hellip;"><meta property="og:url" content="https://denimustafa.com/utopos-22-concept.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=4ef7e171564505e5254f4139a2b6b530"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://denimustafa.com/utopos-22-concept.html"},"headline":"Utopos 22 — Concept","datePublished":"2026-10-19T19:32+02:00","dateModified":"2026-10-21T14:58+02:00","description":"Utopos 22 2024–2026 · La Tannerie, Rhizome · Avallon, France Utopos 22 emerged from the convergence of two lines of my artistic practice. The first is Utopos, the idea of a non-existent place in which a person consciously situates themselves through thought. The second is&hellip;","author":{"@type":"Person","name":"Dёni Mustafa","url":"https://denimustafa.com/authors/dyoni-mustafa/"},"publisher":{"@type":"Organization","name":"Dёni Mustafa"}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript></head><body class="page-template"><script>/* Animated entry */
     function initMobileEntry() {
@@ -987,6 +987,7 @@ let images = geometricPage
 
 
     // Map-only pan and zoom. Other galleries keep their established behaviour.
+    const maxZoom = 3;
     let zoom = 1;
     let panX = 0;
     let panY = 0;
@@ -1004,7 +1005,7 @@ let images = geometricPage
         : '';
       photo.style.cursor = isMap() && zoom > 1 ? 'grab' : '';
       zoomOut.disabled = zoom <= 1;
-      zoomIn.disabled = zoom >= 6;
+      zoomIn.disabled = zoom >= maxZoom;
     }
     function resetZoom() {
       zoom = 1;
@@ -1014,7 +1015,7 @@ let images = geometricPage
       renderZoom();
     }
     function setZoom(newZoom) {
-      zoom = Math.max(1, Math.min(6, newZoom));
+      zoom = Math.max(1, Math.min(maxZoom, newZoom));
       if (zoom === 1) panX = panY = 0;
       renderZoom();
     }
@@ -1291,7 +1292,7 @@ let images = geometricPage
     previous.addEventListener('click', function () { display(current - 1); });
     next.addEventListener('click', function () { display(current + 1); });
     dialog.addEventListener('click', function (event) {
-      if (event.target === dialog || (event.target === stage && !isMap())) dismiss();
+      if (event.target === dialog || (event.target === stage && (!isMap() || zoom === 1))) dismiss();
     });
     document.addEventListener('keydown', function (event) {
       if (dialog.hidden) return;
@@ -1319,7 +1320,7 @@ let images = geometricPage
     }, { passive: true });
     stage.addEventListener('touchend', function (event) {
       if (touchX === null || !event.changedTouches.length) return;
-      if (isMap() || dialog.classList.contains('site-image-viewer--video')) { touchX = touchY = null; return; }
+      if ((isMap() && (zoom > 1 || images.length < 2)) || dialog.classList.contains('site-image-viewer--video')) { touchX = touchY = null; return; }
       const dx = event.changedTouches[0].clientX - touchX;
       const dy = event.changedTouches[0].clientY - touchY;
       touchX = touchY = null;
