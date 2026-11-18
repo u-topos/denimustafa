@@ -912,28 +912,16 @@ let images = geometricPage
     // Biennale: documents are opened only through marginal-note controls.
     // They do not appear as thumbnails in the page itself.
     const biennale = document.querySelector('.site-biennale-page');
-    const biennaleSets = biennale ? {
-      questionnaires: [
-        ['Biennale-2-1-refugee.jpg', 'Questionnaire for refugees. 22 responses collected.'],
-        ['Biennale-2-locals.jpg', 'Micro-survey for local residents of Avallon. 51 responses collected.']
-      ],
-      map: [
-        ['Biennale-1-map-AV.jpg', "Alternative map of Avallon. Three layers: the artist's personal topography, responses from refugees (Réfugiés), and responses from local residents (Locaux)."]
-      ],
-      postcard: [
-        ['Biennale-3-postcard.jpg', 'Je ferai une Biennale dans cette ville. A tourist postcard of Avallon sent by the artist to himself, bearing the first public record of the future U:TOPOS Biennale.']
-      ],
-      prebiennale: [
-        ['Biennale-4-1_edited.jpg', 'Pré-Biennale, Avallon, June 2026. A two-week presentation of the current state of U:TOPOS in an inhabited 13 m² room.'],
-        ['Biennale-4-2_edited.jpg', 'Pré-Biennale, Avallon, June 2026. A two-week presentation of the current state of U:TOPOS in an inhabited 13 m² room.']
-      ],
-      blowup: Array.from({ length: 10 }, function (_, index) {
-        return [
-          'Biennale-5-blow-up-' + String(index).padStart(2, '0') + '.jpg',
-          'BLOW-UP, Avallon, October 2026. Public-space presentation of documentation from an ongoing photographic relay.'
-        ];
-      })
-    } : null;
+    // Image data lives in the U:TOPOS Biennale page, in #biennaleGalleryData.
+    const biennaleSets = biennale ? Object.fromEntries(
+      Array.from(biennale.querySelectorAll('#biennaleGalleryData [data-biennale-set]'))
+        .map(function (set) {
+          const entries = Array.from(set.querySelectorAll('span[data-caption]'))
+            .map(function (entry) { return [entry.textContent.trim(), entry.getAttribute('data-caption') || '']; })
+            .filter(function (entry) { return entry[0] && !entry[0].includes('/'); });
+          return [set.getAttribute('data-biennale-set'), entries];
+        }).filter(function (item) { return item[0] && item[1].length > 0; })
+    ) : null;
 
     const biennaleTriggers = biennale ? Array.from(
       biennale.querySelectorAll('[data-biennale-gallery]')
@@ -1357,184 +1345,15 @@ let images = geometricPage
     catalog.dataset.viewerReady = '1';
 
     // Data only. Titles drafted for v6 remain provisional; confirmed Syg.ma links go in sygmaUrl.
-    const ISSUE_DATA = [
-      {
-            "number": 1,
-            "title": "24 Hours",
-            "cover": "media/files/zin-1.jpg",
-            "pdf": "media/files/zin-01.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-1-24-chasa---16082023"
-      },
-      {
-            "number": 2,
-            "title": "The Primus Johnny Film",
-            "cover": "media/files/zin-2.jpg",
-            "pdf": "media/files/zin-02.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-2-film-primus-dzhonni"
-      },
-      {
-            "number": 3,
-            "title": "Beyond the Borders of Being",
-            "cover": "media/files/zin-3.jpg",
-            "pdf": "media/files/zin-03.pdf",
-            "layout": "page",
-            "sygmaUrl": null
-      },
-      {
-            "number": 4,
-            "title": "Maps",
-            "cover": "media/files/zin-4.jpg",
-            "pdf": "media/files/zin-04.pdf",
-            "layout": "page",
-            "sygmaUrl": null
-      },
-      {
-            "number": 5,
-            "title": "Hymn to the Thumb",
-            "cover": "media/files/zin-5.jpg",
-            "pdf": "media/files/zin-05.pdf",
-            "layout": "page",
-            "sygmaUrl": null
-      },
-      {
-            "number": 6,
-            "title": "Serial Image of the Object",
-            "cover": "media/files/zin-6.jpg",
-            "pdf": "media/files/zin-06.pdf",
-            "layout": "page",
-            "sygmaUrl": null
-      },
-      {
-            "number": 7,
-            "title": "Two Years Since the Beginning of the War",
-            "cover": "media/files/zin-7.jpg",
-            "pdf": "media/files/zin-07.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-7-protiv-voyny"
-      },
-      {
-            "number": 8,
-            "title": "Tempo minus Tempo",
-            "cover": "media/files/zin-8.jpg",
-            "pdf": "media/files/zin-08.pdf",
-            "layout": "page",
-            "sygmaUrl": null
-      },
-      {
-            "number": 9,
-            "title": "Room for Translations",
-            "cover": "media/files/zin-9.jpg",
-            "pdf": "media/files/zin-09.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/L4p7J40Iq4s-qQ"
-      },
-      {
-            "number": 10,
-            "title": "Comics",
-            "cover": "media/files/zin-10.jpg",
-            "pdf": "media/files/zin-10.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-x-comics"
-      },
-      {
-            "number": 11,
-            "title": "DADA-DANCE",
-            "cover": "media/files/zin-11.jpg",
-            "pdf": "media/files/zin-11.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-11-dada-dance"
-      },
-      {
-            "number": 12,
-            "title": "Copy It!",
-            "cover": "media/files/zin-12.jpg",
-            "pdf": "media/files/zin-12.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-12-copy-it-copy-it-copy-it-copy-it-copy-it-copy-it-copy-it-copy-it-copy-it-copy-it-copy-it-copy-it"
-      },
-      {
-            "number": 13,
-            "title": "Matanozoki",
-            "cover": "media/files/zin-13.jpg",
-            "pdf": "media/files/zin-13.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-13-gu-si-ki-matanozoki"
-      },
-      {
-            "number": 14,
-            "title": "Historical Monument",
-            "cover": "media/files/zin-14.jpg",
-            "pdf": "media/files/zin-14.pdf",
-            "layout": "continuous",
-            "sygmaUrl": "https://syg.ma/@zin/zin-14-historical-mo-nu-ment"
-      },
-      {
-            "number": 16,
-            "title": "Ici et maintenant",
-            "cover": "media/files/zin-16.jpg",
-            "pdf": "media/files/zin-16.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-16-ici-et-maintenant"
-      },
-      {
-            "number": 17,
-            "title": "On the Surface",
-            "cover": "media/files/zin-17.jpg",
-            "pdf": "media/files/zin-17.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-17-on-the-surface"
-      },
-      {
-            "number": 18,
-            "title": "Sound",
-            "cover": "media/files/zin-18.jpg",
-            "pdf": "media/files/zin-18.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-18-so~~~und"
-      },
-      {
-            "number": 19,
-            "title": "Sein und Geld",
-            "cover": "media/files/zin-19.jpg",
-            "pdf": "media/files/zin-19.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-19-sein-und-geld"
-      },
-      {
-            "number": 20,
-            "title": "Waiting",
-            "cover": "media/files/zin-20.jpg",
-            "pdf": "media/files/zin-20.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-20-zhdu-chego-to-deystvitelno-novogo"
-      },
-      {
-            "number": 21,
-            "title": "±A0",
-            "cover": "media/files/zin-21.jpg",
-            "pdf": "media/files/zin-21.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-21--a0"
-      },
-      {
-            "number": 22,
-            "title": "The Political in Conditions of Emigration 22–26",
-            "cover": "media/files/zin-22.jpg",
-            "pdf": "media/files/zin-22.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-22-politicheskoe-v-usloviyah-emigracii-22-26"
-      },
-      {
-            "number": 23,
-            "title": "Blow-Up",
-            "cover": "media/files/zin-23.jpg",
-            "pdf": "media/files/zin-23.pdf",
-            "layout": "page",
-            "sygmaUrl": "https://syg.ma/@zin/zin-23-blow-up"
-      }
-];
+    // Issue metadata belongs to the catalogue HTML, not to site-wide JavaScript.
+    // To add a new issue, add one zin-tile button in the ʒиN page HTML.
+    const ISSUE_DATA = Array.from(catalog.querySelectorAll('.zin-tile[data-issue]'), tile => ({
+      number: Number(tile.getAttribute('data-issue')),
+      title: tile.getAttribute('data-title') || '',
+      pdf: tile.getAttribute('data-pdf') || '',
+      layout: tile.getAttribute('data-layout') || 'page',
+      sygmaUrl: tile.getAttribute('data-sygma-url') || null
+    })).filter(issue => Number.isInteger(issue.number) && issue.number > 0 && issue.pdf);
     const issues = new Map(ISSUE_DATA.map(issue => [issue.number, issue]));
     const $ = id => viewer.querySelector('#' + id);
     // Publii sometimes moves link labels outside <a> when saving the page.
