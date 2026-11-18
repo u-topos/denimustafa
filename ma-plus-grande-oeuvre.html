@@ -1537,6 +1537,15 @@ let images = geometricPage
 ];
     const issues = new Map(ISSUE_DATA.map(issue => [issue.number, issue]));
     const $ = id => viewer.querySelector('#' + id);
+    // Publii sometimes moves link labels outside <a> when saving the page.
+    // Reattach both labels to their anchors; remove only their stray text nodes.
+    for (const [id, label] of [['zinDownload', 'Download PDF'], ['zinSygma', 'Read on Syg.ma']]) {
+      const link = $(id);
+      if (!link) continue;
+      const stray = link.nextSibling;
+      if (stray && stray.nodeType === 3 && stray.textContent.trim() === label) stray.remove();
+      link.textContent = label;
+    }
     const stage = $('zinStage');
     const stack = $('zinPageStack');
     const message = $('zinMessage');
