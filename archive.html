@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Archive - Dёni Mustafa</title><meta name="description" content="Archive is a collection of my artistic works, projects, and events from 2009 to the present. It includes exhibitions, interventions, actions, films, publications, as well as curatorial and self-organized projects created in Russia and France. The archive continues to grow as new works appear and&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://denimustafa.com/archive.html"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Archive"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="Archive is a collection of my artistic works, projects, and events from 2009 to the present. It includes exhibitions, interventions, actions, films, publications, as well as curatorial and self-organized projects created in Russia and France. The archive continues to grow as new works appear and&hellip;"><meta property="og:url" content="https://denimustafa.com/archive.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=6cf9d1610c0393c0ea40dd49edda3b89"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://denimustafa.com/archive.html"},"headline":"Archive","datePublished":"2026-10-14T08:27+02:00","dateModified":"2026-10-14T08:27+02:00","description":"Archive is a collection of my artistic works, projects, and events from 2009 to the present. It includes exhibitions, interventions, actions, films, publications, as well as curatorial and self-organized projects created in Russia and France. The archive continues to grow as new works appear and&hellip;","author":{"@type":"Person","name":"Dёni Mustafa","url":"https://denimustafa.com/authors/dyoni-mustafa/"},"publisher":{"@type":"Organization","name":"Dёni Mustafa"}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Archive - Dёni Mustafa</title><meta name="description" content="Archive is a collection of my artistic works, projects, and events from 2009 to the present. It includes exhibitions, interventions, actions, films, publications, as well as curatorial and self-organized projects created in Russia and France. The archive continues to grow as new works appear and&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://denimustafa.com/archive.html"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Archive"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="Archive is a collection of my artistic works, projects, and events from 2009 to the present. It includes exhibitions, interventions, actions, films, publications, as well as curatorial and self-organized projects created in Russia and France. The archive continues to grow as new works appear and&hellip;"><meta property="og:url" content="https://denimustafa.com/archive.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=5acff60568c2152bfa585ec33fe464a2"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://denimustafa.com/archive.html"},"headline":"Archive","datePublished":"2026-10-14T08:27+02:00","dateModified":"2026-10-14T08:27+02:00","description":"Archive is a collection of my artistic works, projects, and events from 2009 to the present. It includes exhibitions, interventions, actions, films, publications, as well as curatorial and self-organized projects created in Russia and France. The archive continues to grow as new works appear and&hellip;","author":{"@type":"Person","name":"Dёni Mustafa","url":"https://denimustafa.com/authors/dyoni-mustafa/"},"publisher":{"@type":"Organization","name":"Dёni Mustafa"}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript></head><body class="page-template"><script>/* Animated entry */
     function initMobileEntry() {
@@ -1742,7 +1742,42 @@ let images = geometricPage
     const finishDrag = () => { drag = null; stage.classList.remove('zin-dragging'); };
     stage.addEventListener('pointerup', finishDrag);
     stage.addEventListener('pointercancel', finishDrag);
-    // Two-finger touch zoom; native single-finger scroll provides panning.
+
+// Mobile swipe navigation for pages and spreads
+let pageSwipe = null;
+
+stage.addEventListener('touchstart', event => {
+  pageSwipe = (
+    pdf &&
+    event.touches.length === 1 &&
+    issues.get(active)?.layout !== 'continuous' &&
+    zoom <= 1.05
+  ) ? {
+    x: event.touches[0].clientX,
+    y: event.touches[0].clientY
+  } : null;
+}, { passive: true });
+
+stage.addEventListener('touchend', event => {
+  if (!pageSwipe || event.touches.length !== 0 ||
+      event.changedTouches.length !== 1) return;
+
+  const dx = event.changedTouches[0].clientX - pageSwipe.x;
+  const dy = event.changedTouches[0].clientY - pageSwipe.y;
+  pageSwipe = null;
+
+  if (Math.abs(dx) < 55 ||
+      Math.abs(dx) < Math.abs(dy) * 1.3) return;
+
+  const step = issues.get(active).layout === 'spread' ? 2 : 1;
+  gotoPage(index + (dx < 0 ? step : -step));
+}, { passive: true });
+
+stage.addEventListener('touchcancel', () => {
+  pageSwipe = null;
+}, { passive: true });    
+
+// Two-finger touch zoom; native single-finger scroll provides panning.
     let pinch = null;
     const distance = touches => Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
     stage.addEventListener('touchstart', event => {
