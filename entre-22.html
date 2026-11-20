@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Entre 22 - Dёni Mustafa</title><meta name="description" content="Entre 22 2025 · Utopos 22 · La Tannerie, Rhizome · Avallon Entre 22 can be read in two ways: as a reference to the space between twenty-two points and as an invitation to enter it. The title implies movement — from a position outside&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://denimustafa.com/entre-22.html"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Entre 22"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="Entre 22 2025 · Utopos 22 · La Tannerie, Rhizome · Avallon Entre 22 can be read in two ways: as a reference to the space between twenty-two points and as an invitation to enter it. The title implies movement — from a position outside&hellip;"><meta property="og:url" content="https://denimustafa.com/entre-22.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=5acff60568c2152bfa585ec33fe464a2"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://denimustafa.com/entre-22.html"},"headline":"Entre 22","datePublished":"2026-10-16T18:45+02:00","dateModified":"2026-11-18T14:57+01:00","description":"Entre 22 2025 · Utopos 22 · La Tannerie, Rhizome · Avallon Entre 22 can be read in two ways: as a reference to the space between twenty-two points and as an invitation to enter it. The title implies movement — from a position outside&hellip;","author":{"@type":"Person","name":"Dёni Mustafa","url":"https://denimustafa.com/authors/dyoni-mustafa/"},"publisher":{"@type":"Organization","name":"Dёni Mustafa"}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Entre 22 - Dёni Mustafa</title><meta name="description" content="Entre 22 2025 · Utopos 22 · La Tannerie, Rhizome · Avallon Entre 22 can be read in two ways: as a reference to the space between twenty-two points and as an invitation to enter it. The title implies movement — from a position outside&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://denimustafa.com/entre-22.html"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Entre 22"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="Entre 22 2025 · Utopos 22 · La Tannerie, Rhizome · Avallon Entre 22 can be read in two ways: as a reference to the space between twenty-two points and as an invitation to enter it. The title implies movement — from a position outside&hellip;"><meta property="og:url" content="https://denimustafa.com/entre-22.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=3fa9d60dd48cf3036da22bcae82c557d"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://denimustafa.com/entre-22.html"},"headline":"Entre 22","datePublished":"2026-10-16T18:45+02:00","dateModified":"2026-11-18T14:57+01:00","description":"Entre 22 2025 · Utopos 22 · La Tannerie, Rhizome · Avallon Entre 22 can be read in two ways: as a reference to the space between twenty-two points and as an invitation to enter it. The title implies movement — from a position outside&hellip;","author":{"@type":"Person","name":"Dёni Mustafa","url":"https://denimustafa.com/authors/dyoni-mustafa/"},"publisher":{"@type":"Organization","name":"Dёni Mustafa"}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript></head><body class="page-template"><script>/* Animated entry */
     function initMobileEntry() {
@@ -1800,6 +1800,272 @@ stage.addEventListener('touchcancel', () => {
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initZin);
   else initZin();
+})();</script><script>/* Archive 08 — isolated controller. Data lives in the Page HTML only. */
+(function () {
+  function initArchive08() {
+    const root = document.getElementById('archiveCatalog');
+    if (!root || root.dataset.ready === '1') return;
+    root.dataset.ready = '1';
+    const $ = id => root.querySelector('#' + id);
+    const records = Array.from(root.querySelectorAll('#archiveData .archive-record'));
+    const entries = records.map((record, order) => {
+      const year = record.getAttribute('data-date') || '';
+      const sortYear = Number(record.getAttribute('data-sort-year')) || (Number(year.match(/\d{4}/)?.[0]) || 0);
+      return {
+        id:record.getAttribute('data-archive-id') || 'archive-' + order,
+        title:record.textContent.trim(), year, sortYear,
+        cat:record.getAttribute('data-category') || '',
+        period:sortYear >= 2022 ? 'After 22' : 'Before 22',
+        ratio:Number(record.getAttribute('data-ratio')) || 1.5,
+        needsRatio:!Number(record.getAttribute('data-ratio')),
+        src:record.getAttribute('data-image') || '',
+        location:record.getAttribute('data-location') || '',
+        role:record.getAttribute('data-role') || '',
+        href:record.getAttribute('data-link') || '',
+        order
+      };
+    });
+    const state = {view:'images',category:'All',period:'All',sort:'Newest'};
+    let randomOrder = new Map();
+    let resizeTimer;
+    const modes = ['list','details','grid','images'];
+    const labels = {
+      list:'List / titles only',
+      details:'Details / archive data',
+      grid:'Grid / enlarged square crop + caption',
+      images:'Images / captions on hover'
+    };
+    const coarse = window.matchMedia('(hover: none)');
+    function shuffle() {
+      const array = entries.slice();
+      for (let i=array.length-1;i>0;i--) {
+        const j=Math.floor(Math.random()*(i+1));
+        [array[i],array[j]]=[array[j],array[i]];
+      }
+      randomOrder=new Map(array.map((item,i)=>[item.id,i]));
+    }
+    function selected() {
+      const result=entries.filter(item =>
+        (state.category==='All' || item.cat===state.category) &&
+        (state.period==='All' || item.period===state.period)
+      );
+      if (state.sort==='Newest') result.sort((a,b)=>b.sortYear-a.sortYear || a.order-b.order);
+      else if (state.sort==='Oldest') result.sort((a,b)=>a.sortYear-b.sortYear || a.order-b.order);
+      else if (state.sort==='A–Z') result.sort((a,b)=>a.title.localeCompare(b.title,['en','ru'],{sensitivity:'base'}));
+      else if (state.sort==='Z–A') result.sort((a,b)=>b.title.localeCompare(a.title,['en','ru'],{sensitivity:'base'}));
+      else if (state.sort==='Random') result.sort((a,b)=>randomOrder.get(a.id)-randomOrder.get(b.id));
+      return result;
+    }
+    function node(tag,className,text) {
+      const el=document.createElement(tag);
+      if (className) el.className=className;
+      if (text!==undefined) el.textContent=text;
+      return el;
+    }
+    function titleNode(item,className) {
+      const element=node(item.href?'a':'span',className,item.title);
+      if(item.href) element.href=item.href;
+      return element;
+    }
+    function renderList(data,host) {
+      const list=node('div','archive-list');
+      for(const item of data) {
+        const row=node('div','archive-list-card');
+        row.appendChild(titleNode(item,'archive-list-title'));
+        list.appendChild(row);
+      }
+      host.appendChild(list);
+    }
+    function renderDetails(data,host) {
+      const filtered=state.category!=='All';
+      const wrap=node('div','archive-details-wrap');
+      wrap.setAttribute('role','region');
+      wrap.setAttribute('aria-label','Detailed archive table; scroll horizontally on narrow screens');
+      wrap.tabIndex=0;
+      const table=node('table','archive-details-table'+(filtered?' archive-details-table--filtered':''));
+      const columns=[['Title','col-title','title'],['Date','col-date','year'],['Location','col-location','location'],['Role','col-role','role']];
+      if(!filtered) columns.push(['Category','col-category','cat']);
+      const head=table.createTHead().insertRow();
+      for(const [label,className] of columns) {
+        const th=node('th',className,label);
+        th.scope='col'; head.appendChild(th);
+      }
+      const body=table.createTBody();
+      for(const item of data) {
+        const row=body.insertRow();
+        for(const [,className,key] of columns) {
+          const cell=row.insertCell(); cell.className=className;
+          const value=item[key] || '—';
+          if(key==='title') {
+            cell.classList.add('archive-details-title');
+            cell.appendChild(titleNode(item,''));
+          } else {
+            cell.textContent=value;
+            if (key==='cat') cell.classList.add('archive-details-category');
+            if (value==='—') cell.classList.add('archive-details-muted');
+          }
+        }
+      }
+      wrap.appendChild(table);
+      host.appendChild(node('p','archive-mobile-table-hint','Swipe horizontally to see all columns →'));
+      host.appendChild(wrap);
+    }
+    function imageElement(item) {
+      const img=new Image();
+      img.alt='';
+      img.loading='lazy';
+      // Simple theme hides img[loading] until the is-loaded class is set.
+      // Archive images are created after the theme's initial load handler.
+      img.addEventListener('load', () => img.classList.add('is-loaded'), {once:true});
+      img.addEventListener('error', () => console.warn('Archive: image unavailable', img.src), {once:true});
+      img.src=item.src;
+      if (img.complete && img.naturalWidth > 0) img.classList.add('is-loaded');
+      return img;
+    }
+    function cardRoot(item,className) {
+      const card=node(item.href?'a':'figure',className);
+      if(item.href) card.href=item.href;
+      else card.tabIndex=0;
+      return card;
+    }
+    function renderGrid(data,host) {
+      const grid=node('div','archive-grid-catalog');
+      for(const item of data) {
+        const card=cardRoot(item,'archive-grid-card');
+        card.setAttribute('aria-label',item.title);
+        if(coarse.matches) {
+          card.addEventListener('click',event=>{
+            if(!card.classList.contains('is-revealed')) {
+              event.preventDefault();
+              for(const active of grid.querySelectorAll('.is-revealed')) active.classList.remove('is-revealed');
+              card.classList.add('is-revealed');
+            } else if(!item.href) {
+              card.classList.remove('is-revealed');
+            }
+          });
+        }
+        const frame=node('span','archive-grid-image');
+        frame.appendChild(imageElement(item));
+        const cap=node('span','archive-grid-caption');
+        cap.appendChild(node('span','archive-grid-title',item.title));
+        cap.appendChild(node('span','archive-grid-year',item.year));
+        card.append(frame,cap); grid.appendChild(card);
+      }
+      host.appendChild(grid);
+    }
+    function visualCard(item,width,height) {
+      const card=node(item.href?'a':'div','archive-visual-card');
+      if(item.href)card.href=item.href;
+      else card.tabIndex=0;
+      card.style.width=width+'px';
+      card.style.flex='0 0 '+width+'px';
+      card.title=item.title;
+      card.setAttribute('aria-label',item.title);
+      card.appendChild(imageElement(item));
+      card.appendChild(node('span','archive-visual-label',item.title));
+      return card;
+    }
+    // Identical row layout algorithm to prototype 08, with URL-based images.
+    function renderImages(data,host) {
+      const width=Math.max(200,host.clientWidth),gap=3;
+      const target=width<480?172:width<800?210:235;
+      if(width<480) {
+        for(const item of data) {
+          const row=node('div','archive-visual-row');
+          row.style.height=(width/item.ratio)+'px';
+          row.appendChild(visualCard(item,width)); host.appendChild(row);
+        }
+        return;
+      }
+      let rowItems=[],ratios=0;
+      function finish(last=false) {
+        if(!rowItems.length)return;
+        const perfect=(width-gap*(rowItems.length-1))/ratios;
+        const height=last?Math.min(target,perfect):Math.min(345,perfect);
+        const row=node('div','archive-visual-row');row.style.height=height+'px';
+        for(const item of rowItems) row.appendChild(visualCard(item,height*item.ratio));
+        host.appendChild(row);rowItems=[];ratios=0;
+      }
+      for(const item of data) {
+        rowItems.push(item);ratios+=item.ratio;
+        if(ratios*target+gap*(rowItems.length-1)>=width)finish();
+      }
+      finish(true);
+    }
+    function render() {
+      const data=selected(),host=$('archiveGallery');
+      host.replaceChildren();
+      $('archiveCount').textContent=data.length+' / '+entries.length+' works / projects';
+      $('archiveViewname').textContent=labels[state.view];
+      for(const mode of modes) $('archive'+mode.charAt(0).toUpperCase()+mode.slice(1)+'Mode').setAttribute('aria-pressed',String(state.view===mode));
+      $('archiveShuffle').classList.toggle('is-visible',state.sort==='Random');
+      if(!data.length){host.appendChild(node('p','archive-empty','No works match these filters.'));return;}
+      if(state.view==='list')renderList(data,host);
+      else if(state.view==='details')renderDetails(data,host);
+      else if(state.view==='grid')renderGrid(data,host);
+      else renderImages(data,host);
+    }
+    for(const [id,name] of [['archiveCategory','category'],['archivePeriod','period'],['archiveSort','sort']]) {
+      $(id).addEventListener('change',event=>{
+        const previous=state[name];
+        state[name]=event.target.value;
+        if(name==='sort'&&state.sort==='Random'&&previous!=='Random')shuffle();
+        render();
+      });
+    }
+    $('archiveShuffle').addEventListener('click',()=>{shuffle();render();});
+    for(const mode of modes) $('archive'+mode.charAt(0).toUpperCase()+mode.slice(1)+'Mode').addEventListener('click',()=>{state.view=mode;render();});
+    window.addEventListener('resize',()=>{
+      clearTimeout(resizeTimer);
+      resizeTimer=setTimeout(()=>{if(state.view==='images')render();},100);
+    });
+    // Palette calculations copied from prototype 08; variables affect this page only.
+    const toneSlider=$('archiveBackgroundTone');
+    function applyBackgroundTone(value) {
+      const n=Math.max(0,Math.min(100,Number(value)||0)),t=n/100;
+      const paperV=Math.round(248-216*t),paperB=Math.round(246-214*t);
+      const dark=paperV<=118;
+      const primary=dark?246:Math.round(25*Math.max(0,1-t/.6));
+      const secondary=dark?Math.round(250-53*Math.max(0,(t-.6)/.4)):Math.round(102*Math.max(0,1-t/.6));
+      const paper=`rgb(${paperV} ${paperV} ${paperB})`;
+      const capV=dark?Math.round(112-60*Math.max(0,(t-.6)/.4)):Math.round(239-190*t);
+      const caption=dark?`rgb(${capV} ${capV} ${capV})`:`rgb(${capV} ${Math.max(0,capV-3)} ${Math.max(0,capV-9)})`;
+      const style=document.body.style;
+      style.setProperty('--archive-paper',paper);
+      style.setProperty('--archive-ink',`rgb(${primary} ${primary} ${primary})`);
+      style.setProperty('--archive-soft',`rgb(${secondary} ${secondary} ${secondary})`);
+      style.setProperty('--archive-line',dark?`rgb(${Math.min(180,paperV+36)} ${Math.min(180,paperV+36)} ${Math.min(180,paperV+36)})`:`rgb(${Math.max(0,paperV-26)} ${Math.max(0,paperV-26)} ${Math.max(0,paperV-26)})`);
+      style.setProperty('--archive-active-ink',dark?'#151515':'#fff');
+      style.setProperty('--archive-control-muted',`rgb(${secondary} ${secondary} ${secondary})`);
+      style.setProperty('--archive-control-line',dark?`rgb(${Math.min(200,paperV+56)} ${Math.min(200,paperV+56)} ${Math.min(200,paperV+56)})`:`rgb(${Math.max(0,paperV-60)} ${Math.max(0,paperV-60)} ${Math.max(0,paperV-60)})`);
+      style.setProperty('--archive-caption-paper',caption);
+      style.setProperty('--archive-caption-ink',dark?'#fff':`rgb(${primary} ${primary} ${primary})`);
+      style.setProperty('--archive-caption-year',dark?'#e5e5e5':`rgb(${secondary} ${secondary} ${secondary})`);
+      style.setProperty('--archive-placeholder',dark?'#454545':'#e6e6e3');
+      style.setProperty('--archive-hover-row',dark?'rgba(255,255,255,.055)':'rgba(0,0,0,.035)');
+      style.setProperty('--archive-accent',dark?'#e19a9e':'#b34f52');
+      document.body.style.colorScheme=dark?'dark':'light';
+      toneSlider.setAttribute('aria-valuetext',n===0?'Light':n===100?'Graphite':`${n}% towards graphite`);
+      $('archiveToneValue').textContent=n+'%';
+    }
+    toneSlider.addEventListener('input',event=>applyBackgroundTone(event.target.value));
+    applyBackgroundTone(toneSlider.value);
+    render();
+    // New records can omit data-ratio; read the actual image proportions automatically.
+    for(const item of entries) {
+      if(!item.needsRatio || !item.src) continue;
+      const probe=new Image();
+      probe.onload=()=>{
+        if(probe.naturalWidth && probe.naturalHeight) {
+          item.ratio=probe.naturalWidth/probe.naturalHeight;
+          if(state.view==='images') render();
+        }
+      };
+      probe.src=item.src;
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initArchive08);
+  else initArchive08();
 })();</script><header class="top js-header"><a class="logo" href="https://denimustafa.com/">Dёni Mustafa</a></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper"><h1>Entre 22</h1></div></header></div><div class="entry-wrapper content__entry"><div class="site-section-nav-shell site-section-layout"><button class="section-project-toggle" type="button" aria-expanded="false" aria-controls="site-section-menu" aria-label="Open menu"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 68.6 42.5" aria-hidden="true" focusable="false" style="display:block; transform:translateY(5px); opacity:0.7"><path d="M2.1,11.4c-2.8-2.8-2.7-6.6,0-9.4c2.7-2.7,6.5-2.6,9.3,0.1c2.6,2.6,2.8,6.4-0.1,9.3C8.6,14.1,4.7,14,2.1,11.4z"/><path d="M29.7,40.5c-2.8-2.8-2.7-6.6,0-9.4c2.7-2.7,6.5-2.6,9.3,0.1c2.6,2.6,2.8,6.4-0.1,9.3C36.2,43.3,32.3,43.1,29.7,40.5z"/><path d="M11.4,40.4c-2.8,2.8-6.6,2.7-9.4,0c-2.7-2.7-2.6-6.5,0.1-9.3c2.6-2.6,6.4-2.8,9.3,0.1C14.1,33.9,14,37.8,11.4,40.4z"/><path d="M39,11.3c-2.8,2.8-6.6,2.7-9.4,0C26.9,8.6,27,4.9,29.7,2c2.6-2.6,6.4-2.8,9.3,0.1C41.7,4.8,41.6,8.7,39,11.3z"/><path d="M57.3,40.5c-2.8-2.8-2.7-6.6,0-9.4c2.7-2.7,6.5-2.6,9.3,0.1c2.6,2.6,2.8,6.4-0.1,9.3C63.8,43.3,59.9,43.1,57.3,40.5z"/><path d="M66.6,11.3c-2.8,2.8-6.6,2.7-9.4,0c-2.7-2.7-2.6-6.5,0.1-9.3c2.6-2.6,6.4-2.8,9.3,0.1C69.4,4.8,69.2,8.7,66.6,11.3z"/></svg> <span class="site-section-mobile-close-label" style="display:none; width:28px; height:28px; position:relative;"><svg xmlns="http://www.w3.org/2000/svg" width="18.5" height="21.3" viewBox="0 0 45.3 52.2" fill="#000" aria-hidden="true" focusable="false" style="display:block; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) translateY(5px); opacity:0.7;"><path d="M8.1,26.2c0-3.9,2.8-6.6,6.6-6.6c3.9,0,6.4,2.7,6.5,6.6c0,3.7-2.5,6.5-6.6,6.5C10.7,32.7,8.1,29.8,8.1,26.2z"/><path d="M38.7,13.2c-3.9,0-6.6-2.8-6.6-6.6c0-3.9,2.7-6.4,6.6-6.5c3.7,0,6.5,2.5,6.5,6.6C45.3,10.5,42.4,13.2,38.7,13.2z"/><path d="M32.1,45.7c0-3.9,2.8-6.6,6.6-6.6c3.9,0,6.4,2.7,6.5,6.6c0,3.7-2.5,6.5-6.6,6.5C34.8,52.2,32.1,49.4,32.1,45.7z"/><path d="M6.6,52.2c-3.9,0-6.6-2.8-6.6-6.6c0-3.9,2.7-6.4,6.6-6.5c3.7,0,6.5,2.5,6.5,6.6C13.2,49.6,10.3,52.2,6.6,52.2z"/><path d="M37.2,26.1c0,3.9-2.8,6.6-6.6,6.6c-3.9,0-6.4-2.7-6.5-6.6c0-3.7,2.5-6.5,6.6-6.5C34.5,19.5,37.2,22.4,37.2,26.1z"/><path d="M13.2,6.5c0,3.9-2.8,6.6-6.6,6.6c-3.9,0-6.4-2.7-6.5-6.6C0,2.8,2.5,0,6.6,0C10.5,0,13.2,2.8,13.2,6.5z"/></svg></span></button><nav id="site-section-menu" class="section-project-list site-section-native-menu" aria-label="Works"><div class="site-section-mobile-back"><button type="button" aria-label="Back to menu">← <span class="site-section-mobile-back-label"></span></button></div><div class="section-project-branch"><div><a href="https://denimustafa.com/observer-points-model.html" target="_self">Observer Points Model</a></div></div><div class="section-project-branch"><button type="button" class="section-project-node" aria-expanded="false" aria-controls="site-sublist-1">Stretch Art</button><div id="site-sublist-1" class="section-project-sublist"><div><a href="https://denimustafa.com/stretch-art-method.html" target="_self">Method</a></div><div><a href="https://denimustafa.com/stretch-art-abstract-structures.html" target="_self">Abstract Structures</a></div><div><a href="https://denimustafa.com/stretch-art-words.html" target="_self">Words</a></div><div><a href="https://denimustafa.com/stretch-art-geometric-figures.html" target="_self">Geometric Figures</a></div><div><a href="https://denimustafa.com/stretch-art-deconstruction-of-the-method.html" target="_self">Deconstruction of the Method</a></div></div></div><div class="section-project-branch"><button type="button" class="section-project-node" aria-expanded="false" aria-controls="site-sublist-2">Utopos 22</button><div id="site-sublist-2" class="section-project-sublist"><div><a href="https://denimustafa.com/utopos-22-concept.html" target="_self">Concept</a></div><div class="active"><a href="https://denimustafa.com/entre-22.html" target="_self">Entre 22</a></div><div><a href="https://denimustafa.com/ma-plus-grande-oeuvre.html" target="_self">Ma plus grande œuvre — et peut‑être la plus idiote</a></div><div><a href="https://denimustafa.com/entre-22-2.html" target="_self">Entre 22 (II)</a></div></div></div></nav><div class="site-text-page site-section-layout entre22-page"><div class="site-text-main entre22-main"><img src="media/files/Entre-22-1.jpg" alt="Wide view of a gallery installation with numbered dark stones arranged across the concrete floor, small photographs along the walls, and three suspended text panels." loading="eager" data-is-external-image="true"><header class="entre22-header"><h1>Entre 22</h1><p>2025 · Utopos 22 · La Tannerie, Rhizome · Avallon</p></header><div class="entre22-text"><p>Entre 22 can be read in two ways: as a reference to the space between twenty-two points and as an invitation to enter it. The title implies movement — from a position outside to a presence within. But entering a space does not mean occupying a predetermined position in it. On the contrary, from the moment of entry, one's position becomes a question: where are you in relation to the other points, and what changes when you begin to move?</p><p>Twenty-two points are the initial constraint, accepted without the need for justification. They are neither an order discovered in nature nor a universal formula. The number is fixed, but everything else remains open: distances, directions, possible connections, ways of moving from one point to another. The work therefore emerges not so much in the points themselves as in the intervals between them. A point makes it possible to mark a position; an interval requires a relation to be established.</p><p>Yet the space between is not necessarily an emptiness separating one element from another. It is a space of possible action. It cannot be exhausted by a diagram, because a diagram records relations but does not experience them. Nor can it be exhausted by the gaze: the gaze selects a position, while movement continually changes it.</p><p>The exhibition makes this distinction tangible. The twenty-two points, previously existing as a limited set of elements within the artist's own work, become a condition encountered by another person. They are not given a ready-made sequence of thoughts or a single route to follow. They enter a space where the arrangement of things is already given, but their own path remains to be found. In this sense, Entre 22 is not a representation of a system, but an invitation to find oneself inside it.</p></div><div class="entre22-gallery"><img src="media/files/Entre-22-2.jpg" alt="Three large text panels suspended by red cords above numbered stones scattered across a gallery floor; a row of small photographs runs along the rear wall." loading="lazy" data-is-external-image="true"> <img src="media/files/Entre-22-6.jpg" alt="Close-up of a dark stone marked 22 on the gallery floor, with other numbered stones and a continuous row of small photographs on white walls." loading="lazy" data-is-external-image="true"> <img src="media/files/Entre-22-7.jpg" alt="Low-angle view across numbered stones distributed on a gallery floor, with small photographs forming a line around two white walls." loading="lazy" data-is-external-image="true"></div><div class="entre22-text"><p>Initially, the 22 points were identified in a forest — not as a ready-made structure, but as an opportunity to reveal a particular artificial order within a space that does not conform to it. The trees already occupied their places, without any need for numbering or measurement. Selecting 22 of them changed nothing in the forest itself, but changed the way it could be read. A sequence emerged between the trees, and distances and directions that previously held no particular significance became the substance of the work.<br><br>In the transition to the exhibition space, this order is not reproduced literally. The 22 stones do not replicate the arrangement of the trees. The number remains the same, but the configuration changes, and with it the nature of the relations. In the forest, a sequence can be identified among trees whose positions are independent of that sequence. In the exhibition space, the sequence is preserved in the numbering of the stones, but it does not determine a single route. Unlike the trees and the points on the diagram, the stones are not fixed in place — their positions are not definitive.<br><br>The transfer from the forest to the exhibition space is therefore not the relocation of the same structure, but an examination of what is actually carried over. The number remains unchanged, while the material elements and spatial relations change. And if the 22 points can be arranged differently again and again, the unity of the work must be sought not in their particular configuration, but in the possibility of entering it, establishing relations, and each time finding oneself in a new position.</p></div><div class="entre22-gallery entre22-gallery-wide"><img src="media/files/Entre-22-3.jpg" alt="Two suspended white text panels headed ENTRE 2 2, with a red-line diagram connecting numbered points on the wall behind them." loading="lazy" data-is-external-image="true"> <img src="media/files/Entre-22-4.jpg" alt="Three text panels hanging from red cords in a gallery, beside a projection of a numbered marker on tree bark and a red-line diagram on the rear wall." loading="lazy" data-is-external-image="true"> <img src="media/files/Entre-22-9.jpg" alt="Numbered dark stones spread across a concrete gallery floor beneath a horizontal sequence of small photographs on white walls." loading="lazy" data-is-external-image="true"> <img src="media/files/Entre-22-5.jpg" alt="Oblique view along a gallery wall displaying photographs of numbered markers on tree bark; suspended text panels and stones are visible farther into the room." loading="lazy" data-is-external-image="true"> <img src="media/files/Entre-22-8.jpg" alt="Gallery corner with small photographs arranged in a horizontal line, dark numbered stones on the floor, and a low concrete platform." loading="lazy" data-is-external-image="true"></div><figure class="site-figure entre22-slot-scheme"><img src="media/files/scheme.jpg" alt="Diagram of 22 numbered black points connected by red line segments, annotated with distances in centimetres and angles in degrees." loading="lazy" data-is-external-image="true"><figcaption><p data-pm-slice="1 1 []">Diagram of 22 trees, with measured distances and angles.</p></figcaption></figure><section class="entre22-forest"><h2>Forest</h2></section></div></div></div></div></article></main><style>/* TEST ONLY: new native menu, old embedded menu hidden on this template only. */
 .site-section-nav-shell {position:relative;max-width:720px;margin:0 auto;}
 .site-section-nav-shell > .site-section-native-menu {top:8vh;right:calc(100% + 96px);width:220px;font-size:16px;line-height:1.55;}
