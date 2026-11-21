@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Error 404 - Dёni Mustafa</title><meta name="robots" content="noindex, follow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Dёni Mustafa"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="Dёni Mustafa — contemporary artist based in France. Artistic practice, exhibitions, performances, ʒиN independent zine and U:TOPOS Biennale."><meta property="og:url" content="https://denimustafa.com/"><meta property="og:type" content="website"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=eeb1ee26f858473baecbd41b07361ef1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Dёni Mustafa","url":"https://denimustafa.com/"}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Error 404 - Dёni Mustafa</title><meta name="robots" content="noindex, follow"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Dёni Mustafa"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="Dёni Mustafa — contemporary artist based in France. Artistic practice, exhibitions, performances, ʒиN independent zine and U:TOPOS Biennale."><meta property="og:url" content="https://denimustafa.com/"><meta property="og:type" content="website"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=40898dcfdac4d0b7232c085b1dcb4f56"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","name":"Dёni Mustafa","url":"https://denimustafa.com/"}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript></head><body class="error-template"><script>/* Animated entry */
     function initMobileEntry() {
@@ -1815,6 +1815,7 @@ stage.addEventListener('touchcancel', () => {
         id:record.getAttribute('data-archive-id') || 'archive-' + order,
         title:record.textContent.trim(), year, sortYear,
         cat:record.getAttribute('data-category') || '',
+        exhibitionType:record.getAttribute('data-exhibition-type') || '',
         period:sortYear >= 2022 ? 'After 22' : 'Before 22',
         ratio:Number(record.getAttribute('data-ratio')) || 1.5,
         needsRatio:!Number(record.getAttribute('data-ratio')),
@@ -1825,7 +1826,7 @@ stage.addEventListener('touchcancel', () => {
         order
       };
     });
-    const state = {view:'images',category:'All',period:'All',sort:'Newest'};
+    const state = {view:'images',category:'All',exhibitionType:'All',period:'All',sort:'Newest'};
     let randomOrder = new Map();
     let resizeTimer;
     const modes = ['list','details','grid','images'];
@@ -1847,7 +1848,8 @@ stage.addEventListener('touchcancel', () => {
     function selected() {
       const result=entries.filter(item =>
         (state.category==='All' || item.cat===state.category) &&
-        (state.period==='All' || item.period===state.period)
+        (state.period==='All' || item.period===state.period) &&
+        (state.category!=='Exhibitions' || state.exhibitionType==='All' || item.exhibitionType===state.exhibitionType)
       );
       if (state.sort==='Newest') result.sort((a,b)=>b.sortYear-a.sortYear || a.order-b.order);
       else if (state.sort==='Oldest') result.sort((a,b)=>a.sortYear-b.sortYear || a.order-b.order);
@@ -1878,13 +1880,15 @@ stage.addEventListener('touchcancel', () => {
     }
     function renderDetails(data,host) {
       const filtered=state.category!=='All';
+      const exhibitions=state.category==='Exhibitions';
       const wrap=node('div','archive-details-wrap');
       wrap.setAttribute('role','region');
       wrap.setAttribute('aria-label','Detailed archive table; scroll horizontally on narrow screens');
       wrap.tabIndex=0;
-      const table=node('table','archive-details-table'+(filtered?' archive-details-table--filtered':''));
+      const table=node('table','archive-details-table'+(filtered?' archive-details-table--filtered':'')+(exhibitions?' archive-details-table--exhibitions':''));
       const columns=[['Title','col-title','title'],['Date','col-date','year'],['Location','col-location','location'],['Role','col-role','role']];
-      if(!filtered) columns.push(['Category','col-category','cat']);
+      if(exhibitions) columns.push(['Type','col-type','exhibitionType']);
+      else if(!filtered) columns.push(['Category','col-category','cat']);
       const head=table.createTHead().insertRow();
       for(const [label,className] of columns) {
         const th=node('th',className,label);
@@ -2005,14 +2009,25 @@ stage.addEventListener('touchcancel', () => {
       else if(state.view==='grid')renderGrid(data,host);
       else renderImages(data,host);
     }
-    for(const [id,name] of [['archiveCategory','category'],['archivePeriod','period'],['archiveSort','sort']]) {
+    function syncExhibitionFilter() {
+      const visible=state.category==='Exhibitions';
+      $('archiveExhibitionTypeField').hidden=!visible;
+      $('archiveExhibitionType').disabled=!visible;
+      if(!visible) {
+        state.exhibitionType='All';
+        $('archiveExhibitionType').value='All';
+      }
+    }
+    for(const [id,name] of [['archiveCategory','category'],['archiveExhibitionType','exhibitionType'],['archivePeriod','period'],['archiveSort','sort']]) {
       $(id).addEventListener('change',event=>{
         const previous=state[name];
         state[name]=event.target.value;
+        if(name==='category') syncExhibitionFilter();
         if(name==='sort'&&state.sort==='Random'&&previous!=='Random')shuffle();
         render();
       });
     }
+    syncExhibitionFilter();
     $('archiveShuffle').addEventListener('click',()=>{shuffle();render();});
     for(const mode of modes) $('archive'+mode.charAt(0).toUpperCase()+mode.slice(1)+'Mode').addEventListener('click',()=>{state.view=mode;render();});
     window.addEventListener('resize',()=>{
@@ -2066,118 +2081,6 @@ stage.addEventListener('touchcancel', () => {
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initArchive08);
   else initArchive08();
-})();</script><script>/* Archive work pages — document viewer only. Forest uses the existing Entre 22 gallery. */
-(function () {
-  function initArchiveWork() {
-    const work = document.querySelector('.archive-work-page');
-    if (!work || work.dataset.archiveWorkReady === '1') return;
-    work.dataset.archiveWorkReady = '1';
-    const triggers = Array.from(work.querySelectorAll('[data-archive-zoom]'));
-    if (!triggers.length) return;
-
-    const viewer = document.createElement('div');
-    viewer.className = 'archive-work-viewer';
-    viewer.setAttribute('role', 'dialog');
-    viewer.setAttribute('aria-modal', 'true');
-    viewer.setAttribute('aria-label', 'Archive document preview');
-    viewer.hidden = true;
-    viewer.innerHTML = `
-      <button class="archive-work-viewer-close" type="button" aria-label="Close">×</button>
-      <div class="archive-work-viewer-stage"><img alt="Enlarged original document" draggable="false"></div>
-      <div class="archive-work-viewer-controls">
-        <button class="archive-work-viewer-out" type="button" aria-label="Zoom out">−</button>
-        <span class="archive-work-viewer-zoom">100%</span>
-        <button class="archive-work-viewer-in" type="button" aria-label="Zoom in">+</button>
-        <button class="archive-work-viewer-reset" type="button">Reset</button>
-      </div>`;
-    document.body.appendChild(viewer);
-
-    const stage = viewer.querySelector('.archive-work-viewer-stage');
-    const photo = stage.querySelector('img');
-    const close = viewer.querySelector('.archive-work-viewer-close');
-    const plus = viewer.querySelector('.archive-work-viewer-in');
-    const minus = viewer.querySelector('.archive-work-viewer-out');
-    const reset = viewer.querySelector('.archive-work-viewer-reset');
-    const label = viewer.querySelector('.archive-work-viewer-zoom');
-    const steps = [1, 1.4, 1.96];
-    let step = 0, panX = 0, panY = 0, drag = null;
-    let previousOverflow = '', restoreFocus = null;
-
-    function render() {
-      photo.style.setProperty('--aw-zoom', String(steps[step]));
-      photo.style.setProperty('--aw-pan-x', panX + 'px');
-      photo.style.setProperty('--aw-pan-y', panY + 'px');
-      label.textContent = Math.round(steps[step] * 100) + '%';
-      minus.disabled = step === 0;
-      plus.disabled = step === steps.length - 1;
-    }
-    function resetZoom() { step = 0; panX = 0; panY = 0; render(); }
-    function stepZoom(delta) {
-      step = Math.max(0, Math.min(steps.length - 1, step + delta));
-      if (step === 0) panX = panY = 0;
-      render();
-    }
-    function open(trigger) {
-      const url = trigger.getAttribute('data-archive-zoom');
-      if (!url) return;
-      restoreFocus = trigger;
-      previousOverflow = document.body.style.overflow;
-      photo.src = url;
-      viewer.hidden = false;
-      document.body.style.overflow = 'hidden';
-      resetZoom();
-      close.focus();
-    }
-    function dismiss() {
-      if (viewer.hidden) return;
-      viewer.hidden = true;
-      photo.removeAttribute('src');
-      document.body.style.overflow = previousOverflow;
-      drag = null;
-      stage.classList.remove('is-dragging');
-      resetZoom();
-      if (restoreFocus && restoreFocus.isConnected) restoreFocus.focus();
-    }
-    triggers.forEach(function (trigger) {
-      trigger.addEventListener('click', function () { open(trigger); });
-    });
-    plus.addEventListener('click', function () { stepZoom(1); });
-    minus.addEventListener('click', function () { stepZoom(-1); });
-    reset.addEventListener('click', resetZoom);
-    close.addEventListener('click', dismiss);
-    viewer.addEventListener('click', function (event) { if (event.target === viewer) dismiss(); });
-    stage.addEventListener('wheel', function (event) {
-      if (viewer.hidden) return;
-      event.preventDefault();
-      if (event.deltaY !== 0) stepZoom(event.deltaY < 0 ? 1 : -1);
-    }, { passive: false });
-    stage.addEventListener('pointerdown', function (event) {
-      if (viewer.hidden || step === 0) return;
-      drag = { id: event.pointerId, x: event.clientX, y: event.clientY, px: panX, py: panY };
-      stage.setPointerCapture(event.pointerId);
-      stage.classList.add('is-dragging');
-    });
-    stage.addEventListener('pointermove', function (event) {
-      if (!drag || drag.id !== event.pointerId) return;
-      panX = drag.px + event.clientX - drag.x;
-      panY = drag.py + event.clientY - drag.y;
-      render();
-    });
-    function stopDrag(event) {
-      if (!drag || (event && drag.id !== event.pointerId)) return;
-      drag = null;
-      stage.classList.remove('is-dragging');
-    }
-    stage.addEventListener('pointerup', stopDrag);
-    stage.addEventListener('pointercancel', stopDrag);
-    stage.addEventListener('lostpointercapture', function () { stopDrag(); });
-    document.addEventListener('keydown', function (event) {
-      if (viewer.hidden) return;
-      if (event.key === 'Escape') { event.preventDefault(); dismiss(); }
-    });
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initArchiveWork);
-  else initArchiveWork();
 })();</script><header class="top js-header"><a class="logo" href="https://denimustafa.com/">Dёni Mustafa</a></header><main class="page page--error"><div class="content"><div class="hero"><header class="hero__content"><div class="wrapper"><h1>404</h1><div class="page__desc"><p>The page you were looking for appears to have been moved, deleted or does not exist. You could go back to where you were or head straight to our home page.</p></div><a href="https://denimustafa.com/" class="btn hero__cta btn--icon"><svg width="18" height="18" aria-hidden="true"><use xlink:href="https://denimustafa.com/assets/svg/svg-map.svg#arrow-prev"/></svg> <span>Go home</span></a></div></header></div></div></main><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Powered by Publii</p></div></div></footer><script defer="defer" src="https://denimustafa.com/assets/js/scripts.min.js?v=dafec4f87fead6718cb125f0b0fc8441"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
             if (images[i].complete) {

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>U:TOPOS biennale - Dёni Mustafa</title><meta name="description" content="U:TOPOS Biennale 2027 Avallon, France · A project by Dёni Mustafa · 2025–present U:TOPOS Biennale is an artistic project initiated by Dёni Mustafa in Avallon, a small town in Burgundy. The biennale develops as a structure distributed across time and space, without a single exhibition&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://denimustafa.com/utopos-biennale.html"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="U:TOPOS biennale"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="U:TOPOS Biennale 2027 Avallon, France · A project by Dёni Mustafa · 2025–present U:TOPOS Biennale is an artistic project initiated by Dёni Mustafa in Avallon, a small town in Burgundy. The biennale develops as a structure distributed across time and space, without a single exhibition&hellip;"><meta property="og:url" content="https://denimustafa.com/utopos-biennale.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=eeb1ee26f858473baecbd41b07361ef1"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://denimustafa.com/utopos-biennale.html"},"headline":"U:TOPOS biennale","datePublished":"2026-11-06T15:39+01:00","dateModified":"2026-11-18T18:01+01:00","description":"U:TOPOS Biennale 2027 Avallon, France · A project by Dёni Mustafa · 2025–present U:TOPOS Biennale is an artistic project initiated by Dёni Mustafa in Avallon, a small town in Burgundy. The biennale develops as a structure distributed across time and space, without a single exhibition&hellip;","author":{"@type":"Person","name":"Dёni Mustafa","url":"https://denimustafa.com/authors/dyoni-mustafa/"},"publisher":{"@type":"Organization","name":"Dёni Mustafa"}}</script><noscript><style>img[loading] {
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>U:TOPOS biennale - Dёni Mustafa</title><meta name="description" content="U:TOPOS Biennale 2027 Avallon, France · A project by Dёni Mustafa · 2025–present U:TOPOS Biennale is an artistic project initiated by Dёni Mustafa in Avallon, a small town in Burgundy. The biennale develops as a structure distributed across time and space, without a single exhibition&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://denimustafa.com/utopos-biennale.html"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="U:TOPOS biennale"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="U:TOPOS Biennale 2027 Avallon, France · A project by Dёni Mustafa · 2025–present U:TOPOS Biennale is an artistic project initiated by Dёni Mustafa in Avallon, a small town in Burgundy. The biennale develops as a structure distributed across time and space, without a single exhibition&hellip;"><meta property="og:url" content="https://denimustafa.com/utopos-biennale.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=40898dcfdac4d0b7232c085b1dcb4f56"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://denimustafa.com/utopos-biennale.html"},"headline":"U:TOPOS biennale","datePublished":"2026-11-06T15:39+01:00","dateModified":"2026-11-18T18:01+01:00","description":"U:TOPOS Biennale 2027 Avallon, France · A project by Dёni Mustafa · 2025–present U:TOPOS Biennale is an artistic project initiated by Dёni Mustafa in Avallon, a small town in Burgundy. The biennale develops as a structure distributed across time and space, without a single exhibition&hellip;","author":{"@type":"Person","name":"Dёni Mustafa","url":"https://denimustafa.com/authors/dyoni-mustafa/"},"publisher":{"@type":"Organization","name":"Dёni Mustafa"}}</script><noscript><style>img[loading] {
                     opacity: 1;
                 }</style></noscript></head><body class="page-template"><script>/* Animated entry */
     function initMobileEntry() {
@@ -1815,6 +1815,7 @@ stage.addEventListener('touchcancel', () => {
         id:record.getAttribute('data-archive-id') || 'archive-' + order,
         title:record.textContent.trim(), year, sortYear,
         cat:record.getAttribute('data-category') || '',
+        exhibitionType:record.getAttribute('data-exhibition-type') || '',
         period:sortYear >= 2022 ? 'After 22' : 'Before 22',
         ratio:Number(record.getAttribute('data-ratio')) || 1.5,
         needsRatio:!Number(record.getAttribute('data-ratio')),
@@ -1825,7 +1826,7 @@ stage.addEventListener('touchcancel', () => {
         order
       };
     });
-    const state = {view:'images',category:'All',period:'All',sort:'Newest'};
+    const state = {view:'images',category:'All',exhibitionType:'All',period:'All',sort:'Newest'};
     let randomOrder = new Map();
     let resizeTimer;
     const modes = ['list','details','grid','images'];
@@ -1847,7 +1848,8 @@ stage.addEventListener('touchcancel', () => {
     function selected() {
       const result=entries.filter(item =>
         (state.category==='All' || item.cat===state.category) &&
-        (state.period==='All' || item.period===state.period)
+        (state.period==='All' || item.period===state.period) &&
+        (state.category!=='Exhibitions' || state.exhibitionType==='All' || item.exhibitionType===state.exhibitionType)
       );
       if (state.sort==='Newest') result.sort((a,b)=>b.sortYear-a.sortYear || a.order-b.order);
       else if (state.sort==='Oldest') result.sort((a,b)=>a.sortYear-b.sortYear || a.order-b.order);
@@ -1878,13 +1880,15 @@ stage.addEventListener('touchcancel', () => {
     }
     function renderDetails(data,host) {
       const filtered=state.category!=='All';
+      const exhibitions=state.category==='Exhibitions';
       const wrap=node('div','archive-details-wrap');
       wrap.setAttribute('role','region');
       wrap.setAttribute('aria-label','Detailed archive table; scroll horizontally on narrow screens');
       wrap.tabIndex=0;
-      const table=node('table','archive-details-table'+(filtered?' archive-details-table--filtered':''));
+      const table=node('table','archive-details-table'+(filtered?' archive-details-table--filtered':'')+(exhibitions?' archive-details-table--exhibitions':''));
       const columns=[['Title','col-title','title'],['Date','col-date','year'],['Location','col-location','location'],['Role','col-role','role']];
-      if(!filtered) columns.push(['Category','col-category','cat']);
+      if(exhibitions) columns.push(['Type','col-type','exhibitionType']);
+      else if(!filtered) columns.push(['Category','col-category','cat']);
       const head=table.createTHead().insertRow();
       for(const [label,className] of columns) {
         const th=node('th',className,label);
@@ -2005,14 +2009,25 @@ stage.addEventListener('touchcancel', () => {
       else if(state.view==='grid')renderGrid(data,host);
       else renderImages(data,host);
     }
-    for(const [id,name] of [['archiveCategory','category'],['archivePeriod','period'],['archiveSort','sort']]) {
+    function syncExhibitionFilter() {
+      const visible=state.category==='Exhibitions';
+      $('archiveExhibitionTypeField').hidden=!visible;
+      $('archiveExhibitionType').disabled=!visible;
+      if(!visible) {
+        state.exhibitionType='All';
+        $('archiveExhibitionType').value='All';
+      }
+    }
+    for(const [id,name] of [['archiveCategory','category'],['archiveExhibitionType','exhibitionType'],['archivePeriod','period'],['archiveSort','sort']]) {
       $(id).addEventListener('change',event=>{
         const previous=state[name];
         state[name]=event.target.value;
+        if(name==='category') syncExhibitionFilter();
         if(name==='sort'&&state.sort==='Random'&&previous!=='Random')shuffle();
         render();
       });
     }
+    syncExhibitionFilter();
     $('archiveShuffle').addEventListener('click',()=>{shuffle();render();});
     for(const mode of modes) $('archive'+mode.charAt(0).toUpperCase()+mode.slice(1)+'Mode').addEventListener('click',()=>{state.view=mode;render();});
     window.addEventListener('resize',()=>{
@@ -2066,118 +2081,6 @@ stage.addEventListener('touchcancel', () => {
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initArchive08);
   else initArchive08();
-})();</script><script>/* Archive work pages — document viewer only. Forest uses the existing Entre 22 gallery. */
-(function () {
-  function initArchiveWork() {
-    const work = document.querySelector('.archive-work-page');
-    if (!work || work.dataset.archiveWorkReady === '1') return;
-    work.dataset.archiveWorkReady = '1';
-    const triggers = Array.from(work.querySelectorAll('[data-archive-zoom]'));
-    if (!triggers.length) return;
-
-    const viewer = document.createElement('div');
-    viewer.className = 'archive-work-viewer';
-    viewer.setAttribute('role', 'dialog');
-    viewer.setAttribute('aria-modal', 'true');
-    viewer.setAttribute('aria-label', 'Archive document preview');
-    viewer.hidden = true;
-    viewer.innerHTML = `
-      <button class="archive-work-viewer-close" type="button" aria-label="Close">×</button>
-      <div class="archive-work-viewer-stage"><img alt="Enlarged original document" draggable="false"></div>
-      <div class="archive-work-viewer-controls">
-        <button class="archive-work-viewer-out" type="button" aria-label="Zoom out">−</button>
-        <span class="archive-work-viewer-zoom">100%</span>
-        <button class="archive-work-viewer-in" type="button" aria-label="Zoom in">+</button>
-        <button class="archive-work-viewer-reset" type="button">Reset</button>
-      </div>`;
-    document.body.appendChild(viewer);
-
-    const stage = viewer.querySelector('.archive-work-viewer-stage');
-    const photo = stage.querySelector('img');
-    const close = viewer.querySelector('.archive-work-viewer-close');
-    const plus = viewer.querySelector('.archive-work-viewer-in');
-    const minus = viewer.querySelector('.archive-work-viewer-out');
-    const reset = viewer.querySelector('.archive-work-viewer-reset');
-    const label = viewer.querySelector('.archive-work-viewer-zoom');
-    const steps = [1, 1.4, 1.96];
-    let step = 0, panX = 0, panY = 0, drag = null;
-    let previousOverflow = '', restoreFocus = null;
-
-    function render() {
-      photo.style.setProperty('--aw-zoom', String(steps[step]));
-      photo.style.setProperty('--aw-pan-x', panX + 'px');
-      photo.style.setProperty('--aw-pan-y', panY + 'px');
-      label.textContent = Math.round(steps[step] * 100) + '%';
-      minus.disabled = step === 0;
-      plus.disabled = step === steps.length - 1;
-    }
-    function resetZoom() { step = 0; panX = 0; panY = 0; render(); }
-    function stepZoom(delta) {
-      step = Math.max(0, Math.min(steps.length - 1, step + delta));
-      if (step === 0) panX = panY = 0;
-      render();
-    }
-    function open(trigger) {
-      const url = trigger.getAttribute('data-archive-zoom');
-      if (!url) return;
-      restoreFocus = trigger;
-      previousOverflow = document.body.style.overflow;
-      photo.src = url;
-      viewer.hidden = false;
-      document.body.style.overflow = 'hidden';
-      resetZoom();
-      close.focus();
-    }
-    function dismiss() {
-      if (viewer.hidden) return;
-      viewer.hidden = true;
-      photo.removeAttribute('src');
-      document.body.style.overflow = previousOverflow;
-      drag = null;
-      stage.classList.remove('is-dragging');
-      resetZoom();
-      if (restoreFocus && restoreFocus.isConnected) restoreFocus.focus();
-    }
-    triggers.forEach(function (trigger) {
-      trigger.addEventListener('click', function () { open(trigger); });
-    });
-    plus.addEventListener('click', function () { stepZoom(1); });
-    minus.addEventListener('click', function () { stepZoom(-1); });
-    reset.addEventListener('click', resetZoom);
-    close.addEventListener('click', dismiss);
-    viewer.addEventListener('click', function (event) { if (event.target === viewer) dismiss(); });
-    stage.addEventListener('wheel', function (event) {
-      if (viewer.hidden) return;
-      event.preventDefault();
-      if (event.deltaY !== 0) stepZoom(event.deltaY < 0 ? 1 : -1);
-    }, { passive: false });
-    stage.addEventListener('pointerdown', function (event) {
-      if (viewer.hidden || step === 0) return;
-      drag = { id: event.pointerId, x: event.clientX, y: event.clientY, px: panX, py: panY };
-      stage.setPointerCapture(event.pointerId);
-      stage.classList.add('is-dragging');
-    });
-    stage.addEventListener('pointermove', function (event) {
-      if (!drag || drag.id !== event.pointerId) return;
-      panX = drag.px + event.clientX - drag.x;
-      panY = drag.py + event.clientY - drag.y;
-      render();
-    });
-    function stopDrag(event) {
-      if (!drag || (event && drag.id !== event.pointerId)) return;
-      drag = null;
-      stage.classList.remove('is-dragging');
-    }
-    stage.addEventListener('pointerup', stopDrag);
-    stage.addEventListener('pointercancel', stopDrag);
-    stage.addEventListener('lostpointercapture', function () { stopDrag(); });
-    document.addEventListener('keydown', function (event) {
-      if (viewer.hidden) return;
-      if (event.key === 'Escape') { event.preventDefault(); dismiss(); }
-    });
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initArchiveWork);
-  else initArchiveWork();
 })();</script><header class="top js-header"><a class="logo" href="https://denimustafa.com/">Dёni Mustafa</a></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper"><h1>U:TOPOS biennale</h1></div></header></div><div class="entry-wrapper content__entry"><div class="site-text-page site-text-page-utopos site-biennale-page"><header class="site-project-header"><h1>U:TOPOS Biennale 2027</h1><p>Avallon, France · A project by Dёni Mustafa · 2025–present</p></header><p>U:TOPOS Biennale is an artistic project initiated by Dёni Mustafa in Avallon, a small town in Burgundy. The biennale develops as a structure distributed across time and space, without a single exhibition centre. Its participants are artists from different countries whose experiences are connected to migration, emigration, and changes in their accustomed place of life. Remote participation is possible, without the need to travel to Avallon.</p><p>At the core of the project is the transformation of artworks. An artist's work is not transferred into the town as a ready-made object. Through a process of exchange with the artist, an action, principle, or relationship is identified without which the work would cease to be itself. This becomes the basis of an instruction, which is carried out under the specific conditions of the urban environment. The resulting version may differ from the original work in scale, material, duration, location, and the way it interacts with the viewer.</p><p>Avallon was not chosen as an ideal location for an artistic event. It became the site of the project as a result of specific circumstances. Its terrain, distances, familiar routes, empty spaces, constraints, and chance encounters all play a part in the realization of the works. Unlike an exhibition that presupposes a predetermined space, here the location and its conditions may determine whether a work can come into being at all.</p><p class="utopos-annotated biennale-research">Preparations for the biennale began with research into the town. Since 2025, short <em>surveys</em> of local residents and refugees, <em>interviews</em>, observations, and cartographic experiments have been conducted. The collected materials made it possible to begin constructing an <em>alternative map of Avallon</em>, based on differences in how the town is perceived, significant places, routes, and spaces that remain outside the attention of particular groups. This work gradually moved beyond research and became part of the structure of the biennale itself. <span class="utopos-margin-note biennale-note-surveys"><button type="button" data-biennale-gallery="questionnaires">Questionnaires</button></span> <span class="utopos-margin-note biennale-note-interviews"><a href="self-interview.html">Self-interview</a></span> <span class="utopos-margin-note biennale-note-map"><button type="button" data-biennale-gallery="map">Avallon — alternative map</button></span></p><p class="utopos-annotated">The <em>U:TOPOS mobile application</em> emerged from this research, using the town's real geographical coordinates. Unlike a conventional navigation map, it does not aim to display the entire structure at once. Users are shown nearby points, directions, traces, and individual spatial relationships. The application continues to develop: it is envisaged that routes, the execution of instructions, and repeated passages may change the available states of the map. <span class="utopos-margin-note"><button type="button" data-biennale-video="KNjDNBqnZqk">U:TOPOS mobile application</button></span></p><p class="utopos-annotated">In spring 2026, Dёni Mustafa organized the group exhibition <em>Ma plus grande œuvre — et peut-être la plus idiote</em> at Utopos 22 (La Tannerie, Avallon), bringing together 22 local artists. Among the exhibited works was a <em>tourist postcard</em> of the town, sent by the artist to himself — from the past into the future — bearing the inscription “Je ferai une Biennale dans cette ville.” It became the first public record of the future U:TOPOS Biennale. <span class="utopos-margin-note biennale-note-exhibition"><a href="ma-plus-grande-oeuvre.html">Ma plus grande œuvre — et peut-être la plus idiote</a></span> <span class="utopos-margin-note biennale-note-postcard"><button type="button" data-biennale-gallery="postcard">Je ferai une Biennale dans cette ville</button></span></p><p>One of the biennale's initial models envisaged an exhibition distributed across the rooms of a social residence. The plan was for 10–12 artists with experiences of migration to spend two weeks there, each in a separate room of approximately 13 m², gradually transforming it into a solo exhibition or total installation. The rooms would then open to visitors, who could move between them.</p><p class="utopos-annotated">This model could not be realized. However, in June 2026, the original idea returned in another form. The two-week <em>Pré-Biennale</em> took place in Dёni Mustafa's own 13 m² room in a social residence in Avallon. Maps, diagrams, observation sheets, interview fragments, and other preparatory materials were displayed on the walls. The room remained both a living space and a place for presenting the current state of the project. <span class="utopos-margin-note"><button type="button" data-biennale-gallery="prebiennale">Pré-Biennale, June 2026</button></span></p><div class="biennale-section-heading"><h2>Works and Actions</h2><p>As of October 2026 → As of November 2026.</p></div><p class="utopos-annotated"><em>BLOW-UP</em> — a photographic relay in which each successive participant receives only one photograph and creates a new one by investigating what lies beyond the image's frame. Documentation of the stages of this sequence is displayed in the urban space of Avallon. <span class="utopos-margin-note"><button type="button" data-biennale-gallery="blowup">BLOW-UP, October 2026</button></span></p><p class="utopos-annotated"><em>PLAINTES OUVERTES</em> — On 7 November 2026, a temporary complaints office for U:TOPOS : Biennale 2027 was set up in Avallon, before the Biennale had taken place. For two hours, anyone could submit a complaint about its organisation, its absence, their own non-participation, contemporary art, the town, or anything else. Two complaints were received and registered. The office operated with forms, a submission box, a counter and fixed opening hours. The action showed that the existence of this temporary institutional structure did not depend on the number of complaints received, but on the established possibility of submitting one. <span class="utopos-margin-note"><button type="button" data-biennale-gallery="plaintes">PLAINTES OUVERTES, November 2026</button></span></p><div id="biennaleGalleryData" style="display: none!important;" hidden="" aria-hidden="true"><div data-biennale-set="questionnaires"><span data-caption="Questionnaire for refugees. 22 responses collected.">Biennale-2-1-refugee.jpg</span> <span data-caption="Micro-survey for local residents of Avallon. 51 responses collected.">Biennale-2-locals.jpg</span></div><div data-biennale-set="map"><span data-caption="Alternative map of Avallon. Three layers: the artist's personal topography, responses from refugees (Réfugiés), and responses from local residents (Locaux).">Biennale-1-map-AV.jpg</span></div><div data-biennale-set="postcard"><span data-caption="Je ferai une Biennale dans cette ville. A tourist postcard of Avallon sent by the artist to himself, bearing the first public record of the future U:TOPOS Biennale.">Biennale-3-postcard.jpg</span></div><div data-biennale-set="prebiennale"><span data-caption="Pré-Biennale, Avallon, June 2026. A two-week presentation of the current state of U:TOPOS in an inhabited 13 m² room.">Biennale-4-1_edited.jpg</span> <span data-caption="Pré-Biennale, Avallon, June 2026. A two-week presentation of the current state of U:TOPOS in an inhabited 13 m² room.">Biennale-4-2_edited.jpg</span></div><div data-biennale-set="blowup"><span data-caption="BLOW-UP, Avallon, October 2026. Public-space presentation of documentation from an ongoing photographic relay.">Biennale-5-blow-up-00.jpg</span> <span data-caption="BLOW-UP, Avallon, October 2026. Public-space presentation of documentation from an ongoing photographic relay.">Biennale-5-blow-up-01.jpg</span> <span data-caption="BLOW-UP, Avallon, October 2026. Public-space presentation of documentation from an ongoing photographic relay.">Biennale-5-blow-up-02.jpg</span> <span data-caption="BLOW-UP, Avallon, October 2026. Public-space presentation of documentation from an ongoing photographic relay.">Biennale-5-blow-up-03.jpg</span> <span data-caption="BLOW-UP, Avallon, October 2026. Public-space presentation of documentation from an ongoing photographic relay.">Biennale-5-blow-up-04.jpg</span> <span data-caption="BLOW-UP, Avallon, October 2026. Public-space presentation of documentation from an ongoing photographic relay.">Biennale-5-blow-up-05.jpg</span> <span data-caption="BLOW-UP, Avallon, October 2026. Public-space presentation of documentation from an ongoing photographic relay.">Biennale-5-blow-up-06.jpg</span> <span data-caption="BLOW-UP, Avallon, October 2026. Public-space presentation of documentation from an ongoing photographic relay.">Biennale-5-blow-up-07.jpg</span> <span data-caption="BLOW-UP, Avallon, October 2026. Public-space presentation of documentation from an ongoing photographic relay.">Biennale-5-blow-up-08.jpg</span> <span data-caption="BLOW-UP, Avallon, October 2026. Public-space presentation of documentation from an ongoing photographic relay.">Biennale-5-blow-up-09.jpg</span></div><div data-biennale-set="plaintes"><span data-caption="">Biennale-6-plaintes-01.jpg</span> <span data-caption="">Biennale-6-plaintes-02.JPG</span></div></div></div></div></article></main><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Powered by Publii</p></div></div></footer><script defer="defer" src="https://denimustafa.com/assets/js/scripts.min.js?v=dafec4f87fead6718cb125f0b0fc8441"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
         for (var i = 0; i < images.length; i++) {
             if (images[i].complete) {
