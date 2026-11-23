@@ -1,0 +1,2093 @@
+<!DOCTYPE html><html lang="en-gb"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Après - Dёni Mustafa</title><meta name="description" content="ARCHIVE / WORK Après Solo exhibition Après is a spatial work in which the word APRÈS was repeated 45 times across the walls of the exhibition space using nails and stretched red rubber bands. Each word existed as a construction held by physical tension: the&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://denimustafa.com/archive-apres.html"><link rel="alternate" type="application/atom+xml" href="https://denimustafa.com/feed.xml" title="Dёni Mustafa - RSS"><link rel="alternate" type="application/json" href="https://denimustafa.com/feed.json" title="Dёni Mustafa - JSON"><meta property="og:title" content="Après"><meta property="og:site_name" content="Dёni Mustafa"><meta property="og:description" content="ARCHIVE / WORK Après Solo exhibition Après is a spatial work in which the word APRÈS was repeated 45 times across the walls of the exhibition space using nails and stretched red rubber bands. Each word existed as a construction held by physical tension: the&hellip;"><meta property="og:url" content="https://denimustafa.com/archive-apres.html"><meta property="og:type" content="article"><link rel="shortcut icon" href="https://denimustafa.com/media/website/favicon-2.png" type="image/x-icon"><link rel="stylesheet" href="https://denimustafa.com/assets/css/style.css?v=f58f9efe15c5f984c7eb1994ebe5a477"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://denimustafa.com/archive-apres.html"},"headline":"Après","datePublished":"2026-11-22T21:45+01:00","dateModified":"2026-11-22T21:45+01:00","description":"ARCHIVE / WORK Après Solo exhibition Après is a spatial work in which the word APRÈS was repeated 45 times across the walls of the exhibition space using nails and stretched red rubber bands. Each word existed as a construction held by physical tension: the&hellip;","author":{"@type":"Person","name":"Dёni Mustafa","url":"https://denimustafa.com/authors/dyoni-mustafa/"},"publisher":{"@type":"Organization","name":"Dёni Mustafa"}}</script><noscript><style>img[loading] {
+                    opacity: 1;
+                }</style></noscript></head><body class="page-template"><script>/* Animated entry */
+    function initMobileEntry() {
+  const entryLinks = [
+    { label: "22", href: "22.html" },
+    { label: "U:TOPOS", href: "utopos.html" },
+    { label: "ʒиN", href: "zin.html" },
+    { label: "Archive", href: "archive.html" },
+    { label: "Index / Info", href: "index-info.html" }
+  ];
+
+  const entry = document.createElement("div");
+  entry.id = "mobile-entry";
+
+  entry.innerHTML = `
+    <button id="mobile-entry-origin" aria-label="Enter site"></button>
+    <div id="mobile-entry-second"></div>
+    <nav id="mobile-entry-menu" aria-label="Main navigation"></nav>
+  `;
+
+  document.body.prepend(entry);
+
+  const origin = entry.querySelector("#mobile-entry-origin");
+  const second = entry.querySelector("#mobile-entry-second");
+  const menu = entry.querySelector("#mobile-entry-menu");
+
+  entryLinks.forEach(function (link, index) {
+    const a = document.createElement("a");
+    a.textContent = link.label;
+    a.href = link.href;
+
+    if (index === 3) a.classList.add("entry-gap");
+
+    menu.appendChild(a);
+  });
+
+  function completeEntry() {
+    entry.classList.add("is-complete");
+
+    menu.querySelectorAll("a").forEach(function (item) {
+      item.classList.add("is-visible");
+    });
+
+    sessionStorage.setItem("animatedEntryPlayedInThisTab", "1");
+  }
+
+  if (sessionStorage.getItem("animatedEntryPlayedInThisTab") === "1") {
+    completeEntry();
+    return;
+  }
+
+  origin.addEventListener("click", function () {
+    if (entry.classList.contains("is-started")) return;
+
+    entry.classList.add("is-started");
+
+    setTimeout(function () {
+      completeEntry();
+    }, 1000);
+  });
+}
+    
+function initAnimatedEntry() {
+  const SHOW_ONLY_ONCE = false;
+
+  const entryPlayedInThisTab =
+    sessionStorage.getItem("animatedEntryPlayedInThisTab") === "1";
+
+  const entrySeenPermanently =
+    SHOW_ONLY_ONCE && localStorage.getItem("animatedEntrySeen") === "1";
+
+  const entrySeen =
+    entryPlayedInThisTab || entrySeenPermanently;
+
+  const isDesktop = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  const isHome =
+    window.location.pathname === "/" ||
+    window.location.pathname.endsWith("/index.html") ||
+    window.location.pathname.endsWith("index.html");
+
+  if (!isHome) return;
+
+if (!isDesktop) {
+  initMobileEntry();
+  return;
+}
+
+  const entryLinks = [
+    { label: "22", href: "22.html" },
+    { label: "U:TOPOS", href: "utopos.html" },
+    { label: "ʒиN", href: "zin.html" },
+    { label: "Archive", href: "archive.html" },
+    { label: "Index / Info", href: "index-info.html" }
+  ];
+
+  const entry = document.createElement("div");
+  entry.id = "animated-entry";
+  entry.setAttribute("aria-label", "Site entry");
+
+  entry.innerHTML = `
+    <div id="entry-origin" class="entry-dot"></div>
+    <div id="entry-cursor" class="entry-dot"></div>
+    <nav id="entry-menu" aria-label="Main navigation"></nav>
+  `;
+
+  document.body.prepend(entry);
+
+  document.documentElement.classList.add("entry-active");
+  document.body.classList.add("entry-active");
+
+  const originDot = document.getElementById("entry-origin");
+  const cursorDot = document.getElementById("entry-cursor");
+  const menu = document.getElementById("entry-menu");
+
+  entryLinks.forEach(function (link, index) {
+    const a = document.createElement("a");
+    a.textContent = link.label;
+    a.href = link.href;
+
+    if (index === 3) {
+      a.classList.add("entry-gap");
+    }
+
+    menu.appendChild(a);
+  });
+
+  let centerX = window.innerWidth / 2;
+  let centerY = window.innerHeight * 0.41;
+  let state = "waiting";
+
+  function setDotPosition(dot, x, y) {
+    dot.style.left = x + "px";
+    dot.style.top = y + "px";
+  }
+
+  function resetCenter() {
+    centerX = window.innerWidth / 2;
+    centerY = window.innerHeight * 0.41;
+
+    entry.style.setProperty("--entry-x", centerX + "px");
+
+    if (state === "waiting") {
+      setDotPosition(originDot, centerX, centerY);
+    }
+  }
+
+  resetCenter();
+
+  if (entrySeen) {
+    state = "complete";
+
+    originDot.style.animation = "none";
+
+    setDotPosition(originDot, centerX, centerY - 15);
+    setDotPosition(cursorDot, centerX, centerY + 15);
+
+    originDot.style.opacity = "1";
+    cursorDot.style.opacity = "1";
+
+    entry.classList.add("is-complete");
+
+    menu.querySelectorAll("a").forEach(function (item) {
+      item.classList.add("is-visible");
+    });
+
+    return;
+  }
+
+  function startCapture() {
+    if (state !== "waiting") return;
+
+    state = "captured";
+
+    window.removeEventListener("mousemove", handleMouseMove);
+
+    originDot.style.animation = "none";
+
+    originDot.style.transition =
+      "left 320ms cubic-bezier(.2,.8,.2,1), top 320ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease";
+
+    cursorDot.style.transition =
+      "left 320ms cubic-bezier(.2,.8,.2,1), top 320ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease";
+
+    setDotPosition(originDot, centerX - 18, centerY);
+    setDotPosition(cursorDot, centerX + 18, centerY);
+
+    setTimeout(function () {
+      originDot.style.transition =
+        "left 390ms cubic-bezier(.2,.8,.2,1), top 390ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease";
+
+      cursorDot.style.transition =
+        "left 390ms cubic-bezier(.2,.8,.2,1), top 390ms cubic-bezier(.2,.8,.2,1), opacity 180ms ease";
+
+      setDotPosition(originDot, centerX, centerY - 15);
+      setDotPosition(cursorDot, centerX, centerY + 15);
+    }, 430);
+
+    setTimeout(function () {
+      originDot.style.opacity = "1";
+      cursorDot.style.opacity = "1";
+      entry.classList.add("is-complete");
+
+      sessionStorage.setItem("animatedEntryPlayedInThisTab", "1");
+
+      if (SHOW_ONLY_ONCE) {
+        localStorage.setItem("animatedEntrySeen", "1");
+      }
+    }, 930);
+
+    setTimeout(function () {
+      const items = menu.querySelectorAll("a");
+
+      items.forEach(function (item, index) {
+        setTimeout(function () {
+          item.classList.add("is-visible");
+        }, index * 230);
+      });
+    }, 1080);
+  }
+
+  function handleMouseMove(event) {
+    if (state !== "waiting") return;
+
+    const x = event.clientX;
+    const y = event.clientY;
+
+    cursorDot.style.opacity = "1";
+    setDotPosition(cursorDot, x, y);
+
+    const distance = Math.hypot(x - centerX, y - centerY);
+
+    if (distance < 58) {
+      startCapture();
+    }
+  }
+
+  window.addEventListener("mousemove", handleMouseMove, { passive: true });
+
+    window.addEventListener("resize", function () {
+    resetCenter();
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initAnimatedEntry);
+} else {
+  initAnimatedEntry();
+}</script><script>/* Entre 22 — Forest gallery */
+
+(function () {
+  function initForest() {
+
+    const section = document.querySelector(
+      ".entre22-page .entre22-forest"
+    );
+
+    if (!section || section.dataset.galleryReady === "1") return;
+    section.dataset.galleryReady = "1";
+
+    const count = 41;
+const initiallyVisible = 12;
+
+    function photoNumber(n) {
+  return n >= 5 ? n + 1 : n;
+}
+
+function filename(n) {
+  return "media/files/Forest-" +
+    String(photoNumber(n)).padStart(2, "0") + ".jpg";
+}
+
+function thumbnailFilename(n) {
+  return "media/files/Forest-" +
+    String(photoNumber(n)).padStart(2, "0") + "-thumb.jpg";
+}
+
+    /* STYLES */
+
+    const css = document.createElement("style");
+
+    css.textContent = `
+      .entre22-page .entre22-forest-grid {
+        display: grid !important;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 10px;
+        width: 100%;
+        justify-items: stretch;
+        align-items: stretch;
+      }
+
+      .entre22-page .entre22-forest-photo {
+        box-sizing: border-box !important;
+        display: block !important;
+        position: relative;
+        width: 100% !important;
+        min-width: 0 !important;
+        height: auto !important;
+        aspect-ratio: 1;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        float: none !important;
+        transform: none !important;
+
+        background-color: #f4f4f4 !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-size: contain !important;
+
+        cursor: pointer;
+        line-height: 0 !important;
+      }
+
+      .entre22-page .entre22-forest-photo[hidden] {
+        display: none !important;
+      }
+
+      .entre22-page .entre22-forest-photo:hover {
+        opacity: .8;
+      }
+
+      .entre22-page .entre22-forest-expand {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 36px !important;
+        height: 36px !important;
+        margin: 14px 0 0 !important;
+        padding: 0 !important;
+
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+
+        color: #b24a4a !important;
+        font-family: inherit;
+        font-size: 28px;
+        font-weight: 400;
+        line-height: 1;
+
+        cursor: pointer;
+      }
+
+      .entre22-page .entre22-forest-expand:hover {
+        color: #8f3434 !important;
+      }
+
+      .entre22-page .entre22-forest-photo:focus-visible,
+      .entre22-page .entre22-forest-expand:focus-visible {
+        outline: 2px solid #b24a4a !important;
+        outline-offset: 3px;
+      }
+
+      /* LIGHTBOX */
+
+      .entre22-forest-lightbox[hidden] {
+        display: none !important;
+      }
+
+      .entre22-forest-lightbox {
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 2147483000 !important;
+
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 54px 62px 56px;
+
+        background: #191919 !important;
+        color: #fff !important;
+      }
+
+      .entre22-forest-lightbox figure {
+        margin: 0;
+        max-width: 100%;
+        max-height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .entre22-forest-lightbox figure img {
+        display: block;
+        max-width: 100%;
+        max-height: calc(100vh - 125px);
+        max-height: calc(100dvh - 125px);
+
+        width: auto;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .entre22-forest-lightbox figcaption {
+        color: #ddd;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .entre22-forest-lightbox button {
+        position: absolute;
+        display: grid;
+        place-items: center;
+
+        padding: 0 !important;
+        margin: 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+
+        color: #fff !important;
+        cursor: pointer;
+      }
+
+      .entre22-forest-lightbox button:focus-visible {
+        outline: 2px solid #fff !important;
+      }
+
+      .entre22-forest-close {
+        top: 10px;
+        right: 18px;
+        width: 42px;
+        height: 42px;
+        font-size: 34px;
+      }
+
+      .entre22-forest-prev,
+      .entre22-forest-next {
+        top: 50%;
+        transform: translateY(-50%);
+        width: 46px;
+        height: 64px;
+        font-size: 40px;
+      }
+
+      .entre22-forest-prev {
+        left: 9px;
+      }
+
+      .entre22-forest-next {
+        right: 9px;
+      }
+    .entre22-forest-prev svg,
+.entre22-forest-next svg {
+  display: block;
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+      /* MOBILE */
+
+      @media (max-width: 640px) {
+        .entre22-page .entre22-forest-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 7px;
+        }
+
+        .entre22-forest-lightbox {
+          padding: 50px 42px 54px;
+        }
+
+        .entre22-forest-prev {
+          left: 0;
+        }
+
+        .entre22-forest-next {
+          right: 0;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .entre22-page .entre22-forest-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+    `;
+
+    document.head.appendChild(css);
+
+    /* GRID */
+
+    const grid = document.createElement("div");
+    grid.className = "entre22-forest-grid";
+    grid.id = "entre22-forest-grid";
+
+    const photos = [];
+
+    function setThumbnail(button, n) {
+      button.style.setProperty(
+        "background-image",
+        'url("' + thumbnailFilename(n) + '")',
+        "important"
+      );
+    }
+
+    for (let n = 1; n <= count; n++) {
+
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "entre22-forest-photo";
+
+      button.setAttribute(
+        "aria-label",
+        "Open Forest photograph " + n + " of " + count
+      );
+
+      button.hidden = n > initiallyVisible;
+
+      if (n <= initiallyVisible) {
+        setThumbnail(button, n);
+      }
+
+      button.addEventListener("click", function () {
+        openPhoto(n);
+      });
+
+      grid.appendChild(button);
+      photos.push({ button, n });
+    }
+
+    section.appendChild(grid);
+
+    /* EXPAND / COLLAPSE */
+
+    const expand = document.createElement("button");
+    expand.type = "button";
+    expand.className = "entre22-forest-expand";
+
+    expand.setAttribute(
+      "aria-controls",
+      "entre22-forest-grid"
+    );
+
+    expand.setAttribute("aria-expanded", "false");
+    expand.setAttribute("aria-label", "Show all 41 photographs");
+
+    expand.textContent = "+";
+
+    section.appendChild(expand);
+
+    let expanded = false;
+
+    expand.addEventListener("click", function () {
+
+      expanded = !expanded;
+
+      photos.forEach(function (photo) {
+
+        if (photo.n > initiallyVisible) {
+
+          photo.button.hidden = !expanded;
+
+          if (expanded &&
+              !photo.button.style.getPropertyValue("background-image")) {
+            setThumbnail(photo.button, photo.n);
+          }
+        }
+
+      });
+
+      expand.setAttribute(
+        "aria-expanded",
+        String(expanded)
+      );
+
+      expand.setAttribute(
+        "aria-label",
+        expanded
+          ? "Collapse to first 12 photographs"
+          : "Show all 41 photographs"
+      );
+
+      expand.textContent = expanded ? "−" : "+";
+    });
+
+    /* FULL-SIZE VIEWER */
+
+    const lightbox = document.createElement("div");
+
+    lightbox.className = "entre22-forest-lightbox";
+    lightbox.hidden = true;
+
+    lightbox.setAttribute("role", "dialog");
+    lightbox.setAttribute("aria-modal", "true");
+    lightbox.setAttribute("aria-label", "Forest photographs");
+
+    lightbox.innerHTML = `
+      <button type="button"
+              class="entre22-forest-close"
+              aria-label="Close">×</button>
+
+      <button type="button"
+        class="entre22-forest-prev"
+        aria-label="Previous photograph">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M19 12H5m7-7-7 7 7 7"/>
+  </svg>
+</button>
+
+      <figure>
+        <img alt="">
+        <figcaption></figcaption>
+      </figure>
+
+     <button type="button"
+        class="entre22-forest-next"
+        aria-label="Next photograph">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M5 12h14m-7-7 7 7-7 7"/>
+  </svg>
+</button>
+    `;
+
+    document.body.appendChild(lightbox);
+
+    const bigImage = lightbox.querySelector("figure img");
+    const counter = lightbox.querySelector("figcaption");
+
+    const closeButton = lightbox.querySelector(
+      ".entre22-forest-close"
+    );
+
+    const prevButton = lightbox.querySelector(
+      ".entre22-forest-prev"
+    );
+
+    const nextButton = lightbox.querySelector(
+      ".entre22-forest-next"
+    );
+
+    let current = 1;
+    let restoreFocus = null;
+    let previousOverflow = "";
+
+    function displayPhoto(n) {
+
+      current = ((n - 1 + count) % count) + 1;
+
+      bigImage.src = filename(current);
+      bigImage.alt = "Forest — photograph " + current;
+
+      counter.textContent = current + " / " + count;
+    }
+
+    function openPhoto(n) {
+
+      restoreFocus = document.activeElement;
+      previousOverflow = document.body.style.overflow;
+
+      displayPhoto(n);
+
+      lightbox.hidden = false;
+      document.body.style.overflow = "hidden";
+
+      closeButton.focus();
+    }
+
+    function closePhoto() {
+
+      if (lightbox.hidden) return;
+
+      lightbox.hidden = true;
+
+      document.body.style.overflow = previousOverflow;
+      bigImage.removeAttribute("src");
+
+      if (restoreFocus && restoreFocus.isConnected) {
+        restoreFocus.focus();
+      }
+    }
+
+    closeButton.addEventListener("click", closePhoto);
+
+    prevButton.addEventListener("click", function () {
+      displayPhoto(current - 1);
+    });
+
+    nextButton.addEventListener("click", function () {
+      displayPhoto(current + 1);
+    });
+          
+          let swipeStart = null;
+
+lightbox.addEventListener("touchstart", function (event) {
+  if (lightbox.hidden || event.touches.length !== 1) {
+    swipeStart = null;
+    return;
+  }
+
+  swipeStart = {
+    x: event.touches[0].clientX,
+    y: event.touches[0].clientY
+  };
+}, { passive: true });
+
+lightbox.addEventListener("touchend", function (event) {
+  if (!swipeStart || lightbox.hidden || event.changedTouches.length !== 1) {
+    swipeStart = null;
+    return;
+  }
+
+  const dx = event.changedTouches[0].clientX - swipeStart.x;
+  const dy = event.changedTouches[0].clientY - swipeStart.y;
+
+  swipeStart = null;
+
+  if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+    displayPhoto(current + (dx < 0 ? 1 : -1));
+  }
+}, { passive: true });
+
+lightbox.addEventListener("touchcancel", function () {
+  swipeStart = null;
+}, { passive: true });
+
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) {
+        closePhoto();
+      }
+    });
+
+    /* KEYBOARD */
+
+    document.addEventListener("keydown", function (event) {
+
+      if (lightbox.hidden) return;
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closePhoto();
+      }
+
+      if (event.key === "ArrowLeft") {
+        event.preventDefault();
+        displayPhoto(current - 1);
+      }
+
+      if (event.key === "ArrowRight") {
+        event.preventDefault();
+        displayPhoto(current + 1);
+      }
+
+      if (event.key === "Tab") {
+
+        const buttons = [
+          closeButton,
+          prevButton,
+          nextButton
+        ];
+
+        const index = buttons.indexOf(document.activeElement);
+
+        const nextIndex = index === -1
+          ? (event.shiftKey ? 2 : 0)
+          : (index + (event.shiftKey ? 2 : 1)) % 3;
+
+        event.preventDefault();
+        buttons[nextIndex].focus();
+      }
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initForest);
+  } else {
+    initForest();
+  }
+
+})();</script><script>/* Shared horizontal gallery: mouse drag + live progress. Handles multiple galleries. */
+(function () {
+  function initHorizontalGalleries() {
+    document.querySelectorAll('.site-horizontal-gallery, [data-horizontal-gallery]').forEach(function (gallery) {
+      if (gallery.dataset.horizontalGalleryReady === '1') return;
+
+      const strip = gallery.querySelector('.site-horizontal-gallery__strip, [data-horizontal-gallery-strip]');
+      const track = gallery.querySelector('.site-horizontal-gallery__progress');
+      if (!strip || !track) return;
+
+      // Always construct the marker; the Publii editor need not preserve it.
+      let thumb = track.querySelector('.site-horizontal-gallery__thumb');
+      if (!thumb) {
+        thumb = document.createElement('span');
+        thumb.className = 'site-horizontal-gallery__thumb';
+        track.textContent = '';
+        track.appendChild(thumb);
+      }
+      gallery.dataset.horizontalGalleryReady = '1';
+
+      let pending = false;
+      function updateProgress() {
+        pending = false;
+        const visible = strip.clientWidth;
+        const total = strip.scrollWidth;
+        const line = track.clientWidth;
+        if (!visible || !total || !line) return;
+
+        const maxScroll = Math.max(0, total - visible);
+        const markerWidth = maxScroll
+          ? Math.min(line, Math.max(20, line * visible / total))
+          : line;
+        const progress = maxScroll
+          ? Math.max(0, Math.min(1, strip.scrollLeft / maxScroll))
+          : 0;
+        thumb.style.width = markerWidth + 'px';
+        thumb.style.transform = 'translateX(' + ((line - markerWidth) * progress) + 'px)';
+      }
+      function requestProgress() {
+        if (pending) return;
+        pending = true;
+        requestAnimationFrame(updateProgress);
+      }
+
+      strip.addEventListener('scroll', requestProgress, { passive: true });
+      window.addEventListener('resize', requestProgress);
+      window.addEventListener('pageshow', requestProgress);
+      if ('ResizeObserver' in window) {
+        const observer = new ResizeObserver(requestProgress);
+        observer.observe(strip);
+        observer.observe(track);
+      }
+      strip.querySelectorAll('img').forEach(function (img) {
+        if (!img.complete) img.addEventListener('load', requestProgress, { once: true });
+      });
+
+      // Mouse drag only. Touch swipe and vertical touch scrolling stay native.
+      let pointerId = null;
+      let startX = 0;
+      let startLeft = 0;
+      function endDrag(event) {
+        if (pointerId === null || (event && event.pointerId !== pointerId)) return;
+        const endedId = pointerId;
+        pointerId = null;
+        strip.classList.remove('is-dragging');
+        if (strip.hasPointerCapture(endedId)) strip.releasePointerCapture(endedId);
+      }
+      strip.addEventListener('pointerdown', function (event) {
+        if (event.pointerType !== 'mouse' || event.button !== 0) return;
+        // Mobile-only strips use native touch swipe; never capture mouse clicks on images.
+        if (gallery.getAttribute('data-horizontal-gallery') === 'mobile') return;
+        pointerId = event.pointerId;
+        startX = event.clientX;
+        startLeft = strip.scrollLeft;
+        strip.classList.add('is-dragging');
+        strip.setPointerCapture(pointerId);
+        event.preventDefault();
+      });
+      strip.addEventListener('pointermove', function (event) {
+        if (pointerId !== event.pointerId) return;
+        strip.scrollLeft = startLeft - (event.clientX - startX);
+        requestProgress();
+      });
+      strip.addEventListener('pointerup', endDrag);
+      strip.addEventListener('pointercancel', endDrag);
+      strip.addEventListener('lostpointercapture', function () {
+        pointerId = null;
+        strip.classList.remove('is-dragging');
+      });
+      strip.addEventListener('dragstart', function (event) { event.preventDefault(); });
+
+      requestProgress();
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHorizontalGalleries);
+  } else {
+    initHorizontalGalleries();
+  }
+})();
+
+    
+    
+    /* Shared page-image viewer. Insert once into Custom HTML > Body, INSIDE an existing <script> block. */
+(function () {
+  function initSiteImageViewer() {
+    // Full-bleed galleries sit in a separate grid row from the text and menu.
+    // The row height is determined by whichever of the two is taller.
+    document.querySelectorAll('.site-horizontal-gallery').forEach(function (gallery) {
+      const shell = gallery.closest('.site-section-nav-shell');
+      const page = shell && shell.querySelector(':scope > .site-text-page');
+      if (shell && page && page.contains(gallery)) page.after(gallery);
+    });
+
+    // Keep horizontal-strip galleries and the separate Forest viewer independent.
+    const geometricPage = document.querySelector('.site-geometric-figures-page');
+
+let images = geometricPage
+  ? [
+      ...geometricPage.querySelectorAll('.site-words-gallery--five img'),
+      ...geometricPage.querySelectorAll('.site-horizontal-gallery__strip img')
+    ]
+  : Array.from(document.querySelectorAll('.site-text-page img')).filter(function (img) {
+      return !img.closest('.site-horizontal-gallery, .abstract-structures-strip, .entre22-forest, .entre22-forest-lightbox, [data-site-viewer-exclude]') &&
+        !img.hasAttribute('data-site-viewer-exclude');
+    });
+    // Preserve the page's original images for independent viewer groups.
+    const pageImages = images.slice();
+    // Biennale: documents are opened only through marginal-note controls.
+    // They do not appear as thumbnails in the page itself.
+    const biennale = document.querySelector('.site-biennale-page');
+    // Image data lives in the U:TOPOS Biennale page, in #biennaleGalleryData.
+    const biennaleSets = biennale ? Object.fromEntries(
+      Array.from(biennale.querySelectorAll('#biennaleGalleryData [data-biennale-set]'))
+        .map(function (set) {
+          const entries = Array.from(set.querySelectorAll('span[data-caption]'))
+            .map(function (entry) { return [entry.textContent.trim(), entry.getAttribute('data-caption') || '']; })
+            .filter(function (entry) { return entry[0] && !entry[0].includes('/'); });
+          return [set.getAttribute('data-biennale-set'), entries];
+        }).filter(function (item) { return item[0] && item[1].length > 0; })
+    ) : null;
+
+    const biennaleTriggers = biennale ? Array.from(
+      biennale.querySelectorAll('[data-biennale-gallery]')
+    ) : [];
+    const biennaleVideoTriggers = biennale ? Array.from(
+      biennale.querySelectorAll('[data-biennale-video]')
+    ) : [];
+    // A solitary ordinary illustration should not turn into a one-image gallery.
+    if (!biennaleTriggers.length && !biennaleVideoTriggers.length &&
+        (!images.length || (images.length === 1 && !images[0].hasAttribute('data-site-viewer-single')))) return;
+
+    const dialog = document.createElement('div');
+    dialog.className = 'site-image-viewer';
+    if (images.length === 1) dialog.classList.add('site-image-viewer--single');
+    dialog.hidden = true;
+    dialog.setAttribute('role', 'dialog');
+    dialog.setAttribute('aria-modal', 'true');
+    dialog.setAttribute('aria-label', 'Page photographs');
+    dialog.innerHTML = `
+      <button class="site-image-viewer__close" type="button" aria-label="Close image viewer">×</button>
+      <div class="site-image-viewer__stage">
+        <img class="site-image-viewer__photo" alt="" draggable="false">
+      </div>
+      <div class="site-image-viewer__footer">
+        <div class="site-image-viewer__caption"></div>
+        <div class="site-image-viewer__controls">
+          <button class="site-image-viewer__zoom-out" type="button" aria-label="Zoom out">−</button>
+          <button class="site-image-viewer__zoom-in" type="button" aria-label="Zoom in">+</button>
+          <span class="site-image-viewer__count" aria-live="polite"></span>
+          <button class="site-image-viewer__previous" type="button" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m7-7-7 7 7 7"/></svg></button>
+          <button class="site-image-viewer__next" type="button" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></button>
+        </div>
+      </div>`;
+    document.body.appendChild(dialog);
+
+    const photo = dialog.querySelector('.site-image-viewer__photo');
+    const caption = dialog.querySelector('.site-image-viewer__caption');
+    const count = dialog.querySelector('.site-image-viewer__count');
+    const close = dialog.querySelector('.site-image-viewer__close');
+    const previous = dialog.querySelector('.site-image-viewer__previous');
+    const next = dialog.querySelector('.site-image-viewer__next');
+    const stage = dialog.querySelector('.site-image-viewer__stage');
+    const zoomIn = dialog.querySelector('.site-image-viewer__zoom-in');
+    const zoomOut = dialog.querySelector('.site-image-viewer__zoom-out');
+    const footer = dialog.querySelector('.site-image-viewer__footer');
+    const controls = [close, previous, next];
+    let current = 0;
+    let lastFocus = null;
+    let oldOverflow = '';
+    let videoFrame = null;
+
+
+    // Map-only pan and zoom. Other galleries keep their established behaviour.
+    const maxZoom = 3;
+    let zoom = 1;
+    let panX = 0;
+    let panY = 0;
+    let activePointer = null;
+    let pointerOrigin = null;
+    let pinchDistance = null;
+    let pinchZoom = 1;
+
+    function isMap() {
+      return dialog.classList.contains('site-image-viewer--map');
+    }
+    function renderZoom() {
+      photo.style.transform = isMap()
+        ? 'translate(' + panX + 'px,' + panY + 'px) scale(' + zoom + ')'
+        : '';
+      photo.style.cursor = isMap() && zoom > 1 ? 'grab' : '';
+      zoomOut.disabled = zoom <= 1;
+      zoomIn.disabled = zoom >= maxZoom;
+    }
+    function resetZoom() {
+      zoom = 1;
+      panX = panY = 0;
+      pinchDistance = null;
+      activePointer = null;
+      renderZoom();
+    }
+    function setZoom(newZoom) {
+      zoom = Math.max(1, Math.min(maxZoom, newZoom));
+      if (zoom === 1) panX = panY = 0;
+      renderZoom();
+    }
+    zoomIn.addEventListener('click', function () { if (isMap()) setZoom(zoom * 1.5); });
+    zoomOut.addEventListener('click', function () { if (isMap()) setZoom(zoom / 1.5); });
+    stage.addEventListener('wheel', function (event) {
+      if (!isMap() || dialog.hidden) return;
+      event.preventDefault();
+      setZoom(zoom * (event.deltaY < 0 ? 1.15 : 1 / 1.15));
+    }, { passive: false });
+    stage.addEventListener('dblclick', function (event) {
+      if (!isMap() || dialog.hidden) return;
+      event.preventDefault();
+      setZoom(zoom > 1 ? 1 : 2);
+    });
+    stage.addEventListener('pointerdown', function (event) {
+      if (!isMap() || zoom <= 1 || event.pointerType === 'touch') return;
+      activePointer = event.pointerId;
+      pointerOrigin = { x: event.clientX - panX, y: event.clientY - panY };
+      stage.setPointerCapture(event.pointerId);
+    });
+    stage.addEventListener('pointermove', function (event) {
+      if (!isMap() || event.pointerId !== activePointer || !pointerOrigin) return;
+      panX = event.clientX - pointerOrigin.x;
+      panY = event.clientY - pointerOrigin.y;
+      renderZoom();
+    });
+    function finishPan(event) {
+      if (activePointer !== event.pointerId) return;
+      activePointer = null;
+      pointerOrigin = null;
+    }
+    stage.addEventListener('pointerup', finishPan);
+    stage.addEventListener('pointercancel', finishPan);
+    stage.addEventListener('touchstart', function (event) {
+      if (!isMap() || dialog.hidden) return;
+      if (event.touches.length === 2) {
+        const a = event.touches[0], b = event.touches[1];
+        pinchDistance = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+        pinchZoom = zoom;
+        pointerOrigin = null;
+      } else if (event.touches.length === 1 && zoom > 1) {
+        const a = event.touches[0];
+        pointerOrigin = { x: a.clientX - panX, y: a.clientY - panY };
+      }
+    }, { passive: true });
+    stage.addEventListener('touchmove', function (event) {
+      if (!isMap() || dialog.hidden) return;
+      if (event.touches.length === 2 && pinchDistance) {
+        event.preventDefault();
+        const a = event.touches[0], b = event.touches[1];
+        const distance = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+        setZoom(pinchZoom * distance / pinchDistance);
+      } else if (event.touches.length === 1 && zoom > 1 && pointerOrigin) {
+        event.preventDefault();
+        panX = event.touches[0].clientX - pointerOrigin.x;
+        panY = event.touches[0].clientY - pointerOrigin.y;
+        renderZoom();
+      }
+    }, { passive: false });
+    stage.addEventListener('touchend', function () {
+      pinchDistance = null;
+      pointerOrigin = null;
+    }, { passive: true });
+
+    // One centered footer width for the whole gallery, based on its widest
+    // image at the maximum available viewer size. Never follow the current photo.
+    let imageDimensions = null;
+    let dimensionRequest = null;
+    let footerFrame = 0;
+
+    function readDimensions(source) {
+      const width = source.naturalWidth || Number(source.getAttribute('width'));
+      const height = source.naturalHeight || Number(source.getAttribute('height'));
+      if (width > 0 && height > 0) {
+        return Promise.resolve({ width, height });
+      }
+      // Needed only for lazy-loaded photos without width/height attributes.
+      return new Promise(function (resolve) {
+        const image = new Image();
+        image.onload = function () {
+          resolve({ width: image.naturalWidth, height: image.naturalHeight });
+        };
+        image.onerror = function () { resolve(null); };
+        image.src = source.getAttribute('data-viewer-src') || source.src;
+      });
+    }
+
+    function ensureDimensions() {
+      if (!dimensionRequest) {
+        dimensionRequest = Promise.all(images.map(readDimensions)).then(function (all) {
+          imageDimensions = all.filter(function (size) {
+            return size && size.width > 0 && size.height > 0;
+          });
+          requestFooterAlignment();
+        });
+      }
+    }
+          
+    function alignFooter() {
+  footerFrame = 0;
+  if (dialog.hidden) return;
+
+  // Single image: align the caption to the actual image width.
+  if (dialog.classList.contains('site-image-viewer--single')) {
+    if (window.matchMedia('(max-width: 640px)').matches) {
+      dialog.style.removeProperty('--site-viewer-frame');
+    } else {
+      stage.style.alignItems = 'flex-end';
+      stage.style.paddingBottom = '0';
+      footer.style.paddingTop = '16px';
+
+      const imageWidth = photo.getBoundingClientRect().width;
+      if (imageWidth > 0) {
+        dialog.style.setProperty('--site-viewer-frame', imageWidth + 'px');
+      }
+    }
+    return;
+  }
+
+  if (!imageDimensions || !imageDimensions.length) return;
+
+  if (window.matchMedia('(max-width: 640px)').matches) {
+    dialog.style.removeProperty('--site-viewer-frame');
+    return;
+  }
+
+  const availableWidth = Math.max(1, stage.clientWidth);
+  const availableHeight = Math.max(1, stage.clientHeight);
+
+  const widest = Math.max.apply(null, imageDimensions.map(function (size) {
+    return Math.min(
+      size.width,
+      availableWidth,
+      availableHeight * size.width / size.height
+    );
+  }));
+
+  dialog.style.setProperty(
+    '--site-viewer-frame',
+    Math.min(availableWidth, widest) + 'px'
+  );
+}  
+    
+    function requestFooterAlignment() {
+      if (footerFrame) return;
+      footerFrame = requestAnimationFrame(alignFooter);
+    }
+    window.addEventListener('resize', requestFooterAlignment);
+    photo.addEventListener('load', requestFooterAlignment);
+
+    function display(index) {
+      current = (index + images.length) % images.length;
+      const source = images[current];
+      // Use the original src rather than an automatically downscaled srcset rendition.
+      photo.src = source.getAttribute('data-viewer-src') || source.src;
+      photo.alt = source.getAttribute('alt') || '';
+      const figure = source.closest('figure');
+      const label = figure && figure.querySelector('figcaption');
+      // For biennale documents, captions are stored with their source filenames.
+      caption.textContent = source.dataset.biennaleCaption || '';
+      if (!source.dataset.biennaleCaption) caption.innerHTML = label ? label.innerHTML.trim() : '';
+      count.textContent = (current + 1) + ' of ' + images.length;
+      resetZoom();
+      requestFooterAlignment();
+    }
+
+    function open(index, opener, groupName) {
+      dialog.classList.remove('site-image-viewer--video');
+      if (groupName && biennaleSets && biennaleSets[groupName]) {
+        images = biennaleSets[groupName].map(function (item) {
+          const itemImage = document.createElement('img');
+          itemImage.src = 'media/files/' + item[0];
+          itemImage.dataset.biennaleCaption = item[1];
+          return itemImage;
+        });
+        imageDimensions = null;
+        dimensionRequest = null;
+      }
+      else if (!groupName && opener && opener.hasAttribute('data-site-viewer-group')) {
+        const pageGroup = opener.getAttribute('data-site-viewer-group');
+        images = pageImages.filter(function (img) {
+          return img.getAttribute('data-site-viewer-group') === pageGroup;
+        });
+        index = images.indexOf(opener);
+        imageDimensions = null;
+        dimensionRequest = null;
+      }
+      const mapMode = groupName === 'map' ||
+        !!(opener && opener.hasAttribute('data-site-viewer-zoom'));
+      dialog.classList.toggle('site-image-viewer--single', images.length === 1);
+      dialog.classList.toggle('site-image-viewer--map', mapMode);
+      dialog.classList.toggle('site-image-viewer--postcard', groupName === 'postcard');
+      resetZoom();
+      lastFocus = opener;
+      oldOverflow = document.body.style.overflow;
+      display(index);
+      dialog.hidden = false;
+      ensureDimensions();
+      requestFooterAlignment();
+      document.body.style.overflow = 'hidden';
+      close.focus();
+    }
+    // Video is hosted inside the existing image-viewer dialog, not a second overlay.
+    function openVideo(videoId, opener) {
+      if (!/^[A-Za-z0-9_-]{11}$/.test(videoId)) return;
+      lastFocus = opener;
+      oldOverflow = document.body.style.overflow;
+      dialog.classList.remove('site-image-viewer--single', 'site-image-viewer--map', 'site-image-viewer--postcard');
+      dialog.classList.add('site-image-viewer--video');
+      dialog.style.removeProperty('--site-viewer-frame');
+      stage.style.removeProperty('align-items');
+      stage.style.removeProperty('padding-bottom');
+      footer.style.removeProperty('padding-top');
+      photo.style.display = 'none';
+      caption.textContent = '';
+      videoFrame = document.createElement('iframe');
+      videoFrame.className = 'site-image-viewer__video';
+      videoFrame.title = 'U:TOPOS mobile application — video demonstration';
+      videoFrame.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&playsinline=1';
+      videoFrame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      videoFrame.setAttribute('allowfullscreen', '');
+      stage.appendChild(videoFrame);
+      dialog.hidden = false;
+      document.body.style.overflow = 'hidden';
+      close.focus();
+    }
+    function dismiss() {
+      if (dialog.hidden) return;
+      dialog.hidden = true;
+      if (videoFrame) {
+        videoFrame.removeAttribute('src');
+        videoFrame.remove();
+        videoFrame = null;
+      }
+      photo.style.removeProperty('display');
+      dialog.classList.remove('site-image-viewer--video');
+      document.body.style.overflow = oldOverflow;
+      photo.removeAttribute('src');
+      if (lastFocus && lastFocus.isConnected) lastFocus.focus();
+    }
+    images.forEach(function (img, i) {
+  if (geometricPage && img.closest('.site-horizontal-gallery__strip')) return;
+
+  img.dataset.siteViewer = 'enabled';
+      img.tabIndex = 0;
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-haspopup', 'dialog');
+      img.setAttribute('aria-label', 'Open image ' + (i + 1) + ' of ' + images.length);
+      img.addEventListener('click', function () { open(i, img); });
+      img.addEventListener('keydown', function (event) {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
+        open(i, img);
+      });
+    });
+
+    biennaleTriggers.forEach(function (trigger) {
+      const group = trigger.getAttribute('data-biennale-gallery');
+      if (!biennaleSets || !Object.prototype.hasOwnProperty.call(biennaleSets, group)) return;
+      trigger.addEventListener('click', function (event) {
+        event.preventDefault();
+        open(0, trigger, group);
+      });
+    });
+
+    biennaleVideoTriggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function () {
+        openVideo(trigger.getAttribute('data-biennale-video'), trigger);
+      });
+    });
+
+    close.addEventListener('click', dismiss);
+    previous.addEventListener('click', function () { display(current - 1); });
+    next.addEventListener('click', function () { display(current + 1); });
+    dialog.addEventListener('click', function (event) {
+      if (event.target === dialog || (event.target === stage && (!isMap() || zoom === 1))) dismiss();
+    });
+    document.addEventListener('keydown', function (event) {
+      if (dialog.hidden) return;
+      if (event.key === 'Escape') { event.preventDefault(); dismiss(); }
+      else if (dialog.classList.contains('site-image-viewer--video')) return;
+      else if (event.key === 'ArrowLeft') { event.preventDefault(); display(current - 1); }
+      else if (event.key === 'ArrowRight') { event.preventDefault(); display(current + 1); }
+      else if (event.key === 'Tab') {
+        const first = controls[0];
+        const last = controls[controls.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault(); last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault(); first.focus();
+        }
+      }
+    });
+
+    let touchX = null;
+    let touchY = null;
+    stage.addEventListener('touchstart', function (event) {
+      if (event.touches.length !== 1) return;
+      touchX = event.touches[0].clientX;
+      touchY = event.touches[0].clientY;
+    }, { passive: true });
+    stage.addEventListener('touchend', function (event) {
+      if (touchX === null || !event.changedTouches.length) return;
+      if ((isMap() && (zoom > 1 || images.length < 2)) || dialog.classList.contains('site-image-viewer--video')) { touchX = touchY = null; return; }
+      const dx = event.changedTouches[0].clientX - touchX;
+      const dy = event.changedTouches[0].clientY - touchY;
+      touchX = touchY = null;
+      if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.3) {
+        display(current + (dx < 0 ? 1 : -1));
+      }
+    }, { passive: true });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSiteImageViewer);
+  } else {
+    initSiteImageViewer();
+  }
+})();</script><script>/* Utopos 22 — alternate entry from U:TOPOS */
+
+(function () {
+  const isUtopos22 = window.location.pathname.endsWith(
+    '/utopos-22-concept.html'
+  );
+
+  const fromUtopos = new URLSearchParams(
+    window.location.search
+  ).get('from') === 'utopos';
+
+  if (isUtopos22 && fromUtopos) {
+    document.documentElement.classList.add('utopos-entry-mode');
+  }
+})();</script><script>/* ʒиN catalogue/PDF viewer; adapted from the approved v6 prototype. */
+(function () {
+  function initZin() {
+    const catalog = document.getElementById('zinCatalog');
+    const viewer = document.getElementById('zinViewer');
+    if (!catalog || !viewer || catalog.dataset.viewerReady === '1') return;
+    catalog.dataset.viewerReady = '1';
+
+    // Data only. Titles drafted for v6 remain provisional; confirmed Syg.ma links go in sygmaUrl.
+    // Issue metadata belongs to the catalogue HTML, not to site-wide JavaScript.
+    // To add a new issue, add one zin-tile button in the ʒиN page HTML.
+    const ISSUE_DATA = Array.from(catalog.querySelectorAll('.zin-tile[data-issue]'), tile => ({
+      number: Number(tile.getAttribute('data-issue')),
+      title: tile.getAttribute('data-title') || '',
+      pdf: tile.getAttribute('data-pdf') || '',
+      layout: tile.getAttribute('data-layout') || 'page',
+      sygmaUrl: tile.getAttribute('data-sygma-url') || null
+    })).filter(issue => Number.isInteger(issue.number) && issue.number > 0 && issue.pdf);
+    const issues = new Map(ISSUE_DATA.map(issue => [issue.number, issue]));
+    const $ = id => viewer.querySelector('#' + id);
+    // Publii sometimes moves link labels outside <a> when saving the page.
+    // Reattach both labels to their anchors; remove only their stray text nodes.
+    for (const [id, label] of [['zinDownload', 'Download PDF'], ['zinSygma', 'Read on Syg.ma']]) {
+      const link = $(id);
+      if (!link) continue;
+      const stray = link.nextSibling;
+      if (stray && stray.nodeType === 3 && stray.textContent.trim() === label) stray.remove();
+      link.textContent = label;
+    }
+    const stage = $('zinStage');
+    const stack = $('zinPageStack');
+    const message = $('zinMessage');
+    let pdfjs = null;
+    let pdf = null, active = null, index = 1, zoom = 1, serial = 0, paintSerial = 0;
+    let slots = [], observer = null, renderTasks = new Map();
+    let resizeTimer = null, scrollTimer = null, fromCatalog = false;
+
+    function status(msg) {
+      message.textContent = msg;
+      message.hidden = !msg;
+    }
+    function updateControls() {
+      if (!pdf) return;
+      const paired = issues.get(active).layout === 'spread';
+      const label = paired && index < pdf.numPages ? index + '–' + (index + 1) : index;
+      $('zinPageNo').textContent = label;
+      $('zinPageTotal').textContent = pdf.numPages;
+      $('zinPrev').disabled = index <= 1;
+      $('zinNext').disabled = index >= pdf.numPages - (paired ? 1 : 0);
+      $('zinZoomLabel').textContent = Math.round(zoom * 100) + '%';
+    }
+    async function getLib() {
+      if (pdfjs) return pdfjs;
+      // Same pinned PDF.js version as v6, loaded only after opening a PDF.
+      const urls = [
+        'https://cdn.jsdelivr.net/npm/pdfjs-dist@6.5.438/build/pdf.min.mjs',
+        'https://unpkg.com/pdfjs-dist@6.5.438/build/pdf.min.mjs'
+      ];
+      for (const url of urls) {
+        try {
+          const lib = await import(url);
+          lib.GlobalWorkerOptions.workerSrc = url.substring(0, url.lastIndexOf('/')) + '/pdf.worker.min.mjs';
+          pdfjs = lib;
+          return lib;
+        } catch (error) {
+          console.warn('ʒиN: PDF.js source unavailable', url, error);
+        }
+      }
+      throw new Error('PDF.js could not be loaded. Check the Internet connection.');
+    }
+    function clearPrevious() {
+      paintSerial++;
+      if (observer) { observer.disconnect(); observer = null; }
+      for (const task of renderTasks.values()) { try { task.cancel(); } catch (_) {} }
+      renderTasks.clear();
+      slots = [];
+      stack.replaceChildren();
+      const oldPdf = pdf;
+      pdf = null;
+      if (oldPdf) oldPdf.destroy().catch(() => {});
+      status('');
+    }
+    function directUrl(no) {
+      const link = new URL(location.href);
+      link.searchParams.set('issue', String(no));
+      return link.pathname + link.search + link.hash;
+    }
+    function catalogUrl() {
+      const link = new URL(location.href);
+      link.searchParams.delete('issue');
+      return link.pathname + link.search + link.hash;
+    }
+    async function openIssue(no, push = true) {
+      const issue = issues.get(no);
+      if (!issue) return;
+      const token = ++serial;
+      clearPrevious();
+      active = no;
+      index = 1;
+      zoom = 1;
+      viewer.hidden = false;
+      catalog.hidden = true;
+      document.body.classList.add('zin-viewer-open');
+      viewer.dataset.layout = issue.layout;
+      $('zinIssueTitle').textContent = '№ ' + no + ' - ' + issue.title;
+      $('zinDownload').href = issue.pdf;
+      const sygma = $('zinSygma');
+      sygma.hidden = !issue.sygmaUrl;
+      // The theme can override the browser's default [hidden] style for links.
+      sygma.style.display = issue.sygmaUrl ? '' : 'none';
+      if (issue.sygmaUrl) sygma.href = issue.sygmaUrl;
+      else sygma.removeAttribute('href');
+      stage.scrollTo(0, 0);
+      status('Loading PDF…');
+      if (push) {
+        fromCatalog = true;
+        history.pushState({ zinIssue: no, zinFromCatalog: true }, '', directUrl(no));
+      }
+      try {
+        const lib = await getLib();
+        if (token !== serial) return;
+        const task = lib.getDocument({ url: issue.pdf });
+        const doc = await task.promise;
+        if (token !== serial) { await doc.destroy(); return; }
+        pdf = doc;
+        updateControls();
+        await createPages(token);
+        if (token !== serial) return;
+        status('');
+      } catch (error) {
+        if (token !== serial) return;
+        console.error('ʒиN PDF viewer:', error);
+        status('Unable to open PDF: ' + (error.message || error));
+      }
+    }
+    function viewSpace() {
+      return { w: Math.max(200, stage.clientWidth - 24), h: Math.max(230, stage.clientHeight - 42) };
+    }
+    function fitScale(rect) {
+      const box = viewSpace();
+      const maxw = issues.get(active).layout === 'continuous' ? Math.min(760, box.w) : box.w;
+      let result = maxw / rect.width;
+      if (issues.get(active).layout !== 'continuous') result = Math.min(result, box.h / rect.height);
+      return result;
+    }
+    function pageDimensions(page, baseScale) {
+      const rect = page.getViewport({ scale: 1 });
+      const scale = (baseScale ?? fitScale({ width: rect.width, height: rect.height })) * zoom;
+      return { width: rect.width * scale, height: rect.height * scale, scale };
+    }
+    async function renderCanvas(page, mount, size, token, paint) {
+      if (token !== serial || paint !== paintSerial) return;
+      const canvas = document.createElement('canvas');
+      const width = Math.max(1, Math.ceil(size.width));
+      const height = Math.max(1, Math.ceil(size.height));
+      // Cap bitmap memory for very large magazine pages; render afresh on every zoom.
+      const pixels = Math.max(1, width * height);
+      // Render at 2 device pixels per CSS pixel even on ordinary desktop displays.
+      // This reduces canvas resampling; keep the 18M-pixel memory cap.
+      const dpr = Math.min(Math.max(2, window.devicePixelRatio || 1), Math.sqrt(18000000 / pixels));
+      const scaleFactor = Math.max(.25, dpr);
+      const viewport = page.getViewport({ scale: size.scale * scaleFactor });
+      canvas.style.width = width + 'px';
+      canvas.style.height = height + 'px';
+      canvas.width = Math.max(1, Math.floor(viewport.width));
+      canvas.height = Math.max(1, Math.floor(viewport.height));
+      mount.replaceChildren(canvas);
+      const task = page.render({ canvasContext: canvas.getContext('2d', { alpha: false }), viewport });
+      renderTasks.set(canvas, task);
+      try {
+        await task.promise;
+      } catch (error) {
+        if (error?.name !== 'RenderingCancelledException') throw error;
+      } finally {
+        renderTasks.delete(canvas);
+      }
+    }
+    function cancelRenders() {
+      for (const task of renderTasks.values()) { try { task.cancel(); } catch (_) {} }
+      renderTasks.clear();
+    }
+    async function drawCurrent(token) {
+      if (!pdf || token !== serial) return;
+      const paint = ++paintSerial;
+      cancelRenders();
+      const first = await pdf.getPage(index);
+      if (token !== serial || paint !== paintSerial) return;
+      const spread = issues.get(active).layout === 'spread' && index < pdf.numPages;
+      const second = spread ? await pdf.getPage(index + 1) : null;
+      if (token !== serial || paint !== paintSerial) return;
+      const firstRect = first.getViewport({ scale: 1 });
+      const secondRect = second?.getViewport({ scale: 1 });
+      let base;
+      if (secondRect) {
+        base = fitScale({ width: firstRect.width + secondRect.width, height: Math.max(firstRect.height, secondRect.height) });
+      } else {
+        base = fitScale({ width: firstRect.width, height: firstRect.height });
+      }
+      // Render into a detached slot first: never expose an empty PDF stage
+      // while the next page is rasterising (or if rendering is cancelled).
+      const slot = document.createElement('div');
+      slot.className = 'zin-page-slot' + (secondRect ? ' zin-page-slot--spread' : '');
+      const mountFirst = document.createElement('div');
+      slot.append(mountFirst);
+      await renderCanvas(first, mountFirst, pageDimensions(first, base), token, paint);
+      if (token !== serial || paint !== paintSerial) return;
+      if (second) {
+        const mountSecond = document.createElement('div');
+        slot.append(mountSecond);
+        await renderCanvas(second, mountSecond, pageDimensions(second, base), token, paint);
+      }
+      if (token === serial && paint === paintSerial) {
+        stack.replaceChildren(slot);
+        slots = [{ slot, page: first, size: pageDimensions(first, base) }];
+        status('');
+        updateControls();
+      }
+    }
+    function removeInvisible(info) {
+      if (!info.loaded) return;
+      for (const canvas of info.slot.querySelectorAll('canvas')) {
+        const task = renderTasks.get(canvas);
+        if (task) { try { task.cancel(); } catch (_) {} renderTasks.delete(canvas); }
+        canvas.width = 0;
+        canvas.height = 0;
+        canvas.remove();
+      }
+      info.loaded = false;
+    }
+    async function renderVisible(info, token) {
+      if (token !== serial || info.loaded) return;
+      info.loaded = true;
+      const paint = paintSerial;
+      try {
+        await renderCanvas(info.page, info.slot, info.size, token, paint);
+      } catch (error) {
+        info.loaded = false;
+        if (error?.name !== 'RenderingCancelledException') console.error('ʒиN page rendering:', error);
+      }
+    }
+    async function createPages(token) {
+      slots = [];
+      stack.replaceChildren();
+      if (issues.get(active).layout === 'continuous') {
+        const paint = ++paintSerial;
+        for (let pageNo = 1; pageNo <= pdf.numPages; pageNo++) {
+          if (token !== serial || paint !== paintSerial) return;
+          const page = await pdf.getPage(pageNo);
+          const size = pageDimensions(page);
+          const slot = document.createElement('div');
+          slot.className = 'zin-page-slot';
+          slot.dataset.page = pageNo;
+          slot.style.width = Math.ceil(size.width) + 'px';
+          slot.style.height = Math.ceil(size.height) + 'px';
+          stack.append(slot);
+          slots.push({ slot, page, size, loaded: false });
+        }
+        observer = new IntersectionObserver(entries => {
+          for (const entry of entries) {
+            const info = slots.find(item => item.slot === entry.target);
+            if (!info) continue;
+            if (entry.isIntersecting) renderVisible(info, token);
+            else removeInvisible(info);
+          }
+        }, { root: stage, rootMargin: '500px 0px' });
+        for (const item of slots) observer.observe(item.slot);
+        updateControls();
+      } else {
+        await drawCurrent(token);
+      }
+    }
+    async function setZoom(value) {
+      if (!pdf) return;
+      zoom = Math.max(.5, Math.min(6, Math.round(value * 100) / 100));
+      const token = serial;
+      const cx = (stage.scrollLeft + stage.clientWidth / 2) / (stage.scrollWidth || 1);
+      const cy = (stage.scrollTop + stage.clientHeight / 2) / (stage.scrollHeight || 1);
+      if (issues.get(active).layout === 'continuous') {
+        const paint = ++paintSerial;
+        for (const info of slots) {
+          removeInvisible(info);
+          info.size = pageDimensions(info.page);
+          info.slot.style.width = Math.ceil(info.size.width) + 'px';
+          info.slot.style.height = Math.ceil(info.size.height) + 'px';
+        }
+        requestAnimationFrame(() => {
+          if (token !== serial || paint !== paintSerial) return;
+          stage.scrollLeft = cx * stage.scrollWidth - stage.clientWidth / 2;
+          stage.scrollTop = cy * stage.scrollHeight - stage.clientHeight / 2;
+          for (const info of slots) {
+            const rect = info.slot.getBoundingClientRect();
+            const area = stage.getBoundingClientRect();
+            if (rect.bottom > area.top - 500 && rect.top < area.bottom + 500) renderVisible(info, token);
+          }
+        });
+      } else {
+        await drawCurrent(token);
+        if (token !== serial) return;
+        stage.scrollLeft = cx * stage.scrollWidth - stage.clientWidth / 2;
+        stage.scrollTop = cy * stage.scrollHeight - stage.clientHeight / 2;
+      }
+      updateControls();
+    }
+    async function gotoPage(pageNo) {
+      if (!pdf) return;
+      const paired = issues.get(active).layout === 'spread';
+      index = Math.max(1, Math.min(pdf.numPages, pageNo));
+      if (paired) index = index % 2 === 0 ? index - 1 : index;
+      updateControls();
+      if (issues.get(active).layout === 'continuous') {
+        const slot = slots[index - 1]?.slot;
+        if (slot) stage.scrollTo({ top: slot.offsetTop - stack.offsetTop, behavior: 'smooth' });
+      } else {
+        stage.scrollTo(0, 0);
+        try {
+          await drawCurrent(serial);
+        } catch (error) {
+          if (active !== null) {
+            console.error('ʒиN page rendering:', error);
+            status('Unable to display page: ' + (error.message || error));
+          }
+        }
+      }
+    }
+    function closeViewer(useHistory = true) {
+      if (document.fullscreenElement === viewer) document.exitFullscreen().catch(() => {});
+      ++serial;
+      clearPrevious();
+      active = null;
+      viewer.hidden = true;
+      catalog.hidden = false;
+      document.body.classList.remove('zin-viewer-open');
+      if (!useHistory) return;
+      // The on-screen return is deterministic: do not navigate browser history.
+      // Replace the current issue URL with the catalogue URL in this entry.
+      // Native browser Back/Forward still work through the popstate handler.
+      fromCatalog = false;
+      history.replaceState({ zinCatalog: true }, '', catalogUrl());
+    }
+    function readUrl() {
+      const raw = new URLSearchParams(location.search).get('issue');
+      return raw && /^\d+$/.test(raw) && issues.has(Number(raw)) ? Number(raw) : null;
+    }
+    for (const tile of catalog.querySelectorAll('[data-issue]')) {
+      tile.addEventListener('click', () => openIssue(Number(tile.dataset.issue)));
+    }
+    $('zinBack').addEventListener('click', () => closeViewer(true));
+    $('zinPrev').addEventListener('click', () => gotoPage(index - (issues.get(active)?.layout === 'spread' ? 2 : 1)));
+    $('zinNext').addEventListener('click', () => gotoPage(index + (issues.get(active)?.layout === 'spread' ? 2 : 1)));
+    $('zinMinus').addEventListener('click', () => setZoom(zoom / 1.25));
+    $('zinPlus').addEventListener('click', () => setZoom(zoom * 1.25));
+    $('zinFit').addEventListener('click', () => setZoom(1));
+    $('zinFullscreen').addEventListener('click', () => {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else viewer.requestFullscreen?.();
+    });
+    window.addEventListener('keydown', event => {
+      if (viewer.hidden || !pdf || ['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+      const step = issues.get(active).layout === 'spread' ? 2 : 1;
+      if (['ArrowRight','PageDown'].includes(event.key)) { event.preventDefault(); gotoPage(index + step); }
+      else if (['ArrowLeft','PageUp'].includes(event.key)) { event.preventDefault(); gotoPage(index - step); }
+      else if (event.key === '+' || event.key === '=') { event.preventDefault(); setZoom(zoom * 1.25); }
+      else if (event.key === '-') { event.preventDefault(); setZoom(zoom / 1.25); }
+      else if (event.key === 'Escape' && !document.fullscreenElement) closeViewer(true);
+    });
+    window.addEventListener('popstate', () => {
+      const no = readUrl();
+      fromCatalog = Boolean(history.state?.zinFromCatalog);
+      if (no) openIssue(no, false);
+      else closeViewer(false);
+    });
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { if (pdf) setZoom(zoom); }, 180);
+    });
+    stage.addEventListener('scroll', () => {
+      if (!pdf || issues.get(active)?.layout !== 'continuous') return;
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        const stageTop = stage.getBoundingClientRect().top;
+        let nearest = 1, distance = Infinity;
+        for (let i = 0; i < slots.length; i++) {
+          const rect = slots[i].slot.getBoundingClientRect();
+          const d = Math.abs(rect.top - stageTop);
+          if (d < distance) { distance = d; nearest = i + 1; }
+        }
+        index = nearest;
+        updateControls();
+      }, 80);
+    }, { passive: true });
+    // v6 mouse panning, without changing the site's other image lightboxes.
+    let drag = null;
+    stage.addEventListener('pointerdown', event => {
+      if (event.pointerType !== 'mouse' || event.button !== 0) return;
+      drag = { x: event.clientX, y: event.clientY, left: stage.scrollLeft, top: stage.scrollTop };
+      stage.classList.add('zin-dragging');
+      stage.setPointerCapture(event.pointerId);
+    });
+    stage.addEventListener('pointermove', event => {
+      if (!drag) return;
+      stage.scrollLeft = drag.left - (event.clientX - drag.x);
+      stage.scrollTop = drag.top - (event.clientY - drag.y);
+    });
+    const finishDrag = () => { drag = null; stage.classList.remove('zin-dragging'); };
+    stage.addEventListener('pointerup', finishDrag);
+    stage.addEventListener('pointercancel', finishDrag);
+
+// Mobile swipe navigation for pages and spreads
+let pageSwipe = null;
+
+stage.addEventListener('touchstart', event => {
+  pageSwipe = (
+    pdf &&
+    event.touches.length === 1 &&
+    issues.get(active)?.layout !== 'continuous' &&
+    zoom <= 1.05
+  ) ? {
+    x: event.touches[0].clientX,
+    y: event.touches[0].clientY
+  } : null;
+}, { passive: true });
+
+stage.addEventListener('touchend', event => {
+  if (!pageSwipe || event.touches.length !== 0 ||
+      event.changedTouches.length !== 1) return;
+
+  const dx = event.changedTouches[0].clientX - pageSwipe.x;
+  const dy = event.changedTouches[0].clientY - pageSwipe.y;
+  pageSwipe = null;
+
+  if (Math.abs(dx) < 55 ||
+      Math.abs(dx) < Math.abs(dy) * 1.3) return;
+
+  const step = issues.get(active).layout === 'spread' ? 2 : 1;
+  gotoPage(index + (dx < 0 ? step : -step));
+}, { passive: true });
+
+stage.addEventListener('touchcancel', () => {
+  pageSwipe = null;
+}, { passive: true });    
+
+// Two-finger touch zoom; native single-finger scroll provides panning.
+    let pinch = null;
+    const distance = touches => Math.hypot(touches[0].clientX - touches[1].clientX, touches[0].clientY - touches[1].clientY);
+    stage.addEventListener('touchstart', event => {
+      if (event.touches.length === 2) pinch = { distance: distance(event.touches), startZoom: zoom };
+    }, { passive: true });
+    stage.addEventListener('touchmove', event => {
+      if (pinch && event.touches.length === 2) {
+        event.preventDefault();
+        const ratio = distance(event.touches) / Math.max(1, pinch.distance);
+        const value = Math.max(.5, Math.min(6, pinch.startZoom * ratio));
+        $('zinZoomLabel').textContent = Math.round(value * 100) + '%';
+        pinch.preview = value;
+      }
+    }, { passive: false });
+    stage.addEventListener('touchend', () => {
+      if (pinch) { if (pinch.preview) setZoom(pinch.preview); pinch = null; }
+    });
+    const initial = readUrl();
+    if (initial) { fromCatalog = false; openIssue(initial, false); }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initZin);
+  else initZin();
+})();</script><script>/* Archive 08 — isolated controller. Data lives in the Page HTML only. */
+(function () {
+  function initArchive08() {
+    const root = document.getElementById('archiveCatalog');
+    if (!root || root.dataset.ready === '1') return;
+    root.dataset.ready = '1';
+    const $ = id => root.querySelector('#' + id);
+    const records = Array.from(root.querySelectorAll('#archiveData .archive-record'));
+    const entries = records.map((record, order) => {
+      const year = record.getAttribute('data-date') || '';
+      const sortYear = Number(record.getAttribute('data-sort-year')) || (Number(year.match(/\d{4}/)?.[0]) || 0);
+      return {
+        id:record.getAttribute('data-archive-id') || 'archive-' + order,
+        title:record.textContent.trim(), year, sortYear,
+        cat:record.getAttribute('data-category') || '',
+        exhibitionType:record.getAttribute('data-exhibition-type') || '',
+        period:sortYear >= 2022 ? 'After 22' : 'Before 22',
+        ratio:Number(record.getAttribute('data-ratio')) || 1.5,
+        needsRatio:!Number(record.getAttribute('data-ratio')),
+        src:record.getAttribute('data-image') || '',
+        location:record.getAttribute('data-location') || '',
+        role:record.getAttribute('data-role') || '',
+        href:record.getAttribute('data-link') || '',
+        order
+      };
+    });
+    const state = {view:'images',category:'All',exhibitionType:'All',period:'All',sort:'Newest'};
+    let randomOrder = new Map();
+    let resizeTimer;
+    const modes = ['list','details','grid','images'];
+    const labels = {
+      list:'List / titles only',
+      details:'Details / archive data',
+      grid:'Grid / enlarged square crop + caption',
+      images:'Images / captions on hover'
+    };
+    const coarse = window.matchMedia('(hover: none)');
+    function shuffle() {
+      const array = entries.slice();
+      for (let i=array.length-1;i>0;i--) {
+        const j=Math.floor(Math.random()*(i+1));
+        [array[i],array[j]]=[array[j],array[i]];
+      }
+      randomOrder=new Map(array.map((item,i)=>[item.id,i]));
+    }
+    function selected() {
+      const result=entries.filter(item =>
+        (state.category==='All' || item.cat===state.category) &&
+        (state.period==='All' || item.period===state.period) &&
+        (state.category!=='Exhibitions' || state.exhibitionType==='All' || item.exhibitionType===state.exhibitionType)
+      );
+      if (state.sort==='Newest') result.sort((a,b)=>b.sortYear-a.sortYear || a.order-b.order);
+      else if (state.sort==='Oldest') result.sort((a,b)=>a.sortYear-b.sortYear || a.order-b.order);
+      else if (state.sort==='A–Z') result.sort((a,b)=>a.title.localeCompare(b.title,['en','ru'],{sensitivity:'base'}));
+      else if (state.sort==='Z–A') result.sort((a,b)=>b.title.localeCompare(a.title,['en','ru'],{sensitivity:'base'}));
+      else if (state.sort==='Random') result.sort((a,b)=>randomOrder.get(a.id)-randomOrder.get(b.id));
+      return result;
+    }
+    function node(tag,className,text) {
+      const el=document.createElement(tag);
+      if (className) el.className=className;
+      if (text!==undefined) el.textContent=text;
+      return el;
+    }
+    function titleNode(item,className) {
+      const element=node(item.href?'a':'span',className,item.title);
+      if(item.href) element.href=item.href;
+      return element;
+    }
+    function renderList(data,host) {
+      const list=node('div','archive-list');
+      for(const item of data) {
+        const row=node('div','archive-list-card');
+        row.appendChild(titleNode(item,'archive-list-title'));
+        list.appendChild(row);
+      }
+      host.appendChild(list);
+    }
+    function renderDetails(data,host) {
+      const filtered=state.category!=='All';
+      const exhibitions=state.category==='Exhibitions';
+      const wrap=node('div','archive-details-wrap');
+      wrap.setAttribute('role','region');
+      wrap.setAttribute('aria-label','Detailed archive table; scroll horizontally on narrow screens');
+      wrap.tabIndex=0;
+      const table=node('table','archive-details-table'+(filtered?' archive-details-table--filtered':'')+(exhibitions?' archive-details-table--exhibitions':''));
+      const columns=[['Title','col-title','title'],['Date','col-date','year'],['Location','col-location','location'],['Role','col-role','role']];
+      if(exhibitions) columns.push(['Type','col-type','exhibitionType']);
+      else if(!filtered) columns.push(['Category','col-category','cat']);
+      const head=table.createTHead().insertRow();
+      for(const [label,className] of columns) {
+        const th=node('th',className,label);
+        th.scope='col'; head.appendChild(th);
+      }
+      const body=table.createTBody();
+      for(const item of data) {
+        const row=body.insertRow();
+        for(const [,className,key] of columns) {
+          const cell=row.insertCell(); cell.className=className;
+          const value=item[key] || '—';
+          if(key==='title') {
+            cell.classList.add('archive-details-title');
+            cell.appendChild(titleNode(item,''));
+          } else {
+            cell.textContent=value;
+            if (key==='cat') cell.classList.add('archive-details-category');
+            if (value==='—') cell.classList.add('archive-details-muted');
+          }
+        }
+      }
+      wrap.appendChild(table);
+      host.appendChild(node('p','archive-mobile-table-hint','Swipe horizontally to see all columns →'));
+      host.appendChild(wrap);
+    }
+    function imageElement(item) {
+      const img=new Image();
+      img.alt='';
+      img.loading='lazy';
+      // Simple theme hides img[loading] until the is-loaded class is set.
+      // Archive images are created after the theme's initial load handler.
+      img.addEventListener('load', () => img.classList.add('is-loaded'), {once:true});
+      img.addEventListener('error', () => console.warn('Archive: image unavailable', img.src), {once:true});
+      img.src=item.src;
+      if (img.complete && img.naturalWidth > 0) img.classList.add('is-loaded');
+      return img;
+    }
+    function cardRoot(item,className) {
+      const card=node(item.href?'a':'figure',className);
+      if(item.href) card.href=item.href;
+      else card.tabIndex=0;
+      return card;
+    }
+    function renderGrid(data,host) {
+      const grid=node('div','archive-grid-catalog');
+      for(const item of data) {
+        const card=cardRoot(item,'archive-grid-card');
+        card.setAttribute('aria-label',item.title);
+        if(coarse.matches) {
+          card.addEventListener('click',event=>{
+            if(!card.classList.contains('is-revealed')) {
+              event.preventDefault();
+              for(const active of grid.querySelectorAll('.is-revealed')) active.classList.remove('is-revealed');
+              card.classList.add('is-revealed');
+            } else if(!item.href) {
+              card.classList.remove('is-revealed');
+            }
+          });
+        }
+        const frame=node('span','archive-grid-image');
+        frame.appendChild(imageElement(item));
+        const cap=node('span','archive-grid-caption');
+        cap.appendChild(node('span','archive-grid-title',item.title));
+        cap.appendChild(node('span','archive-grid-year',item.year));
+        card.append(frame,cap); grid.appendChild(card);
+      }
+      host.appendChild(grid);
+    }
+    function visualCard(item,width,height) {
+      const card=node(item.href?'a':'div','archive-visual-card');
+      if(item.href)card.href=item.href;
+      else card.tabIndex=0;
+      card.style.width=width+'px';
+      card.style.flex='0 0 '+width+'px';
+      card.title=item.title;
+      card.setAttribute('aria-label',item.title);
+      card.appendChild(imageElement(item));
+      card.appendChild(node('span','archive-visual-label',item.title));
+      return card;
+    }
+    // Identical row layout algorithm to prototype 08, with URL-based images.
+    function renderImages(data,host) {
+      const width=Math.max(200,host.clientWidth),gap=3;
+      const target=width<480?172:width<800?210:235;
+      if(width<480) {
+        for(const item of data) {
+          const row=node('div','archive-visual-row');
+          row.style.height=(width/item.ratio)+'px';
+          row.appendChild(visualCard(item,width)); host.appendChild(row);
+        }
+        return;
+      }
+      let rowItems=[],ratios=0;
+      function finish(last=false) {
+        if(!rowItems.length)return;
+        const perfect=(width-gap*(rowItems.length-1))/ratios;
+        const height=last?Math.min(target,perfect):Math.min(345,perfect);
+        const row=node('div','archive-visual-row');row.style.height=height+'px';
+        for(const item of rowItems) row.appendChild(visualCard(item,height*item.ratio));
+        host.appendChild(row);rowItems=[];ratios=0;
+      }
+      for(const item of data) {
+        rowItems.push(item);ratios+=item.ratio;
+        if(ratios*target+gap*(rowItems.length-1)>=width)finish();
+      }
+      finish(true);
+    }
+    function render() {
+      const data=selected(),host=$('archiveGallery');
+      host.replaceChildren();
+      $('archiveCount').textContent=data.length+' / '+entries.length+' works / projects';
+      $('archiveViewname').textContent=labels[state.view];
+      for(const mode of modes) $('archive'+mode.charAt(0).toUpperCase()+mode.slice(1)+'Mode').setAttribute('aria-pressed',String(state.view===mode));
+      $('archiveShuffle').classList.toggle('is-visible',state.sort==='Random');
+      if(!data.length){host.appendChild(node('p','archive-empty','No works match these filters.'));return;}
+      if(state.view==='list')renderList(data,host);
+      else if(state.view==='details')renderDetails(data,host);
+      else if(state.view==='grid')renderGrid(data,host);
+      else renderImages(data,host);
+    }
+    function syncExhibitionFilter() {
+      const visible=state.category==='Exhibitions';
+      $('archiveExhibitionTypeField').hidden=!visible;
+      $('archiveExhibitionType').disabled=!visible;
+      if(!visible) {
+        state.exhibitionType='All';
+        $('archiveExhibitionType').value='All';
+      }
+    }
+    for(const [id,name] of [['archiveCategory','category'],['archiveExhibitionType','exhibitionType'],['archivePeriod','period'],['archiveSort','sort']]) {
+      $(id).addEventListener('change',event=>{
+        const previous=state[name];
+        state[name]=event.target.value;
+        if(name==='category') syncExhibitionFilter();
+        if(name==='sort'&&state.sort==='Random'&&previous!=='Random')shuffle();
+        render();
+      });
+    }
+    syncExhibitionFilter();
+    $('archiveShuffle').addEventListener('click',()=>{shuffle();render();});
+    for(const mode of modes) $('archive'+mode.charAt(0).toUpperCase()+mode.slice(1)+'Mode').addEventListener('click',()=>{state.view=mode;render();});
+    window.addEventListener('resize',()=>{
+      clearTimeout(resizeTimer);
+      resizeTimer=setTimeout(()=>{if(state.view==='images')render();},100);
+    });
+    // Palette calculations copied from prototype 08; variables affect this page only.
+    const toneSlider=$('archiveBackgroundTone');
+    function applyBackgroundTone(value) {
+      const n=Math.max(0,Math.min(100,Number(value)||0)),t=n/100;
+      const paperV=Math.round(248-216*t),paperB=Math.round(246-214*t);
+      const dark=paperV<=118;
+      const primary=dark?246:Math.round(25*Math.max(0,1-t/.6));
+      const secondary=dark?Math.round(250-53*Math.max(0,(t-.6)/.4)):Math.round(102*Math.max(0,1-t/.6));
+      const paper=`rgb(${paperV} ${paperV} ${paperB})`;
+      const capV=dark?Math.round(112-60*Math.max(0,(t-.6)/.4)):Math.round(239-190*t);
+      const caption=dark?`rgb(${capV} ${capV} ${capV})`:`rgb(${capV} ${Math.max(0,capV-3)} ${Math.max(0,capV-9)})`;
+      const style=document.body.style;
+      style.setProperty('--archive-paper',paper);
+      style.setProperty('--archive-ink',`rgb(${primary} ${primary} ${primary})`);
+      style.setProperty('--archive-soft',`rgb(${secondary} ${secondary} ${secondary})`);
+      style.setProperty('--archive-line',dark?`rgb(${Math.min(180,paperV+36)} ${Math.min(180,paperV+36)} ${Math.min(180,paperV+36)})`:`rgb(${Math.max(0,paperV-26)} ${Math.max(0,paperV-26)} ${Math.max(0,paperV-26)})`);
+      style.setProperty('--archive-active-ink',dark?'#151515':'#fff');
+      style.setProperty('--archive-control-muted',`rgb(${secondary} ${secondary} ${secondary})`);
+      style.setProperty('--archive-control-line',dark?`rgb(${Math.min(200,paperV+56)} ${Math.min(200,paperV+56)} ${Math.min(200,paperV+56)})`:`rgb(${Math.max(0,paperV-60)} ${Math.max(0,paperV-60)} ${Math.max(0,paperV-60)})`);
+      style.setProperty('--archive-caption-paper',caption);
+      style.setProperty('--archive-caption-ink',dark?'#fff':`rgb(${primary} ${primary} ${primary})`);
+      style.setProperty('--archive-caption-year',dark?'#e5e5e5':`rgb(${secondary} ${secondary} ${secondary})`);
+      style.setProperty('--archive-placeholder',dark?'#454545':'#e6e6e3');
+      style.setProperty('--archive-hover-row',dark?'rgba(255,255,255,.055)':'rgba(0,0,0,.035)');
+      style.setProperty('--archive-accent',dark?'#e19a9e':'#b34f52');
+      document.body.style.colorScheme=dark?'dark':'light';
+      toneSlider.setAttribute('aria-valuetext',n===0?'Light':n===100?'Graphite':`${n}% towards graphite`);
+      $('archiveToneValue').textContent=n+'%';
+    }
+    toneSlider.addEventListener('input',event=>applyBackgroundTone(event.target.value));
+    applyBackgroundTone(toneSlider.value);
+    render();
+    // New records can omit data-ratio; read the actual image proportions automatically.
+    for(const item of entries) {
+      if(!item.needsRatio || !item.src) continue;
+      const probe=new Image();
+      probe.onload=()=>{
+        if(probe.naturalWidth && probe.naturalHeight) {
+          item.ratio=probe.naturalWidth/probe.naturalHeight;
+          if(state.view==='images') render();
+        }
+      };
+      probe.src=item.src;
+    }
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',initArchive08);
+  else initArchive08();
+})();</script><header class="top js-header"><a class="logo" href="https://denimustafa.com/">Dёni Mustafa</a></header><main class="page"><article class="content"><div class="hero hero--noimage"><header class="hero__content"><div class="wrapper"><h1>Après</h1></div></header></div><div class="entry-wrapper content__entry"><div class="archive-work-page"><header class="archive-work-header"><div class="archive-work-eyebrow">ARCHIVE / WORK</div><h1>Après</h1><p class="archive-work-type-line">Solo exhibition</p><div class="archive-work-meta"><div class="archive-work-meta-item"><div class="archive-work-meta-label">Date</div><div class="archive-work-meta-value">2024</div></div><div class="archive-work-meta-item"><div class="archive-work-meta-label">Location</div><div class="archive-work-meta-value">Avallon, France</div></div><div class="archive-work-meta-item"><div class="archive-work-meta-label">Venue</div><div class="archive-work-meta-value">Utopos 22 · La Tannerie · Rhizome</div></div><div class="archive-work-meta-item"><div class="archive-work-meta-label">Role</div><div class="archive-work-meta-value">Artist</div></div></div></header><div class="archive-work-content"><section class="archive-work-block apres-section apres-opening"><h2>Opening</h2><figure class="archive-work-figure apres-opening-main"><button class="apres-photo-open" type="button" aria-label="Open opening photograph 1" data-gallery="opening" data-label="Opening"><figure class="is-loaded"><img src="media/files/apres-opening-01.jpg" alt="Opening photograph 1" loading="lazy" data-is-external-image="true"></figure></button></figure><div class="apres-opening-secondary"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open opening photograph 2" data-gallery="opening" data-label="Opening"><figure class="is-loaded"><img src="media/files/apres-opening-02.jpg" alt="Opening photograph 2" loading="lazy" data-is-external-image="true"></figure></button></figure><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open opening photograph 3" data-gallery="opening" data-label="Opening"><figure class="is-loaded"><img src="media/files/apres-opening-03.jpg" alt="Opening photograph 3" loading="lazy" data-is-external-image="true"></figure></button></figure></div></section><section class="archive-work-block apres-text-group" aria-label="Exhibition text"><div class="archive-work-text" lang="en"><div class="archive-work-language">EN</div><p><em>Après</em> is a spatial work in which the word <strong>APRÈS</strong> was repeated 45 times across the walls of the exhibition space using nails and stretched red rubber bands. Each word existed as a construction held by physical tension: the bands loosened, snapped, flicked, and gradually altered the shape of the letters. The text here is not applied to the wall as a fixed sign; it emerges as a temporary system of tension, wear, and disintegration.</p><p>The project develops from a reflection on the “after” not simply as what follows something else, but as an endless sequence in which each “after” is already separated from the previous one and shifted toward the next. The repetition of the word constructs such a sequence, yet never stabilizes it. Instead, a process of subtraction begins to operate within it: the stability of form gradually erodes, repetition ceases to be identical to itself, and the sequence loses its coherence.</p><p>Within this process, the gap between one “after” and another becomes crucial. It no longer reduces to a simple distance between repetitions, but begins to appear as an autonomous interval — a ground that does not disappear along with the disintegration of the sequence. <em>Après</em> unfolds precisely in this transition: from the repeated word to tension, from tension to subtraction, from subtraction to the gap that remains.</p></div><div class="archive-work-text" lang="fr"><div class="archive-work-language">FR</div><p>« Après » — une œuvre spatiale dans laquelle le mot APRÈS a été répété 45 fois sur les murs de l’espace d’exposition à l’aide de clous et d’élastiques rouges tendus. Chaque occurrence existait comme une construction maintenue par une tension physique : les élastiques se relâchaient, se rompaient, claquaient et modifiaient progressivement la forme des lettres. Le texte n’est donc pas appliqué sur le mur comme un signe donné, mais apparaît comme un système temporaire de tension, d’usure et de décomposition.</p><p>Le projet part d’une réflexion sur l’« après » non pas simplement comme ce qui suit quelque chose, mais comme une série infinie de successions, où chaque « après » est déjà séparé du précédent et reporté vers le suivant. La répétition du mot construit une telle série sans pour autant la fixer définitivement. Au contraire, une soustraction commence à y opérer : la stabilité de la forme s’altère peu à peu, la répétition cesse d’être identique à elle-même et la série perd sa régularité.</p><p>Dans ce processus, l’écart entre un « après » et un autre devient essentiel. Il ne se réduit plus à une simple distance entre des répétitions, mais se manifeste comme un intervalle autonome, comme un fondement qui ne disparaît pas avec la désagrégation de la série. « Après » se déploie précisément dans ce passage — du mot répété à la tension, de la tension à la soustraction, de la soustraction à l’écart qui demeure.</p></div></section><section class="archive-work-block apres-section apres-space-view"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open photograph published by Rhizome" data-gallery="rhizome" data-label=""><figure class="is-loaded"><img src="media/files/apres-projection-rhizome.jpg" alt="Photograph published by rhizome" loading="lazy" data-is-external-image="true"></figure></button><figcaption>Photograph published by Rhizome</figcaption></figure></section><section class="archive-work-block apres-section apres-video-section"><div class="archive-work-video"><div class="post__iframe"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" loading="lazy" src="https://www.youtube-nocookie.com/embed/H6xBm8IbO3g?rel=0" title="Après — video"></iframe></div></div></section><section class="archive-work-block apres-section apres-comparison"><div class="apres-horizontal"><div class="apres-grid apres-space-grid"><span class="apres-date">Opening</span><span class="apres-date">26 July 2024</span><span class="apres-date">1 August 2024</span><div class="apres-row-id">1</div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open space view 1, Opening" data-gallery="space-1" data-label="Opening"><figure class="is-loaded"><img src="media/files/apres-space-01-opening.jpg" alt="Space view 1, opening" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open space view 1, 26 July 2024" data-gallery="space-1" data-label="26 July 2024"><figure class="is-loaded"><img src="media/files/apres-space-01-0726.jpg" alt="Space view 1, 26 july 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open space view 1, 1 August 2024" data-gallery="space-1" data-label="1 August 2024"><figure class="is-loaded"><img src="media/files/apres-space-01-0801.jpg" alt="Space view 1, 1 august 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-row-id">2</div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open space view 2, Opening" data-gallery="space-2" data-label="Opening"><figure class="is-loaded"><img src="media/files/apres-space-02-opening.jpg" alt="Space view 2, opening" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open space view 2, 26 July 2024" data-gallery="space-2" data-label="26 July 2024"><figure class="is-loaded"><img src="media/files/apres-space-02-0726.jpg" alt="Space view 2, 26 july 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open space view 2, 1 August 2024" data-gallery="space-2" data-label="1 August 2024"><figure class="is-loaded"><img src="media/files/apres-space-02-0801.jpg" alt="Space view 2, 1 august 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-row-id">3</div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open space view 3, Opening" data-gallery="space-3" data-label="Opening"><figure class="is-loaded"><img src="media/files/apres-space-03-opening.jpg" alt="Space view 3, opening" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open space view 3, 26 July 2024" data-gallery="space-3" data-label="26 July 2024"><figure class="is-loaded"><img src="media/files/apres-space-03-0726.jpg" alt="Space view 3, 26 july 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open space view 3, 1 August 2024" data-gallery="space-3" data-label="1 August 2024"><figure class="is-loaded"><img src="media/files/apres-space-03-0801.jpg" alt="Space view 3, 1 august 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div></div></div></section><section class="archive-work-block apres-section apres-monitoring"><div class="apres-horizontal"><div class="apres-grid apres-monitor-grid"><span class="apres-date">26 July</span><span class="apres-date">1 August</span><span class="apres-date">6 August</span><span class="apres-date">20 August</span><span class="apres-date">4 September</span><div class="apres-row-id">1</div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 1, 26 July 2024" data-gallery="fragment-1" data-label="26 July 2024"><figure class="is-loaded"><img src="media/files/apres-m01-0726.jpg" alt="Fragment 1, 26 july 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 1, 1 August 2024" data-gallery="fragment-1" data-label="1 August 2024"><figure class="is-loaded"><img src="media/files/apres-m01-0801.jpg" alt="Fragment 1, 1 august 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 1, 6 August 2024" data-gallery="fragment-1" data-label="6 August 2024"><figure class="is-loaded"><img src="media/files/apres-m01-0806.jpg" alt="Fragment 1, 6 august 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 1, 20 August 2024" data-gallery="fragment-1" data-label="20 August 2024"><figure class="is-loaded"><img src="media/files/apres-m01-0820.jpg" alt="Fragment 1, 20 august 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 1, 4 September 2024" data-gallery="fragment-1" data-label="4 September 2024"><figure class="is-loaded"><img src="media/files/apres-m01-0904.jpg" alt="Fragment 1, 4 september 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-row-id">5</div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 5, 26 July 2024" data-gallery="fragment-5" data-label="26 July 2024"><figure class="is-loaded"><img src="media/files/apres-m05-0726.jpg" alt="Fragment 5, 26 july 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 5, 1 August 2024" data-gallery="fragment-5" data-label="1 August 2024"><figure class="is-loaded"><img src="media/files/apres-m05-0801.jpg" alt="Fragment 5, 1 august 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 5, 6 August 2024" data-gallery="fragment-5" data-label="6 August 2024"><figure class="is-loaded"><img src="media/files/apres-m05-0806.jpg" alt="Fragment 5, 6 august 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 5, 20 August 2024" data-gallery="fragment-5" data-label="20 August 2024"><figure class="is-loaded"><img src="media/files/apres-m05-0820.jpg" alt="Fragment 5, 20 august 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 5, 4 September 2024" data-gallery="fragment-5" data-label="4 September 2024"><figure class="is-loaded"><img src="media/files/apres-m05-0904.jpg" alt="Fragment 5, 4 september 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-row-id">6</div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 6, 26 July 2024" data-gallery="fragment-6" data-label="26 July 2024"><figure class="is-loaded"><img src="media/files/apres-m06-0726.jpg" alt="Fragment 6, 26 july 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 6, 1 August 2024" data-gallery="fragment-6" data-label="1 August 2024"><figure class="is-loaded"><img src="media/files/apres-m06-0801.jpg" alt="Fragment 6, 1 august 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 6, 6 August 2024" data-gallery="fragment-6" data-label="6 August 2024"><figure class="is-loaded"><img src="media/files/apres-m06-0806.jpg" alt="Fragment 6, 6 august 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 6, 20 August 2024" data-gallery="fragment-6" data-label="20 August 2024"><figure class="is-loaded"><img src="media/files/apres-m06-0820.jpg" alt="Fragment 6, 20 august 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div><div class="apres-grid-cell"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open fragment 6, 4 September 2024" data-gallery="fragment-6" data-label="4 September 2024"><figure class="is-loaded"><img src="media/files/apres-m06-0904.jpg" alt="Fragment 6, 4 september 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></div></div></div></section><section class="archive-work-block apres-section apres-floor"><figure class="archive-work-figure"><button class="apres-photo-open" type="button" aria-label="Open photograph, 26 July 2024" data-gallery="floor" data-label="26 July 2024"><figure class="is-loaded"><img src="media/files/apres-remains.jpg" alt="Photograph, 26 july 2024" loading="lazy" data-is-external-image="true"></figure></button></figure></section></div></div><div id="apresViewer" class="apres-viewer" role="dialog" hidden="" aria-label="Photo viewer" aria-modal="true"><button class="apres-close" type="button" aria-label="Close">×</button><button class="apres-prev" type="button" aria-label="Previous">‹</button><img loading="lazy" alt=""><button class="apres-next" type="button" aria-label="Next">›</button><div class="apres-viewer-caption"> </div></div><script>(function(){const viewer=document.getElementById('apresViewer'),photo=viewer.querySelector('img'),cap=viewer.querySelector('.apres-viewer-caption');const groups=new Map(),indices=new WeakMap();for(const b of document.querySelectorAll('.apres-photo-open')){const k=b.dataset.gallery;if(!groups.has(k))groups.set(k,[]);indices.set(b,groups.get(k).length);groups.get(k).push(b);}let active=[],idx=0,last=null,sx=null;function render(){const b=active[idx];photo.src=b.querySelector('img').src;const label=b.dataset.label||'';cap.textContent=label?(active.length>1?label+' · '+(idx+1)+' / '+active.length:label):'';viewer.querySelector('.apres-prev').hidden=active.length<2;viewer.querySelector('.apres-next').hidden=active.length<2;}function open(b){active=groups.get(b.dataset.gallery)||[b];idx=indices.get(b)||0;last=b;render();viewer.hidden=false;document.body.classList.add('apres-scroll-lock');viewer.querySelector('.apres-close').focus();}function close(){viewer.hidden=true;document.body.classList.remove('apres-scroll-lock');photo.removeAttribute('src');if(last)last.focus();}function step(n){idx=(idx+n+active.length)%active.length;render();}for(const b of document.querySelectorAll('.apres-photo-open'))b.addEventListener('click',()=>open(b));viewer.querySelector('.apres-close').addEventListener('click',close);viewer.querySelector('.apres-prev').addEventListener('click',()=>step(-1));viewer.querySelector('.apres-next').addEventListener('click',()=>step(1));viewer.addEventListener('click',e=>{if(e.target===viewer)close();});document.addEventListener('keydown',e=>{if(viewer.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1);});viewer.addEventListener('touchstart',e=>{sx=e.touches.length===1?e.touches[0].clientX:null;},{passive:true});viewer.addEventListener('touchend',e=>{if(sx===null||e.changedTouches.length!==1)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>55&&active.length>1)step(dx<0?1:-1);sx=null;},{passive:true});})();</script></div></article></main><footer class="footer"><div class="wrapper"><div class="footer__copyright"><p>Powered by Publii</p></div></div></footer><script defer="defer" src="https://denimustafa.com/assets/js/scripts.min.js?v=dafec4f87fead6718cb125f0b0fc8441"></script><script>window.publiiThemeMenuConfig={mobileMenuMode:'sidebar',animationSpeed:300,submenuWidth: 'auto',doubleClickTime:500,mobileMenuExpandableSubmenus:true,relatedContainerForOverlayMenuSelector:'.top'};</script><script>var images = document.querySelectorAll('img[loading]');
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script></body></html>
