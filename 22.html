@@ -903,7 +903,7 @@ let images = geometricPage
       ...geometricPage.querySelectorAll('.site-words-gallery--five img'),
       ...geometricPage.querySelectorAll('.site-horizontal-gallery__strip img')
     ]
-  : Array.from(document.querySelectorAll('.site-text-page img, .archive-work-page img[data-archive-viewer]')).filter(function (img) {
+  : Array.from(document.querySelectorAll('.site-text-page img, .archive-work-page img[data-archive-viewer], .archive-work-page [data-archive-viewer-extra][data-viewer-src]')).filter(function (img) {
       return !img.closest('.site-horizontal-gallery, .abstract-structures-strip, .entre22-forest, .entre22-forest-lightbox, [data-site-viewer-exclude]') &&
         !img.hasAttribute('data-site-viewer-exclude');
     });
@@ -1171,7 +1171,7 @@ let images = geometricPage
       const source = images[current];
       // Use the original src rather than an automatically downscaled srcset rendition.
       photo.src = source.getAttribute('data-viewer-src') || source.src;
-      photo.alt = source.getAttribute('alt') || '';
+      photo.alt = source.getAttribute('data-viewer-alt') || source.getAttribute('alt') || '';
       const figure = source.hasAttribute('data-archive-viewer')
         ? source.closest('.archive-work-figure') || source.closest('figure')
         : source.closest('figure');
@@ -1258,7 +1258,8 @@ let images = geometricPage
       photo.removeAttribute('src');
       if (lastFocus && lastFocus.isConnected) lastFocus.focus();
     }
-    images.forEach(function (img, i) {
+        images.forEach(function (img, i) {
+  if (img.hasAttribute('data-archive-viewer-extra')) return;
   if (geometricPage && img.closest('.site-horizontal-gallery__strip')) return;
 
   img.dataset.siteViewer = 'enabled';
