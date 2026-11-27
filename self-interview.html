@@ -1821,9 +1821,12 @@ stage.addEventListener('touchcancel', () => {
     root.dataset.ready = '1';
     const $ = id => root.querySelector('#' + id);
     const records = Array.from(root.querySelectorAll('#archiveData .archive-record'));
-    const entries = records.map((record, order) => {
+        const entries = records.map((record, order) => {
       const year = record.getAttribute('data-date') || '';
       const sortYear = Number(record.getAttribute('data-sort-year')) || (Number(year.match(/\d{4}/)?.[0]) || 0);
+      const href = record.getAttribute('data-link') || '';
+      const autoPreview = /^archive-[a-z0-9]+(?:-[a-z0-9]+)*\.html$/.test(href)
+        ? 'media/files/' + href.replace(/\.html$/, '.jpg') : '';
       return {
         id:record.getAttribute('data-archive-id') || 'archive-' + order,
         title:record.textContent.trim(), year, sortYear,
@@ -1831,11 +1834,11 @@ stage.addEventListener('touchcancel', () => {
         exhibitionType:record.getAttribute('data-exhibition-type') || '',
         period:sortYear >= 2022 ? 'After 22' : 'Before 22',
         ratio:Number(record.getAttribute('data-ratio')) || 1.5,
-        needsRatio:!Number(record.getAttribute('data-ratio')),
-        src:record.getAttribute('data-image') || '',
+        needsRatio:!!autoPreview || !Number(record.getAttribute('data-ratio')),
+        src:autoPreview || record.getAttribute('data-image') || '',
         location:record.getAttribute('data-location') || '',
         role:record.getAttribute('data-role') || '',
-        href:record.getAttribute('data-link') || '',
+        href,
         order
       };
     });
